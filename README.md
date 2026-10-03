@@ -23,3 +23,9 @@ No newsletter/contact/music/event submissions are collected. No owner email, pas
 ## Local review
 
 Serve this folder with any static server, for example `python3 -m http.server 4173`. Check narrow and wide layouts, navigation and dialogs, schedule/event tabs, play/pause, mute/volume, stream error feedback and metadata freshness. The audio element stays mounted during in-page navigation.
+
+## Color and record controls
+
+The homepage defaults to dark mode with black, red, gold and green. The header sun/moon button switches the entire page between dark and light palettes and saves the visitor preference in local browser storage when available. Audio is not restarted by display changes.
+
+The hero record spins continuously, with a Pause spin control. Clicking the record or Flip record turns it between Side A and Side B. Reduced-motion preference pauses rotation by default and removes the flip transition; visitors can explicitly start the rotation.
