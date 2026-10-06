@@ -1,59 +1,41 @@
-# High Life Radio Mobile
+# High Life Radio mobile — release candidate 1.0.0
 
-Cross-platform iOS/Android foundation sharing the live High Life Radio stream and Now Playing API with the website.
+Caribbean Energy. Global Frequency. Continue this app in `build/mobile-app-foundation` / PR #1. Its source is separate from the repository-root website, which remains unchanged.
 
-## Run
+## Run and check
 
-```bash
-cd mobile
-npm install
-npm run typecheck
-npx expo start
-```
-
-## Current phase
-
-- Original High Life Radio mobile home
-- Real shared live stream configuration
-- Shared Now Playing metadata refresh
-- Live play/pause component
-- Programming screen
-- iOS/Android identifiers and background-audio declarations
-
-The sample schedule is explicitly temporary. The next phase replaces it with Command Center/API schedule data and expands persistent background media controls, navigation, accounts and notifications.
-
-## Clickable browser preview
-
-This mobile project also runs in a browser using Expo Web. It is separate from the repository-root radio website.
-
-```bash
+```sh
 cd mobile
 npm ci
 npm run web
+npm run typecheck
+npm run lint
+npm test
+npx expo-doctor
+npm run build:all
 ```
 
-Open the localhost address printed by Expo (normally http://localhost:8081). On a phone connected to the same Wi-Fi, open `http://<Mac-LAN-IP>:8081` in Safari or Chrome. Tap Play to start the real shared stream; browsers require a user gesture for audio.
+Expo SDK 57 / React Native 0.86 / TypeScript. Node 24 was used for validation. `npm ci` installs a documented CommonJS/ESM bridge for the patched URL decoder; do not disable the project postinstall script.
 
-For a production-style browser preview:
+For a production-style browser review:
 
-```bash
+```sh
 npm run export:web
 npx serve -s dist -l 8081
 ```
 
-The web output is a single-page app. Hosting must fall back to `index.html` for `/schedule` and other app routes. A temporary HTTPS tunnel can share this preview without changing GitHub Pages or the existing website. Tunnel links work only while the preview server and tunnel are running and the Mac is awake.
+Open http://localhost:8081. On a phone on the same Wi-Fi, use this Mac's LAN address and port 8081. A temporary HTTPS tunnel can share the web review while the Mac/server/tunnel remain running. Routes `/schedule` and `/about` require the host to fall back to `index.html`.
 
-## Validation
+## Radio behavior
 
-- `npm run typecheck`
-- `npx expo-doctor`
-- `npm run export:web`
-- `npx expo export --platform ios --platform android --output-dir dist-native`
+A root player survives Listen, Programming and More navigation. Play/Pause, volume/mute, native station sharing, listening help and in-app privacy information are implemented. Native background playback and live-stream lock-screen controls are configured without microphone permission. User/remote pause is respected, errors/stalls trigger bounded reconnects, and a failed connection offers manual retry.
 
-Native bundle export validates bundling; it does not replace testing an installed iOS/Android app or background audio on a physical device. Expo Go must support SDK 54; otherwise use a compatible development build.
+The real shared stream and Now Playing endpoints remain unchanged. The website's public station.json refreshes every minute, metadata every 15 seconds, and both refresh on returning to the app. Stale song metadata is suppressed. Public configuration can provide published shows, hosts, events and contact/social links. No sample programming or fabricated people are shipped. Until official programming is published, the app shows station rotation.
 
-Now Playing refreshes every 30 seconds. Stale current-track metadata falls back to the station name and stale next-track metadata displays “Awaiting fresh station metadata”. Station online status remains independent of track freshness.
+## Apple release
 
-The Phase-1 sample schedule remains labeled as preview data. Discovery tiles are visual placeholders. The player currently belongs to Home and stops when Home unmounts.
+Read [release/APPLE-RELEASE.md](release/APPLE-RELEASE.md) and [release/VALIDATION.md](release/VALIDATION.md). The bundle ID remains `com.nychighlife.highliferadio`. Signing, TestFlight device verification, native screenshots, public support/privacy pages and accurate listing/rights information are still required. Browser and Hermes exports are not signed .ipa files.
 
-The 2026-10-03 dependency audit reports 34 advisories (23 high, 11 moderate) in the SDK 54 dependency tree. Resolving the remaining advisories requires a separate SDK/dependency upgrade review; forced incompatible upgrades were not applied for this preview.
+EAS build profiles are included. Authenticate with the correct Expo account and link the project before a cloud iOS build. Keep reviewer contact information in ignored `release/private.json`, not the public repository. `npm run release:check` reports missing release evidence; the submission script runs it before upload.
+
+The dependency audit remains nonzero; see the release document for the corrected runtime advisory and remaining tooling findings.

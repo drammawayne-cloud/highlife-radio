@@ -1,4 +1,46 @@
-import {Link} from "expo-router";import {ScrollView,StyleSheet,Text,View} from "react-native";import {SafeAreaView} from "react-native-safe-area-context";import {C} from "../src/theme";import {useStation} from "../src/useStation";import {LivePlayer} from "../src/LivePlayer";
-const Feature=({k,t}:{k:string,t:string})=><View style={s.card}><Text style={s.k}>{k}</Text><Text style={s.ct}>{t}</Text></View>;
-export default function Home(){const n=useStation();return <SafeAreaView style={s.safe}><ScrollView contentContainerStyle={s.page}><Text style={s.brand}>HIGH LIFE <Text style={{color:C.acid}}>RADIO</Text></Text><Text style={s.tag}>CARIBBEAN ENERGY. GLOBAL FREQUENCY.</Text><View style={s.hero}><Text style={s.eyebrow}>{n.online?"● STREAM ONLINE":"STATION STATUS"}</Text><Text style={s.h1}>THE CARIBBEAN.{"\n"}THE WORLD.{"\n"}ONE FREQUENCY.</Text><Text style={s.copy}>Worldwide digital radio powered by Caribbean music, culture, personalities and community.</Text></View><LivePlayer now={n}/><Text style={s.section}>ON AIR</Text><Feature k={n.dj.toUpperCase()} t={n.title+" — "+n.artist}/><Text style={s.section}>UP NEXT</Text><Feature k="NEXT ON HIGH LIFE" t={n.next}/><Text style={s.section}>DISCOVER</Text><View style={s.grid}>{["Schedule","Shows & DJs","Team Unstoppable","Music","Podcasts","Events","Entertainment","Videos"].map(x=><View style={s.tile} key={x}><Text style={s.tileText}>{x}</Text></View>)}</View><Link href="/schedule" style={s.link}>VIEW PROGRAMMING →</Link><Text style={s.parent}>NYC High Life Entertainment · Worldwide</Text></ScrollView></SafeAreaView>}
-const s=StyleSheet.create({safe:{flex:1,backgroundColor:C.ink},page:{padding:20,paddingBottom:60},brand:{color:"white",fontSize:22,fontWeight:"900",letterSpacing:1},tag:{color:C.muted,fontSize:9,fontWeight:"700",letterSpacing:1.8,marginTop:6},hero:{paddingVertical:38},eyebrow:{color:C.acid,fontSize:10,fontWeight:"800",letterSpacing:1.5},h1:{color:"white",fontSize:45,fontWeight:"900",lineHeight:45,marginTop:14},copy:{color:C.muted,fontSize:14,lineHeight:21,marginTop:18,maxWidth:330},section:{color:C.acid,fontSize:10,fontWeight:"900",letterSpacing:2,marginTop:30,marginBottom:10},card:{backgroundColor:C.panel,borderWidth:1,borderColor:"#313a34",borderRadius:16,padding:18},k:{color:"white",fontWeight:"900",fontSize:16},ct:{color:C.muted,marginTop:7,lineHeight:19},grid:{flexDirection:"row",flexWrap:"wrap",gap:10},tile:{width:"48%",minHeight:82,backgroundColor:"#202722",borderRadius:14,padding:14,justifyContent:"flex-end"},tileText:{color:"white",fontWeight:"800"},link:{color:C.ink,backgroundColor:C.acid,padding:16,borderRadius:12,fontWeight:"900",textAlign:"center",marginTop:22},parent:{color:C.muted,textAlign:"center",fontSize:10,marginTop:30}});
+import { useState } from "react";
+import { Link } from "expo-router";
+import { Platform, Share, StyleSheet, Text, View } from "react-native";
+import { useRadioContext } from "../src/RadioContext";
+import { programming } from "../src/station";
+import { Brand, Button, Card, Page, Section, styles, WEBSITE } from "../src/ui";
+import { C } from "../src/theme";
+
+export default function Home() {
+  const {station,track,audio,clock}=useRadioContext();
+  const programme=programming(station,new Date(clock));
+  const [shareMessage,setShareMessage]=useState("");
+  const share=()=>{
+    setShareMessage("");
+    void Share.share(Platform.OS==="ios"?{title:station.stationName,message:"Listen to High Life Radio. Caribbean Energy. Global Frequency.",url:WEBSITE}:
+      {title:station.stationName,message:`Listen to High Life Radio. Caribbean Energy. Global Frequency. ${WEBSITE}`,url:WEBSITE})
+      .catch((error:Error)=>{if(error.name!=="AbortError")setShareMessage("Sharing is unavailable here. You can share the station website link from your browser.");});
+  };
+  return <Page><Brand/>
+    <View style={s.hero}><Text style={s.eyebrow}>NEW YORK × CARIBBEAN × THE WORLD</Text>
+      <Text style={s.headline}>THE CARIBBEAN.{"\n"}THE WORLD.{"\n"}ONE FREQUENCY.</Text>
+      <Text style={styles.body}>Music, culture and connection. Take High Life Radio with you, wherever life takes you.</Text>
+      <Button label={audio.wanted||audio.playing?"Pause live radio":"Listen Live ▶"} selected disabled={!audio.ready} onPress={audio.toggle}/>
+      <Text style={styles.small}>Free to listen · No account needed</Text>
+    </View>
+    <Section>ON AIR</Section>
+    <Card title={programme.current?.show?.name||(track.live?"Live broadcast":station.stationName)}
+      body={programme.current?.show?.description||"The station’s live music stream."}>
+      <Text style={s.trackLabel}>{track.live?track.dj:"STATION ROTATION"}</Text>
+      <Text style={s.track}>{track.fresh?track.title:"High Life Radio"}</Text>
+      <Text style={styles.body}>{track.fresh?track.artist:"Live station · track information is currently unavailable"}</Text>
+    </Card>
+    {programme.next?.show&&<><Section>NEXT PROGRAMME</Section><Card title={programme.next.show.name} body={`${programme.next.slot.start} · ${station.timezone}`}/></>}
+    {track.fresh&&track.next!=="To be announced"&&<><Section>UP NEXT</Section><Card title={track.next}/></>}
+    <Section>STAY ON THE FREQUENCY</Section>
+    <Link href="/schedule" style={s.link}>Explore programming →</Link>
+    <Button label="Share High Life Radio ↗" onPress={share}/>
+    {!!shareMessage&&<Text accessibilityLiveRegion="polite" style={styles.body}>{shareMessage}</Text>}
+    <Text style={s.parent}>NYC High Life Entertainment · Worldwide</Text>
+  </Page>;
+}
+const s=StyleSheet.create({hero:{paddingTop:35,paddingBottom:8},eyebrow:{color:C.acid,fontSize:10,fontWeight:"800",letterSpacing:1.3},
+  headline:{color:"white",fontSize:39,fontWeight:"900",lineHeight:41,marginVertical:18},
+  trackLabel:{color:C.acid,fontSize:10,fontWeight:"800",letterSpacing:1.3,marginTop:18},
+  track:{color:"white",fontSize:20,fontWeight:"900",marginTop:8},link:{color:C.acid,padding:16,borderWidth:1,borderColor:"#3b443e",borderRadius:12,fontWeight:"800"},
+  parent:{color:C.muted,textAlign:"center",fontSize:11,marginTop:26}});

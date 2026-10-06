@@ -10,3 +10,12 @@ expo-env.d.ts
 # @end expo-cli
 dist-native/
 
+dist-all/
+.eas/
+*.ipa
+*.p12
+*.mobileprovision
+.env*
+ios/
+android/
+release/private.json
