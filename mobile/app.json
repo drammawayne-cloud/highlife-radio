@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "High Life Radio",
+    "slug": "highlife-radio",
+    "scheme": "highliferadio",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nychighlife.highliferadio",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ],
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.nychighlife.highliferadio",
+      "permissions": [
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ],
+      "versionCode": 1,
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true,
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "enableBackgroundRecording": false
+        }
+      ],
+      "expo-font",
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#101413",
+          "image": "./assets/icon.png",
+          "imageWidth": 180
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png"
+    },
+    "icon": "./assets/icon.png"
+  }
+}
