@@ -21,5 +21,36 @@
 .winning-footer strong{color:var(--ink);letter-spacing:1px}
 .winning-footer nav{display:flex;gap:24px;flex-wrap:wrap;font-size:13px}
 .winning-footer nav a{display:flex;align-items:center;min-height:44px}
+.winning-member{min-width:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.winning-member-link{display:block}
+.winning-member-link:hover{color:inherit}
+.winning-member-link:focus-visible{outline-offset:-4px}
+.winning-member-copy{padding:28px 30px}
+.winning-member-copy .eyebrow{color:var(--green);margin:0 0 12px}
+.winning-member-copy h2{font-size:clamp(34px,4vw,52px);margin:0 0 12px;line-height:1}
+.winning-member-schedule{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+.winning-profile-link{display:flex;justify-content:space-between;align-items:center;min-height:44px;margin-top:20px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;font-weight:700;color:var(--gold)}
+.winning-profile-link span{font-size:24px}
+.dj-art{position:relative;isolation:isolate;min-width:0;display:flex;flex-direction:column;align-items:center;gap:22px;padding:25px 24px;background:radial-gradient(ellipse at 0 100%,#237e4f66,transparent 70%),radial-gradient(ellipse at 100% 0,#f6c95c22,transparent 65%),#0d1711;color:#f6f3e8;overflow:hidden;border-bottom:3px solid var(--gold)}
+.dj-art-label{font-size:9px;letter-spacing:1.4px;line-height:1.7;text-align:center;color:#f6c95c}
+.dj-record{width:min(100%,300px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:repeating-radial-gradient(circle,#0a0f0c 0 3px,#26382c 4px,#0a0f0c 5px 7px);border:1px solid #4b5a41;box-shadow:0 15px 40px #0009}
+.dj-monogram{width:49%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#f6c95c;color:#101813;outline:6px solid #9d772b;font-family:'Barlow Condensed','Impact',sans-serif;font-size:clamp(50px,6vw,78px);font-weight:800;line-height:.9;letter-spacing:-2px}
+.dj-monogram span{font-family:'DM Sans',sans-serif;font-size:8px;font-weight:800;letter-spacing:.4px;margin-top:12px}
+.dj-art-caption{font-size:10px;font-weight:700;letter-spacing:3px;color:#aab3ad}
+.winning-main .dj-profile{grid-template-columns:1.15fr 1fr;gap:6%}
+.dj-profile .winning-copy{min-width:0}
+.dj-profile .winning-copy h1{font-size:clamp(70px,8.8vw,136px);margin:28px 0;letter-spacing:-1px}
+.dj-profile .dj-art{border:1px solid var(--line);border-bottom:4px solid var(--green);border-radius:8px;min-height:510px;justify-content:space-between;padding:34px 26px}
+.dj-profile .dj-record{width:min(100%,360px)}
+.dj-breadcrumb{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:20px}
+.dj-profile .winning-introduction{padding-left:20px}
+.dj-slot{margin-top:30px;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px}
+.dj-slot .eyebrow{color:var(--muted);margin:0 0 8px}
+.dj-slot h2{font-family:'DM Sans',sans-serif;font-size:19px;line-height:1.4;margin:0 0 8px}
+.dj-slot p:last-child{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+:root[data-theme=light] .winning-member-copy .eyebrow{color:#126a41}
+:root[data-theme=light] .winning-profile-link{color:#805b13}
 @media(max-width:850px){.winning-main .winning-hero{grid-template-columns:1fr;gap:38px;padding:45px 5%}.winning-art{min-height:0}.winning-art img{max-width:330px}.winning-copy h1{font-size:clamp(76px,15vw,112px)}}
+@media(max-width:850px){.dj-profile .winning-copy h1{font-size:clamp(70px,14vw,112px)}.dj-profile .dj-art{min-height:0;gap:30px}.dj-profile .dj-record{width:min(100%,320px)}.winning-member-copy h2{font-size:44px}.dj-monogram{font-size:72px}}
 @media(max-width:540px){.winning-page .preview span{display:none}.winning-header{gap:12px;padding:14px 5%}.winning-header .brand img{width:56px;height:56px}.winning-header nav{gap:12px;font-size:11px;flex-wrap:wrap;justify-content:flex-end}.winning-header nav .listen{padding:12px}.winning-actions{gap:15px}.winning-footer{align-items:flex-start;flex-direction:column;gap:12px}.winning-footer nav{gap:20px}}
+@media(max-width:540px){.winning-member-copy{padding:24px}.winning-member-copy h2{font-size:38px}.dj-art{padding:23px 20px}.dj-monogram{font-size:60px}.dj-monogram span{font-size:7px}.dj-profile .dj-art{padding:28px 22px}.dj-breadcrumb{margin-bottom:10px}.dj-slot{padding:18px}.dj-profile .winning-actions{align-items:flex-start;flex-direction:column}}
