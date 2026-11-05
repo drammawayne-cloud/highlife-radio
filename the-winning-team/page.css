@@ -59,5 +59,6 @@
 .dj-photo-art .dj-art-label{padding:0 20px;position:relative;z-index:1}
 .dj-photo-stage{position:relative;align-self:stretch;aspect-ratio:1;overflow:hidden}
 .dj-profile .dj-photo-stage{aspect-ratio:4/5}
-.dj-portrait{display:block;position:absolute;width:140%;max-width:none;height:auto;left:0;top:-8%}
+.dj-reflection{display:block;position:absolute;width:175%;max-width:none;height:auto;left:-57%;top:-10%;transform:scaleX(-1);opacity:.25;filter:saturate(.5);pointer-events:none}
+.dj-portrait{display:block;position:absolute;z-index:1;width:140%;max-width:none;height:auto;left:0;top:-8%}
 @media(max-width:850px){.dj-profile .dj-photo-stage{aspect-ratio:1}.dj-profile .dj-photo-art{max-width:620px;width:100%;justify-self:center}}
