@@ -54,3 +54,9 @@
 @media(max-width:850px){.dj-profile .winning-copy h1{font-size:clamp(70px,14vw,112px)}.dj-profile .dj-art{min-height:0;gap:30px}.dj-profile .dj-record{width:min(100%,320px)}.winning-member-copy h2{font-size:44px}.dj-monogram{font-size:72px}}
 @media(max-width:540px){.winning-page .preview span{display:none}.winning-header{gap:12px;padding:14px 5%}.winning-header .brand img{width:56px;height:56px}.winning-header nav{gap:12px;font-size:11px;flex-wrap:wrap;justify-content:flex-end}.winning-header nav .listen{padding:12px}.winning-actions{gap:15px}.winning-footer{align-items:flex-start;flex-direction:column;gap:12px}.winning-footer nav{gap:20px}}
 @media(max-width:540px){.winning-member-copy{padding:24px}.winning-member-copy h2{font-size:38px}.dj-art{padding:23px 20px}.dj-monogram{font-size:60px}.dj-monogram span{font-size:7px}.dj-profile .dj-art{padding:28px 22px}.dj-breadcrumb{margin-bottom:10px}.dj-slot{padding:18px}.dj-profile .winning-actions{align-items:flex-start;flex-direction:column}}
+.dj-photo-art,.dj-profile .dj-photo-art{padding:28px 0 0;gap:20px;min-height:0;background:radial-gradient(ellipse at 35% 55%,#35c98230,transparent 75%),radial-gradient(ellipse at 100% 0,#f6c95c22,transparent 65%),#0d1711}
+.dj-photo-art .dj-art-label{padding:0 20px;position:relative;z-index:1}
+.dj-photo-stage{position:relative;align-self:stretch;aspect-ratio:1;overflow:hidden}
+.dj-profile .dj-photo-stage{aspect-ratio:4/5}
+.dj-portrait{display:block;position:absolute;width:140%;max-width:none;height:auto;left:0;top:-8%}
+@media(max-width:850px){.dj-profile .dj-photo-stage{aspect-ratio:1}.dj-profile .dj-photo-art{max-width:620px;width:100%;justify-self:center}}
