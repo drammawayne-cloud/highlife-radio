@@ -1,0 +1,151 @@
+/* Original generated studio set dressing; the radio player remains independent. */
+:root:not([data-theme=light]){--paper:#291b12;--surface:#302218;--line:#72513a;--muted:#d0c2af}
+:root:not([data-theme=light]) body{
+  background-color:#291b12;
+  background-image:linear-gradient(90deg,#1b100c80,#35221555,#1b100c80),url('assets/studio/walnut.webp');
+  background-size:auto,1200px auto;
+}
+:root:not([data-theme=light]) header{background:#25180fe8;backdrop-filter:blur(12px);border-bottom-color:#a57a424d}
+:root:not([data-theme=light]) .hero{
+  position:relative;isolation:isolate;
+  background-image:linear-gradient(90deg,#20140cf2 0%,#21150dd9 30%,#21150d69 53%,#21150d0d 80%),linear-gradient(0deg,#20130fa6,transparent 28%),url('assets/studio/broadcast-room.webp');
+  background-size:cover;background-position:center;
+  border-bottom:1px solid #bb8b434d;min-height:660px;
+}
+:root:not([data-theme=light]) .hero-copy{position:relative;z-index:2}
+:root:not([data-theme=light]) .hero h1{text-shadow:0 3px 26px #1a100ca6}
+:root:not([data-theme=light]) .hero-copy p{color:#e0d4c2;text-shadow:0 2px 10px #160c08}
+:root:not([data-theme=light]) .hero-art{background:none;box-shadow:none;border:0;overflow:visible;min-height:530px}
+:root:not([data-theme=light]) .hero-art::after,
+:root:not([data-theme=light]) .hero-art .orbit,
+:root:not([data-theme=light]) .hero-art .skyline,
+:root:not([data-theme=light]) .hero-art .sticker,
+:root:not([data-theme=light]) .hero-art .art-index,
+:root:not([data-theme=light]) .hero-art .art-caption{display:none}
+:root:not([data-theme=light]) .record-stage{width:150px;height:150px;top:auto;bottom:42px;left:auto;right:12px;transform:none;filter:drop-shadow(0 8px 15px #0008)}
+:root:not([data-theme=light]) .record-label{width:68px;height:68px;border-width:3px;font-size:8px}
+:root:not([data-theme=light]) .record-label strong{font-size:11px}
+:root:not([data-theme=light]) .record-label small{font-size:4px;margin-top:4px}
+:root:not([data-theme=light]) .record-label::after{width:4px;height:4px;margin-top:4px}
+:root:not([data-theme=light]) .record-controls{top:auto;bottom:0;right:0;flex-direction:row}
+:root:not([data-theme=light]) .record-controls button{background:#2b1a11e8;border-color:#a88455}
+:root:not([data-theme=light]) .air-strip{background:#2b1e15ed;border-color:#805b35}
+:root:not([data-theme=light]) .team{background:linear-gradient(115deg,#342619eb,#231a12ed)!important;border-color:#8f693a}
+:root:not([data-theme=light]) footer{background:#261a12e8}
+:root:not([data-theme=light]) .player{background:#241910f5;border-top-color:#ad854e;box-shadow:0 -8px 30px #190e0855;backdrop-filter:blur(12px)}
+:root:not([data-theme=light]) #mobile-nav{background:#2a1b12}
+@media(max-width:650px){
+  :root:not([data-theme=light]) .hero{background-image:linear-gradient(180deg,#25180fed 0%,#25180fd9 48%,#25180d18 75%,#25180d18),url('assets/studio/broadcast-room.webp');background-size:100% 100%,auto 430px;background-position:center,center bottom;background-repeat:no-repeat;gap:12px}
+  :root:not([data-theme=light]) .hero-art{min-height:330px}
+  :root:not([data-theme=light]) .record-stage{width:112px;height:112px;bottom:48px;right:0}
+  :root:not([data-theme=light]) .hero-copy p{font-size:14px}
+}
+
+/* The broadcast room is the site-wide backdrop; content floats above it. */
+body{background-color:#352317;background-image:linear-gradient(#21130d55,#21130d77),url('/assets/studio/broadcast-room.webp')!important;background-position:center!important;background-size:cover!important;background-attachment:fixed!important;background-repeat:no-repeat!important}
+:root:not([data-theme=light]){--paper:#302117;--surface:#35271deb;--line:#856544;--muted:#ddcfbd}
+header{box-shadow:0 10px 30px #160d0733}
+.radio-home main{max-width:1240px;margin:24px auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;padding:0 24px}
+.radio-home main>section{grid-column:1/-1;margin:0!important;padding:26px!important;border:1px solid #a27b4c70;border-radius:12px;box-shadow:0 14px 34px #160e0738;min-width:0;scroll-margin-top:20px}
+:root:not([data-theme=light]) .radio-home main>section{background:#291d14dd!important;backdrop-filter:blur(4px)}
+.radio-home main>.hero{min-height:0;grid-template-columns:1.1fr 1fr;gap:24px}
+:root:not([data-theme=light]) .radio-home main>.hero{background:linear-gradient(90deg,#26180fe6,#26180f52)!important;backdrop-filter:none}
+.radio-home .hero h1{font-size:clamp(64px,6.2vw,86px);line-height:.92;margin:20px 0}
+.radio-home .hero-copy p{font-size:14px;line-height:1.65}
+.radio-home .hero-buttons{margin:22px 0;gap:18px}
+.radio-home .genres{margin-top:20px;font-size:8px}
+.radio-home .hero-art{min-height:360px!important}
+.radio-home #home-news{grid-column:1;padding:22px!important}
+.radio-home #home-news .section-head{margin-bottom:12px}
+.radio-home #home-news h2{font-size:32px;margin:8px 0}
+.radio-home .home-news-slide img{height:190px}
+.radio-home .home-news-title{font-size:20px;padding:45px 18px 18px}
+.radio-home .home-news-dots{margin-top:12px}
+.radio-home .home-news-prev,.radio-home .home-news-next{width:30px;height:38px;font-size:24px}
+.radio-home .air-strip{grid-column:2;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:14px}
+.radio-home .air-strip h2{font-size:24px;margin:8px 0}
+.radio-home .air-strip .air-detail{padding:0 0 0 12px;border-left:2px solid #987644;border-top:0}
+.radio-home .air-strip .air-detail strong{font-size:13px;margin-top:6px}
+.radio-home .air-strip p{margin:5px 0}
+.radio-home h2{font-size:34px}
+.radio-home .section-head{margin-bottom:18px}
+.radio-home .cards{gap:16px}
+.radio-home .poster{height:200px;padding:18px}
+.radio-home .poster strong,.radio-home .drive strong,.radio-home .night strong{font-size:48px}
+.radio-home .morning strong span{font-size:80px;top:50px}
+.radio-home .cards h3{font-size:17px;margin:12px 0 6px}
+.radio-home .cards p{font-size:12px;margin:6px 0}
+.radio-home .story-art{height:140px;font-size:48px}
+.radio-home .art-community{font-size:34px}
+.radio-home .editorial small{margin-top:12px}
+.radio-home .team{padding:28px!important;gap:20px}
+.radio-home .team h2{font-size:46px}
+.radio-home .team-graphic>span{font-size:120px}
+.radio-home .team-graphic strong{font-size:30px}
+.radio-home .event-banner{grid-template-columns:150px 1fr 100px;gap:22px}
+.radio-home .event-visual{font-size:44px;padding:22px}
+.radio-home .event-visual span{font-size:21px}
+.radio-home .event-banner h3{font-size:28px}
+.radio-home .connect h2{font-size:36px}
+.radio-home .connect-links{margin:18px 0}
+.radio-home .schedule-grid .slot{padding:18px}
+body:not(.radio-home)>main{max-width:1180px;margin:26px auto;padding:30px;border:1px solid #a27b4c70;border-radius:12px;box-shadow:0 14px 34px #160e0744}
+:root:not([data-theme=light]) body:not(.radio-home)>main{background:#291d14e8;backdrop-filter:blur(5px)}
+:root:not([data-theme=light]) .winning-main .winning-hero{background:transparent;padding:28px 12px}
+:root:not([data-theme=light]) .winning-member{background:#35271dd9}
+:root[data-theme=light] header{background:#f4eadce8}
+:root[data-theme=light] .radio-home main>section,:root[data-theme=light] body:not(.radio-home)>main{background:#f5eee2ed!important}
+:root[data-theme=light] .radio-home .hero-art{background:transparent;box-shadow:none}
+@media(max-width:800px){
+  .radio-home main{display:block;padding:0 16px;margin:18px auto}
+  .radio-home main>section{margin-bottom:18px!important;padding:22px!important}
+  .radio-home main>.hero{display:grid;grid-template-columns:1fr;gap:4px}
+  .radio-home .hero-art{min-height:180px!important}
+  .radio-home .hero h1{font-size:70px}
+  .radio-home .home-news-slide img{height:185px}
+  .radio-home .air-strip{gap:12px}
+  .radio-home .cards{grid-template-columns:1fr;gap:22px}
+  .radio-home .show-card{display:grid;grid-template-columns:125px 1fr;column-gap:16px;align-content:center;min-height:165px}
+  .radio-home .show-card .poster{grid-row:1/4;height:165px;padding:12px}
+  .radio-home .poster strong,.radio-home .drive strong,.radio-home .night strong{font-size:35px}
+  .radio-home .poster>span{font-size:8px;letter-spacing:.7px}
+  .radio-home .poster small{font-size:7px;letter-spacing:.5px}
+  .radio-home .morning strong span{font-size:48px;right:8px;top:48px}
+  .radio-home .cards h3{margin-top:8px}
+  .radio-home .story-art{height:120px;font-size:44px}
+  .radio-home .team{grid-template-columns:1fr}
+  .radio-home .team-graphic{display:none}
+  .radio-home .event-banner{grid-template-columns:1fr;gap:14px;padding-bottom:18px}
+  .radio-home .event-visual{font-size:36px;padding:18px}
+  .radio-home .event-banner>div:not(.event-visual){padding:0 18px}
+  .radio-home .date-box{border:0;text-align:left}
+  body:not(.radio-home)>main{margin:18px 12px;padding:22px 18px}
+}
+@media(prefers-reduced-transparency:reduce){:root:not([data-theme=light]) main>section,:root:not([data-theme=light]) body:not(.radio-home)>main{background:#291d14!important;backdrop-filter:none!important}}
+.artist-intro{background:#352317 url('/assets/studio/broadcast-room.webp') center/cover no-repeat}
+.artist-intro::before{content:'';position:absolute;inset:0;background:#21130d88}
+.artist-intro .intro-art{position:relative;z-index:1}
+:root:not([data-theme=light]) .radio-home main>.hero{min-height:0}
+@media(min-width:801px){.radio-home .hero h1{font-size:76px}.radio-home .hero-art{min-height:350px!important}}
+/* Keep newsroom and information pages as comfortable, compact reading surfaces. */
+.news-hub p,.article-page p{line-height:1.75;max-width:76ch}
+.news-hub-intro{padding:20px 0 28px!important}
+.news-hub h1,.article-page h1{font-size:clamp(42px,5.8vw,70px);line-height:1;margin:20px 0}
+.news-hub h2,.article-page h2{font-size:32px}
+.news-category-nav,.share-links{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.news-category-nav a,.share-links a{padding:10px 14px;border:1px solid var(--line);border-radius:5px;font-size:12px}
+.news-departments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:14px 0 28px}
+.news-departments>a{display:block;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.news-departments h2{font-size:28px}.news-departments p{font-size:12px}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.news-card{min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:8px;overflow:hidden}
+.news-card img{display:block;width:100%;height:150px;object-fit:cover}
+.news-card-content{padding:16px}.news-card h2,.news-card h3{font-size:23px;line-height:1.2;margin:10px 0}
+.news-card p{font-size:12px;line-height:1.6}.news-source{font-size:10px!important}
+.news-search-label{display:block;font-size:12px;margin:14px 0}
+.news-search-label input,.news-search-label select{display:block;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink);max-width:100%}
+.news-hero{margin:24px 0}.news-hero img{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:8px}
+.article-page .caption{font-size:11px}.article-cta,.community-section{padding:24px 0!important;border-top:1px solid var(--line);margin-top:28px!important}
+.winning-main .winning-copy h1{font-size:clamp(68px,7vw,96px);margin:20px 0 26px}
+@media(max-width:800px){.news-grid,.news-departments{grid-template-columns:repeat(2,minmax(0,1fr))}.news-page-header{height:auto;min-height:80px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}.news-page-header nav{display:flex;flex-wrap:wrap;gap:12px}.news-hub-intro{padding-top:4px!important}}
+@media(max-width:500px){.news-grid,.news-departments{grid-template-columns:1fr}.news-card img{height:160px}.news-hub h1,.article-page h1{font-size:42px}.news-page-header nav{font-size:11px}}

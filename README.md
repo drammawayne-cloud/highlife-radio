@@ -29,3 +29,7 @@ Serve this folder with any static server, for example `python3 -m http.server 41
 The homepage defaults to dark mode with black, red, gold and green. The header sun/moon button switches the entire page between dark and light palettes and saves the visitor preference in local browser storage when available. Audio is not restarted by display changes.
 
 The hero record spins continuously, with a Pause spin control. Clicking the record or Flip record turns it between Side A and Side B. Reduced-motion preference pauses rotation by default and removes the flip transition; visitors can explicitly start the rotation.
+
+## Studio atmosphere update — November 5, 2026
+
+All 21 public HTML pages load studio-atmosphere.css. The original generated broadcast-room background stays fixed behind floating content panels. The homepage uses smaller show/editorial cards and a two-column news/Now Playing row on desktop, with a stacked mobile layout. Existing show names, sample-programming labels, stream endpoints and player logic are preserved. Private admin markup is outside this visual change. Artwork provenance is documented in assets/studio/README.md.
