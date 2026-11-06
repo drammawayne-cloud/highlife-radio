@@ -107,24 +107,7 @@ window.HIGHLIFE_ROTATION = {
       45,
       60
     ],
-    "weeklyRatesUSD": [
-      {
-        "seconds": 15,
-        "price": 50
-      },
-      {
-        "seconds": 30,
-        "price": 100
-      },
-      {
-        "seconds": 45,
-        "price": 200
-      },
-      {
-        "seconds": 60,
-        "price": 300
-      }
-    ],
-    "placementTerms": "Placements are subject to availability. Your placement schedule is confirmed before booking."
+    "placementTerms": "Placements are subject to availability. Your placement schedule is confirmed before booking.",
+    "bookingApproach": "Consultation first. Campaign pricing and placement schedule are agreed privately based on budget, production needs and airtime availability."
   }
 };

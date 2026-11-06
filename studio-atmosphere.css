@@ -222,3 +222,12 @@ footer>.studio-light-toggle{margin-top:18px}
 .ad-rate>strong{display:block;font-size:28px;color:var(--gold);margin-top:8px}
 .ad-rate small{font-size:10px;font-weight:400;color:var(--muted)}
 @media(max-width:600px){.ad-rate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ad-rate{padding:14px}}
+.advertising-consultation{max-width:920px;margin:28px auto;text-align:left}
+.advertising-consultation>h3{font-family:'Barlow Condensed',Impact,sans-serif;font-size:42px;margin:12px 0}
+.consultation-lead{font-size:17px;line-height:1.65;margin:8px 0 20px;color:var(--ink)}
+.consultation-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.consultation-options>div{padding-left:14px;border-left:2px solid var(--gold)}
+.consultation-options h4{font-size:15px;margin:0 0 9px;color:var(--gold)}
+.consultation-options p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}
+.consultation-cta{display:inline-flex;align-items:center;min-height:46px;margin:16px 0 8px}
+@media(max-width:650px){.consultation-options{grid-template-columns:1fr;gap:18px}.advertising-consultation>h3{font-size:36px}.consultation-lead{font-size:15px}}
