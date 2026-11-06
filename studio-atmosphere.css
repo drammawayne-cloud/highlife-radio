@@ -175,3 +175,29 @@ body::after{
 }
 :root[data-theme=light] body::before,:root[data-theme=light] body::after{opacity:.45}
 @media(prefers-reduced-transparency:reduce){body::before,body::after{opacity:.4}}
+
+/* LED overlays share the photograph's cover crop, so they never drift off equipment. */
+.studio-equipment{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+.studio-equipment svg{width:100%;height:100%;display:block;filter:drop-shadow(0 0 2px #ffda8c66)}
+body>header,body>main,body>footer,body>.preview{position:relative;z-index:1}
+.studio-meter{transform-box:view-box;animation:studio-meter-level 2.4s ease-in-out infinite;opacity:.8}
+.studio-peak{animation:studio-meter-peak 2.8s ease-in-out infinite;opacity:.3}
+.studio-status{animation:studio-status-glow 3s ease-in-out infinite;opacity:.7}
+@keyframes studio-meter-level{0%,100%{transform:scaleY(.3);opacity:.5}22%{transform:scaleY(.85);opacity:.95}46%{transform:scaleY(.5);opacity:.65}70%{transform:scaleY(1);opacity:1}85%{transform:scaleY(.65);opacity:.8}}
+@keyframes studio-meter-peak{0%,40%,100%{opacity:.15}60%,72%{opacity:.9}}
+@keyframes studio-status-glow{0%,100%{opacity:.3}40%{opacity:1}70%{opacity:.55}}
+.studio-light-toggle{display:grid;place-items:center;min-width:34px;min-height:38px;padding:5px 8px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--gold);font-size:20px;cursor:pointer}
+footer>.studio-light-toggle{margin-top:18px}
+.studio-lights-paused .studio-equipment *,.studio-lights-hidden .studio-equipment *{animation-play-state:paused!important}
+.studio-lights-paused .studio-equipment{opacity:.35}
+@media(prefers-reduced-motion:reduce){html:not(.studio-lights-paused) .studio-equipment *{animation-duration:5s!important}}
+
+/* Let the opening headline sit directly in the studio, without a glass card. */
+.radio-home main>.hero,
+:root:not([data-theme=light]) .radio-home main>.hero,
+:root[data-theme=light] .radio-home main>.hero{
+  background:transparent!important;border:0;border-radius:0;box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+.radio-home .hero-copy{background:transparent;backdrop-filter:none}
+.radio-home .hero h1{filter:drop-shadow(0 2px 12px #160d08aa)}
