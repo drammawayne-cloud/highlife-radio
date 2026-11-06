@@ -14,10 +14,12 @@ function renderDay(day){
  document.querySelectorAll('.days button').forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===day)));
  $('slots').replaceChildren();
  for(const block of rotation.blocks){
-  const card=document.createElement('div');card.className='slot';
-  const t=document.createElement('small'),h=document.createElement('h3'),p=document.createElement('p');
-  t.textContent=day+' · '+block.time;h.textContent=block.name;p.textContent=block.description;
-  card.append(t,h,p);$('slots').append(card);
+  const card=document.createElement('details');card.className='slot';
+  const summary=document.createElement('summary'),h=document.createElement('h3');
+  const body=document.createElement('div');body.className='rotation-detail';
+  const t=document.createElement('small'),p=document.createElement('p');
+  h.textContent=block.name;t.textContent=day+' · '+block.time;p.textContent=block.description;
+  summary.append(h);body.append(t,p);card.append(summary,body);$('slots').append(card);
  }
 }
 for(const day of days){const b=document.createElement('button');b.textContent=day;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>renderDay(day));document.querySelector('.days').append(b);}renderDay(new Intl.DateTimeFormat('en-US',{weekday:'short',timeZone:'America/New_York'}).format(new Date()));
