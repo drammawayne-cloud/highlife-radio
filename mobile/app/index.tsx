@@ -53,7 +53,7 @@ export default function Home() {
     <Page>
       <Brand />
       <View style={s.hero}>
-        <Text style={s.eyebrow}>● NEW YORK × JAMAICA × THE WORLD</Text>
+        <Text style={s.eyebrow}>From New York to the world.</Text>
         <Text
           accessibilityRole="header"
           style={[s.headline, width < 360 && { fontSize: 60, lineHeight: 55 }]}
