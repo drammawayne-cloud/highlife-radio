@@ -254,3 +254,13 @@ footer>.studio-light-toggle{margin-top:18px}
 .featured-rotation>summary:focus-visible{outline:2px solid var(--green);outline-offset:-3px}
 .featured-rotation-content{padding:0 16px 16px!important}
 @media(max-width:800px){.radio-home .featured-rotation-content{display:block;min-height:0}.radio-home .featured-rotation-content .poster{height:165px}}
+.dj-connect .dj-lead{font-size:17px;line-height:1.8;max-width:70ch}
+.dj-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:30px 0}
+.dj-steps>section{min-width:0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.dj-steps h2,.dj-info h2{font-size:30px}
+.dj-steps p,.dj-info p{font-size:13px;line-height:1.85}
+.dj-steps .light-button{display:inline-flex;margin-top:10px}
+.dj-info{padding:24px 0!important;border-top:1px solid var(--line);margin-top:24px}
+.dj-settings{margin:22px 0}.dj-settings>div{padding:14px 0;border-bottom:1px solid var(--line)}
+.dj-settings dt{font-size:13px;font-weight:700;color:var(--gold)}.dj-settings dd{margin:8px 0 0;font-size:13px;color:var(--muted);line-height:1.7}
+@media(max-width:800px){.dj-steps{grid-template-columns:1fr}.dj-connect .dj-lead{font-size:15px}}
