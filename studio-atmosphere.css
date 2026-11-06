@@ -201,3 +201,16 @@ footer>.studio-light-toggle{margin-top:18px}
 }
 .radio-home .hero-copy{background:transparent;backdrop-filter:none}
 .radio-home .hero h1{filter:drop-shadow(0 2px 12px #160d08aa)}
+/* The same rotation applies seven days a week; blocks are distinct from DJ identities. */
+.rotation-intro{font-size:14px;line-height:1.7;max-width:76ch;color:var(--ink)}
+.radio-home #slots{grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.radio-home #slots .slot{border:0;border-top:2px solid #9e7948;border-bottom:1px solid var(--line);padding:16px;min-width:0}
+.radio-home #slots .slot h3{font-size:16px;margin:10px 0 8px}
+.radio-home #slots .slot p{font-size:11px;line-height:1.65}
+.radio-home #slots .slot small{font-size:10px;line-height:1.5;display:block;color:var(--gold)}
+.radio-home .poster.morning strong{font-size:42px}
+@media(max-width:800px){.radio-home #slots{grid-template-columns:repeat(2,minmax(0,1fr))}.radio-home .poster.morning strong{font-size:30px}}
+@media(max-width:500px){.radio-home #slots{grid-template-columns:1fr}.radio-home #slots .slot{padding:15px}.radio-home #slots .slot p{font-size:12px}}
+.rotation-commercials{display:flex;gap:16px;align-items:center;padding:14px 16px;border-left:3px solid var(--gold);background:#bd8d3c16;border-radius:4px;margin:18px 0;font-size:12px;line-height:1.6}
+.rotation-commercials strong{color:var(--gold);font-size:10px;letter-spacing:1.2px;flex-shrink:0}
+@media(max-width:650px){.rotation-commercials{display:block}.rotation-commercials strong{display:block;margin-bottom:6px}}

@@ -33,3 +33,9 @@ The hero record spins continuously, with a Pause spin control. Clicking the reco
 ## Studio atmosphere update — November 5, 2026
 
 All 21 public HTML pages load studio-atmosphere.css. The original generated broadcast-room background stays fixed behind floating content panels. The homepage uses smaller show/editorial cards and a two-column news/Now Playing row on desktop, with a stacked mobile layout. Existing show names, sample-programming labels, stream endpoints and player logic are preserved. Private admin markup is outside this visual change. Artwork provenance is documented in assets/studio/README.md.
+
+## Daily rotation — November 5, 2026
+
+rotation.js contains the owner-defined daily station blocks, distinct from DJ show names. The same complete 24-hour rotation appears for every day in America/New_York. All boundaries are on the hour: Sunshine 6–10 a.m.; Early Bird 10 a.m.–noon; Noon News noon–1 p.m.; Motion 1–3 p.m.; Lock-in 3–6 p.m.; Evening News 6–7 p.m.; Icing In 7–9 p.m.; High Life Shift 9 p.m.–midnight; Nightly News midnight–1 a.m.; Motion replay 1–3 a.m.; Lock-in replay 3–6 a.m.
+
+Every hour opens with four commercial spots, including within longer blocks, capped at a combined 210 seconds (3:30). A full break leaves 56:30 of programming. Valid full-break examples: 60+60+45+45 and 60+60+60+30. Four 60-second spots exceed the cap. A shorter mix can return to programming earlier; it is not permission to exceed four paid spots. Weekly rates confirmed so far: 15 seconds $50 and 30 seconds $100. The owner is choosing between 45 seconds $150 or $200 and 60 seconds $250 or $300; those unsettled prices are not published. Package placement frequency and ad media are not supplied here. This is the public programming plan: this change does not program AzuraCast, upload commercial audio, create live broadcasts, or infer which DJ is currently on air. Tea Hour was an undecided naming idea and is not a replacement for Early Bird Hour.
