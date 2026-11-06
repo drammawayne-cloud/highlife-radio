@@ -149,3 +149,29 @@ body:not(.radio-home)>main{max-width:1180px;margin:26px auto;padding:30px;border
 .winning-main .winning-copy h1{font-size:clamp(68px,7vw,96px);margin:20px 0 26px}
 @media(max-width:800px){.news-grid,.news-departments{grid-template-columns:repeat(2,minmax(0,1fr))}.news-page-header{height:auto;min-height:80px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}.news-page-header nav{display:flex;flex-wrap:wrap;gap:12px}.news-hub-intro{padding-top:4px!important}}
 @media(max-width:500px){.news-grid,.news-departments{grid-template-columns:1fr}.news-card img{height:160px}.news-hub h1,.article-page h1{font-size:42px}.news-page-header nav{font-size:11px}}
+
+/* Warm overhead spotlight: fixed, non-interactive light across the studio and panels. */
+body::before{
+  content:'';position:fixed;inset:-2%;z-index:8;pointer-events:none;
+  background:conic-gradient(from 0deg at 74% -6%,
+    transparent 0deg 171deg,
+    #ffe6b509 176deg,#ffe7b936 185deg,#fff0ca28 195deg,
+    #f4cd8814 207deg,transparent 218deg 360deg);
+  filter:blur(12px);mix-blend-mode:screen;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:9;pointer-events:none;
+  background:radial-gradient(ellipse 250px 145px at 74% 0%,#fff9e6b3 0%,#ffe2a75c 22%,#eab76416 57%,transparent 80%),
+    radial-gradient(ellipse 450px 240px at 46% 76%,#f7d3951f,transparent 75%);
+  mix-blend-mode:screen;
+}
+:root:not([data-theme=light]) .radio-home main>section,
+:root:not([data-theme=light]) body:not(.radio-home)>main{
+  border-top-color:#d0a76c99;box-shadow:0 -1px 0 #f7d18c16,0 16px 36px #160e073d;
+}
+@media(max-width:650px){
+  body::before{background:conic-gradient(from 0deg at 90% -3%,transparent 0deg 172deg,#ffe6b510 177deg,#ffe7b93b 189deg,#fff0ca24 199deg,transparent 214deg 360deg);filter:blur(9px)}
+  body::after{background:radial-gradient(ellipse 170px 100px at 90% 0%,#fff9e6a6,#ffe2a74d 30%,transparent 80%)}
+}
+:root[data-theme=light] body::before,:root[data-theme=light] body::after{opacity:.45}
+@media(prefers-reduced-transparency:reduce){body::before,body::after{opacity:.4}}
