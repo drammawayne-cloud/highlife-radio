@@ -106,6 +106,25 @@ window.HIGHLIFE_ROTATION = {
       30,
       45,
       60
-    ]
+    ],
+    "weeklyRatesUSD": [
+      {
+        "seconds": 15,
+        "price": 50
+      },
+      {
+        "seconds": 30,
+        "price": 100
+      },
+      {
+        "seconds": 45,
+        "price": 200
+      },
+      {
+        "seconds": 60,
+        "price": 300
+      }
+    ],
+    "placementTerms": "Placements are subject to availability. Your placement schedule is confirmed before booking."
   }
 };
