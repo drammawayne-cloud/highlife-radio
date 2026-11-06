@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "High Life Radio",
+    "name": "NYC High Life Radio",
     "slug": "highlife-radio",
     "scheme": "highliferadio",
     "version": "1.0.0",
@@ -44,7 +44,7 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#101413",
+          "backgroundColor": "#090b0a",
           "image": "./assets/icon.png",
           "imageWidth": 180
         }

@@ -7,6 +7,7 @@ test("website legacy configuration preserves empty honest content", () => {
     nowPlayingUrl: fallback.nowPlayingUrl,
     stationName: "High Life Radio",
   });
+  assert.equal(s.stationName, "NYC High Life Radio");
   assert.equal(s.people.length, 0);
   assert.equal(s.schedule.length, 0);
 });

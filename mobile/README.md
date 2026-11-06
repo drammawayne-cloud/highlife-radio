@@ -1,3 +1,11 @@
+# NYC High Life Radio — website-matched app
+
+Updated November 5, 2026 to match https://nychighliferadio.com/: official logo, Barlow Condensed display type, gold/red/green dark palette, native Home/Discover/Shows/More screens and persistent live player. Shared stream and Now Playing services remain unchanged; station configuration now comes from the canonical domain.
+
+Discover uses three featured website story snapshots captured November 5; All news and story/profile buttons open the current website externally. These snapshots are not an automatically refreshing news feed. The website currently supplies no machine-readable news feed (its apparent JSON route returns HTML), so no background scraping or fabricated feed is used. Show concepts remain explicitly labeled; confirmed schedules come only from station configuration. The Winning Team and Team Unstoppable remain distinct.
+
+Website privacy/contact pages are accessible through More. The website policy describes the website; native App Store privacy declarations and signing/device requirements still need completion. No website source was changed as part of this redesign.
+
 # High Life Radio mobile — release candidate 1.0.0
 
 Caribbean Energy. Global Frequency. Continue this app in `build/mobile-app-foundation` / PR #1. Its source is separate from the repository-root website, which remains unchanged.
@@ -28,7 +36,7 @@ Open http://localhost:8081. On a phone on the same Wi-Fi, use this Mac's LAN add
 
 ## Radio behavior
 
-A root player survives Listen, Programming and More navigation. Play/Pause, volume/mute, native station sharing, listening help and in-app privacy information are implemented. Native background playback and live-stream lock-screen controls are configured without microphone permission. User/remote pause is respected, errors/stalls trigger bounded reconnects, and a failed connection offers manual retry.
+A root player survives Home, Discover, Shows and More navigation. Play/Pause, volume/mute, native station sharing, listening help and in-app privacy information are implemented. Native background playback and live-stream lock-screen controls are configured without microphone permission. User/remote pause is respected, errors/stalls trigger bounded reconnects, and a failed connection offers manual retry.
 
 The real shared stream and Now Playing endpoints remain unchanged. The website's public station.json refreshes every minute, metadata every 15 seconds, and both refresh on returning to the app. Stale song metadata is suppressed. Public configuration can provide published shows, hosts, events and contact/social links. No sample programming or fabricated people are shipped. Until official programming is published, the app shows station rotation.
 

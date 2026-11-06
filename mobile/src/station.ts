@@ -1,6 +1,7 @@
+import { BRAND } from "./brand";
 export const CONFIG_URL =
   process.env.EXPO_PUBLIC_STATION_CONFIG_URL ||
-  "https://drammawayne-cloud.github.io/highlife-radio/station.json";
+  "https://nychighliferadio.com/station.json";
 export type Show = {
   id: string;
   name: string;
@@ -37,7 +38,7 @@ export type Station = {
   events: Event[];
 };
 export const fallback: Station = {
-  stationName: "High Life Radio",
+  stationName: BRAND.name,
   streamUrl:
     "https://richrow-radio.129-213-164-255.sslip.io/listen/rich_row_radio/radio.mp3",
   nowPlayingUrl:
@@ -68,6 +69,8 @@ export function parseStation(raw: any, base: Station = fallback): Station {
   if (raw.contentUrl && !https(raw.contentUrl))
     throw new Error("Content endpoint must use HTTPS.");
   const next = { ...base, ...raw };
+  // The shared station feed still uses the legacy short name.
+  if (next.stationName === "High Life Radio") next.stationName = BRAND.name;
   if (typeof next.stationName !== "string")
     throw new Error("Missing station name.");
   new Intl.DateTimeFormat("en", { timeZone: next.timezone });
