@@ -14,7 +14,30 @@
     "sourceDate": "2026-10-28",
     "sourceUrl": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165467/?iso3=HTI",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 1000,
+      "height": 667,
+      "label": "ARCHIVE PHOTO · AUGUST 2021",
+      "caption": "Archive: residents gather for a U.S. Navy food delivery in Saint-Louis-du-Sud, Haiti, on 28 August 2021 during relief efforts after the August 2021 earthquake. This photograph does not show the current hunger crisis.",
+      "credit": "U.S. Navy photo by Mass Communication Specialist 2nd Class John Bellino/Released",
+      "sourceUrl": "https://www.dvidshub.net/image/6810282/haitians-gather-receive-humanitarian-aid",
+      "license": "Public domain",
+      "licenseUrl": "https://www.dvidshub.net/about/copyright",
+      "alt": "Boxes of emergency food in a field as a large crowd waits in the distance in Saint-Louis-du-Sud during Haiti's 2021 earthquake response.",
+      "path": "/assets/news/documentary/haiti-food-delivery-2021.jpg",
+      "homeCaption": "2021 earthquake food relief, Saint-Louis-du-Sud. Not the current hunger crisis.",
+      "homeCredit": "U.S. Navy / John Bellino"
+    },
+    "reporting": [
+      {
+        "publisher": "Associated Press",
+        "title": "Hunger surges in Haiti as gang violence, high food prices and a supercharged El Niño persist",
+        "date": "2026-10-28",
+        "url": "https://abcnews.com/International/wireStory/hunger-surges-haiti-gang-violence-high-food-prices-137654749",
+        "label": "AP reporting, via ABC News"
+      }
+    ]
   },
   {
     "title": "Sudan’s damaged power network puts essential care at risk",
@@ -30,7 +53,30 @@
     "sourceDate": "2026-11-04",
     "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 1108,
+      "height": 739,
+      "label": "CONTEXT PHOTO · TAWILA",
+      "caption": "Context: displaced people shelter in Tawila, North Darfur. This photograph illustrates displacement in Sudan; it does not show the latest attack on essential services.",
+      "credit": "© European Union (photographer: Peter Biro)",
+      "sourceUrl": "https://civil-protection-humanitarian-aid.ec.europa.eu/where/africa/sudan_en",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "alt": "A woman rests among improvised fabric shelters in Tawila, North Darfur, with other displaced people farther behind her.",
+      "path": "/assets/news/documentary/sudan-tawila-peter-biro-publisher-rendition-1108.jpg",
+      "homeCaption": "Displacement in Tawila, North Darfur. Context photograph.",
+      "homeCredit": "© European Union / Peter Biro"
+    },
+    "reporting": [
+      {
+        "publisher": "Associated Press",
+        "title": "Sudan’s power grid nears collapse as drone strikes blamed on RSF target electric stations",
+        "date": "2026-11-01",
+        "url": "https://apnews.com/article/3d8369aa7479b594a72bc8439d08a0a2",
+        "label": "AP reporting"
+      }
+    ]
   },
   {
     "title": "Fighting in eastern Congo is closing classrooms",
@@ -46,7 +92,30 @@
     "sourceDate": "2026-11-04",
     "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 1024,
+      "height": 683,
+      "label": "ARCHIVE PHOTO · DECEMBER 2024",
+      "caption": "Archive: MONUSCO peacekeepers patrol Kanyaruchinya displacement camp in North Kivu, DR Congo, on 3 December 2024. This is regional conflict context, not a photograph of the latest school closures in South Kivu.",
+      "credit": "MONUSCO/Aubin Mukoni",
+      "sourceUrl": "https://www.flickr.com/photos/monusco/54182498022/",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "alt": "MONUSCO peacekeepers in blue helmets stand beside a row of white United Nations patrol vehicles at Kanyaruchinya in December 2024.",
+      "path": "/assets/news/documentary/drc-54182498022.jpg",
+      "homeCaption": "Kanyaruchinya camp patrol, North Kivu, December 2024. Regional context.",
+      "homeCredit": "MONUSCO / Aubin Mukoni"
+    },
+    "reporting": [
+      {
+        "publisher": "Associated Press",
+        "title": "IS-linked militants kill at least 33 in eastern Congo village attack, civil society says",
+        "date": "2026-11-06",
+        "url": "https://apnews.com/article/8c1714ba93398184703e5866d8b9c0c6",
+        "label": "Related AP reporting — separate North Kivu attack"
+      }
+    ]
   },
   {
     "title": "Climate preparedness faces a major funding shortfall",
@@ -62,7 +131,28 @@
     "sourceDate": "2026-11-04",
     "sourceUrl": "https://www.unep.org/en/news-and-stories/press-release/world-heads-overshoot-15degc-adaptation-too-slow",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 1400,
+      "height": 933,
+      "label": "CONTEXT PHOTO · PUBLISHED 2020",
+      "caption": "Context photo: mangroves at Mida Creek, Kenya. Published May 2020.",
+      "credit": "Photo: Timothy K / Unsplash",
+      "sourceUrl": "https://unsplash.com/photos/mangrove-trees-in-dark-water-1CiE1x4dHIY",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "alt": "Mangrove roots above dark reflective water at Mida Creek, Kenya; a contextual landscape photograph published in 2020.",
+      "path": "/assets/news/documentary/climate-mida-creek-timothy-k-2020.jpg"
+    },
+    "reporting": [
+      {
+        "publisher": "Associated Press",
+        "title": "UN climate summit kicks off in Turkey after a disastrous year of extreme weather",
+        "date": "2026-11-09",
+        "url": "https://apnews.com/article/edd587ab19f3b57848b50f9dc724ba82",
+        "label": "Related AP reporting — climate negotiations"
+      }
+    ]
   },
   {
     "title": "Millions of children remain outside formal education",
@@ -78,7 +168,29 @@
     "sourceDate": "2026-11-04",
     "sourceUrl": "https://www.unicef.org/afghanistan/press-releases/more-half-primary-school-age-children-afghanistan-outside-formal-education-unesco",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 4288,
+      "height": 2043,
+      "label": "ARCHIVE PHOTO · MARCH 2012",
+      "caption": "Archive — 10 March 2012: pupils at Aliabad School near Mazar-e-Sharif, Afghanistan. Photographed before the Taliban’s 2021 return to power; this is not an image of current school access.",
+      "credit": "Photo: Sgt. Kimberly Lamb / U.S. Army, public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Young_Afghan_girls_inside_the_classroom_of_Aliabad_School-2012.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Young_Afghan_girls_inside_the_classroom_of_Aliabad_School-2012.jpg#Licensing",
+      "alt": "A wide view of pupils seated in a classroom at Aliabad School near Mazar-e-Sharif, Afghanistan, photographed in March 2012.",
+      "path": "/assets/news/documentary/afghanistan-aliabad-2012.jpg",
+      "preserveWhole": true
+    },
+    "reporting": [
+      {
+        "publisher": "Associated Press",
+        "title": "2.4 million Afghan girls shut out of secondary school 5 years after Taliban takeover, UN says",
+        "date": "2026-08-11",
+        "url": "https://apnews.com/article/618c7f5c7659d43ede2a3f71a7cf845f",
+        "label": "AP background — August report, earlier figures"
+      }
+    ]
   },
   {
     "title": "Displacement and rising prices squeeze families in Yemen",
@@ -94,7 +206,28 @@
     "sourceDate": "2026-11-04",
     "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
     "brief": true,
-    "featured": false
+    "featured": false,
+    "photo": {
+      "width": 991,
+      "height": 661,
+      "label": "CONTEXT PHOTO · PUBLISHED 2026",
+      "caption": "Context photo published with the EU’s Yemen aid announcement, 23 October 2026. The source does not give the capture date or identify the pictured people.",
+      "credit": "© European Union, 2026",
+      "sourceUrl": "https://civil-protection-humanitarian-aid.ec.europa.eu/news-stories/news/eu-announces-additional-eur225-million-reinforce-humanitarian-assistance-yemen-2026-10-23_en",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "alt": "Two people carrying bags walk along a road; context photograph published with the EU’s October 2026 Yemen aid announcement.",
+      "path": "/assets/news/documentary/yemen-european-union-2026.jpg"
+    },
+    "reporting": [
+      {
+        "publisher": "Reuters",
+        "title": "Displaced mothers in Yemen’s Taiz collect plastic to survive",
+        "date": "2026-11-06",
+        "url": "https://www.investing.com/news/world-news/we-have-nothing-displaced-mothers-in-yemens-taiz-collect-plastic-to-survive-5007442",
+        "label": "Reuters reporting, via Investing.com"
+      }
+    ]
   },
   {
     "title": "Brooklyn library puts teen creativity on its autumn calendar",

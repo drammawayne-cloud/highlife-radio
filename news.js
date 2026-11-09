@@ -11,14 +11,22 @@ window.openNewsStory=async function(url,event){
 };
 function pictureFor(story){const image=document.createElement('img');image.width=1200;image.height=630;image.decoding='async';image.loading='lazy';image.alt=story.imageAlt||'NYC High Life Radio editorial preview';const fallback=new URL('assets/news-card.png',newsRoot);try{image.src=newsLink(story.image||fallback).href;}catch{image.src=fallback;}image.onerror=()=>{image.onerror=null;if(story.url){image.removeAttribute('src');image.alt='Story picture temporarily unavailable';}else image.src=fallback;};return image;}
 function storyAnchor(story){const a=document.createElement('a');a.href=newsLink(story.url);return a;}
+function photoCreditLink(url,label){const a=document.createElement('a');a.textContent=label;try{const address=new URL(url);if(address.protocol!=='https:')return document.createTextNode(label);a.href=address.href;a.target='_blank';a.rel='noopener noreferrer';return a;}catch{return document.createTextNode(label);}}
+function documentaryPhoto(story){
+ const photo=story.photo,figure=document.createElement('figure');figure.className='news-documentary-photo';
+ const link=storyAnchor(story),image=document.createElement('img');image.src=newsLink(photo.path);image.alt=photo.alt;image.width=photo.width;image.height=photo.height;image.loading='lazy';image.decoding='async';
+ const label=document.createElement('span');label.textContent=photo.label;link.append(image,label);
+ const caption=document.createElement('figcaption');caption.append(document.createTextNode(photo.caption+' '),photoCreditLink(photo.sourceUrl,photo.credit),document.createTextNode(' · '),photoCreditLink(photo.licenseUrl,photo.license));
+ figure.append(link,caption);return figure;
+}
 function newsCard(story){
  const card=document.createElement('article');card.className='news-card'+(story.brief?' world-news-card':'');
- if(!story.brief){const imageLink=storyAnchor(story);imageLink.className='news-picture-link';if(story.imageLabel)imageLink.dataset.imageLabel=story.imageLabel;imageLink.setAttribute('aria-label','Read '+story.title);imageLink.append(pictureFor(story));card.append(imageLink);}
+ if(story.photo)card.append(documentaryPhoto(story));else if(!story.brief){const imageLink=storyAnchor(story);imageLink.className='news-picture-link';if(story.imageLabel)imageLink.dataset.imageLabel=story.imageLabel;imageLink.setAttribute('aria-label','Read '+story.title);imageLink.append(pictureFor(story));card.append(imageLink);}
  const body=document.createElement('div');body.className='news-card-content';
  const source=document.createElement('p');source.className='news-source';source.textContent=story.brief?'WORLD BRIEF / '+story.sourcePublisher:'NYC HIGH LIFE RADIO / ARCHIVE';
  const heading=document.createElement('h3'),a=storyAnchor(story);a.textContent=story.title;heading.append(a);
  const summary=document.createElement('p');summary.textContent=story.summary;body.append(source,heading,summary);
- const value=story.sourceDate||story.publishedAt;if(value){const time=document.createElement('time');time.dateTime=value;time.textContent=(story.brief?'Source report: ':'Published: ')+new Date(value+'T12:00:00Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'});body.append(time);}
+ const value=story.sourceDate||story.publishedAt;if(value){const time=document.createElement('time');time.dateTime=value;time.textContent=(story.brief?'Primary report: ':'Published: ')+new Date(value.slice(0,10)+'T12:00:00Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'});body.append(time);}
  card.append(body);return card;
 }
 function featuredNews(stories){
