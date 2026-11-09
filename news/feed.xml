@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>NYC High Life Radio News</title>
+    <link>https://nychighliferadio.com/news/</link>
+    <description>World briefs and local editorial. Check each story for its source date.</description>
+    <language>en-us</language>
+    <item>
+      <title>Haiti’s hunger crisis is projected to deepen</title>
+      <link>https://nychighliferadio.com/news/world/#haiti-hunger</link>
+      <description>The IPC estimates that 5.94 million people face crisis-level hunger or worse during September 2026–February 2027. Its projection rises to 6.35 million for March–June 2027. Insecurity, displacement, high food prices and climate shocks are driving the outlook.</description>
+      <guid>https://nychighliferadio.com/news/world/#haiti-hunger</guid>
+      <source url="https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165467/?iso3=HTI">IPC</source>
+    </item>
+    <item>
+      <title>Sudan’s damaged power network puts essential care at risk</title>
+      <link>https://nychighliferadio.com/news/world/#sudan-essential-services</link>
+      <description>The UN says strikes on Sudan’s energy infrastructure are disrupting water and hospital care. Its nearly $2.9 billion humanitarian appeal was 47% funded on November 4.</description>
+      <guid>https://nychighliferadio.com/news/world/#sudan-essential-services</guid>
+      <source url="https://transcripts.un.org/en/briefing/sg/2026-11-04">United Nations briefing</source>
+    </item>
+    <item>
+      <title>Fighting in eastern Congo is closing classrooms</title>
+      <link>https://nychighliferadio.com/news/world/#congo-classrooms</link>
+      <description>The UN reports that fighting in Uvira territory has closed 26 primary schools, affecting nearly 6,000 children. Violence is also displacing families and obstructing aid.</description>
+      <guid>https://nychighliferadio.com/news/world/#congo-classrooms</guid>
+      <source url="https://transcripts.un.org/en/briefing/sg/2026-11-04">United Nations briefing</source>
+    </item>
+    <item>
+      <title>Climate preparedness faces a major funding shortfall</title>
+      <link>https://nychighliferadio.com/news/world/#climate-preparedness</link>
+      <description>UNEP estimates developing countries will need about $305 billion a year for climate adaptation by 2035. Even the ambition to triple international public adaptation finance would cover only 20–29% of estimated needs, the agency says.</description>
+      <guid>https://nychighliferadio.com/news/world/#climate-preparedness</guid>
+      <source url="https://www.unep.org/en/news-and-stories/press-release/world-heads-overshoot-15degc-adaptation-too-slow">UN Environment Programme</source>
+    </item>
+    <item>
+      <title>Millions of children remain outside formal education</title>
+      <link>https://nychighliferadio.com/news/world/#afghanistan-education</link>
+      <description>UNICEF and UNESCO report that 53% of primary-school-age children in Afghanistan are outside formal general education. Their report also says more than 2.6 million girls have been denied secondary education since 2021.</description>
+      <guid>https://nychighliferadio.com/news/world/#afghanistan-education</guid>
+      <source url="https://www.unicef.org/afghanistan/press-releases/more-half-primary-school-age-children-afghanistan-outside-formal-education-unesco">UNICEF / UNESCO</source>
+    </item>
+    <item>
+      <title>Displacement and rising prices squeeze families in Yemen</title>
+      <link>https://nychighliferadio.com/news/world/#yemen-displacement</link>
+      <description>The UN reports nearly 310,000 people displaced in Yemen since early August. Disrupted transport has driven up prices in Taiz; many families still need shelter.</description>
+      <guid>https://nychighliferadio.com/news/world/#yemen-displacement</guid>
+      <source url="https://transcripts.un.org/en/briefing/sg/2026-11-04">United Nations briefing</source>
+    </item>
+    <item>
+      <title>Brooklyn library puts teen creativity on its autumn calendar</title>
+      <link>https://nychighliferadio.com/news/cloud-brooklyn-library-teen-autumn-programs/</link>
+      <description>Writing, journaling and seasonal crafts feature in Brooklyn Public Library’s October program ideas for young readers.</description>
+      <guid>https://nychighliferadio.com/news/cloud-brooklyn-library-teen-autumn-programs/</guid>
+    </item>
+    <item>
+      <title>Brooklyn families: bring better questions to the school search</title>
+      <link>https://nychighliferadio.com/news/new-york-school-research/</link>
+      <description>NYC High Life Radio looks at a Brooklyn Public Library event built around researching public schools.</description>
+      <guid>https://nychighliferadio.com/news/new-york-school-research/</guid>
+    </item>
+    <item>
+      <title>Trinidad and Tobago: mathematics moves into the spotlight</title>
+      <link>https://nychighliferadio.com/news/trinidad-mathematics-competition/</link>
+      <description>NYC High Life Radio follows the next stage of a secondary-school mathematics competition.</description>
+      <guid>https://nychighliferadio.com/news/trinidad-mathematics-competition/</guid>
+    </item>
+    <item>
+      <title>Saint Lucia cricket: a return worth following</title>
+      <link>https://nychighliferadio.com/news/saint-lucia-cricket-return/</link>
+      <description>NYC High Life Radio puts women’s cricket and competitive opportunity in the spotlight.</description>
+      <guid>https://nychighliferadio.com/news/saint-lucia-cricket-return/</guid>
+    </item>
+    <item>
+      <title>Haitian live music finds a New York connection</title>
+      <link>https://nychighliferadio.com/news/haiti-live-music-new-york/</link>
+      <description>NYC High Life Radio follows BéLo’s New York appearance and the conversation around Caribbean music.</description>
+      <guid>https://nychighliferadio.com/news/haiti-live-music-new-york/</guid>
+    </item>
+    <item>
+      <title>Guyana’s housing target puts construction delivery in focus</title>
+      <link>https://nychighliferadio.com/news/guyana-steel-frame-housing/</link>
+      <description>NYC High Life Radio examines the questions behind a proposed role for steel-frame housing.</description>
+      <guid>https://nychighliferadio.com/news/guyana-steel-frame-housing/</guid>
+    </item>
+    <item>
+      <title>PEP payment pledge: what exam workers should watch next</title>
+      <link>https://nychighliferadio.com/news/pep-payment-deadline-what-exam-workers-should-watch/</link>
+      <description>NYC High Life Radio looks at the payment timetable reported for Jamaica’s PEP examination workers and the questions that remain.</description>
+      <guid>https://nychighliferadio.com/news/pep-payment-deadline-what-exam-workers-should-watch/</guid>
+    </item>
+  </channel>
+</rss>

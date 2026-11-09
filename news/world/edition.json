@@ -1,0 +1,83 @@
+{
+  "reviewedAt": "2026-11-09",
+  "stories": [
+    {
+      "id": "haiti-hunger",
+      "place": "Haiti",
+      "topic": "Food & livelihoods",
+      "title": "Haiti’s hunger crisis is projected to deepen",
+      "source": "IPC",
+      "sourceDate": "2026-10-28",
+      "sourceUrl": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165467/?iso3=HTI",
+      "summary": "The IPC estimates that 5.94 million people face crisis-level hunger or worse during September 2026–February 2027. Its projection rises to 6.35 million for March–June 2027. Insecurity, displacement, high food prices and climate shocks are driving the outlook.",
+      "context": "The later figure is a forecast, not a current headcount. Food access and support for farming families both deserve attention.",
+      "metric": "6.35M",
+      "metricLabel": "people projected to face acute hunger, March–June 2027"
+    },
+    {
+      "id": "sudan-essential-services",
+      "place": "Sudan",
+      "topic": "Conflict & daily life",
+      "title": "Sudan’s damaged power network puts essential care at risk",
+      "source": "United Nations briefing",
+      "sourceDate": "2026-11-04",
+      "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+      "summary": "The UN says strikes on Sudan’s energy infrastructure are disrupting water and hospital care. Its nearly $2.9 billion humanitarian appeal was 47% funded on November 4.",
+      "context": "Watch the consequences for essential services and aid access.",
+      "metric": "47%",
+      "metricLabel": "of the appeal funded, November 4"
+    },
+    {
+      "id": "congo-classrooms",
+      "place": "DR Congo",
+      "topic": "Children & displacement",
+      "title": "Fighting in eastern Congo is closing classrooms",
+      "source": "United Nations briefing",
+      "sourceDate": "2026-11-04",
+      "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+      "summary": "The UN reports that fighting in Uvira territory has closed 26 primary schools, affecting nearly 6,000 children. Violence is also displacing families and obstructing aid.",
+      "context": "Education is one of the lasting costs of conflict.",
+      "metric": "26",
+      "metricLabel": "primary schools closed in Uvira, according to the UN"
+    },
+    {
+      "id": "climate-preparedness",
+      "place": "Global",
+      "topic": "Climate & resilience",
+      "title": "Climate preparedness faces a major funding shortfall",
+      "source": "UN Environment Programme",
+      "sourceDate": "2026-11-04",
+      "sourceUrl": "https://www.unep.org/en/news-and-stories/press-release/world-heads-overshoot-15degc-adaptation-too-slow",
+      "summary": "UNEP estimates developing countries will need about $305 billion a year for climate adaptation by 2035. Even the ambition to triple international public adaptation finance would cover only 20–29% of estimated needs, the agency says.",
+      "context": "For small island states and other exposed communities, the next question is how funding commitments become practical protection.",
+      "metric": "$305B",
+      "metricLabel": "estimated annual adaptation needs in developing countries by 2035"
+    },
+    {
+      "id": "afghanistan-education",
+      "place": "Afghanistan",
+      "topic": "Education & rights",
+      "title": "Millions of children remain outside formal education",
+      "source": "UNICEF / UNESCO",
+      "sourceDate": "2026-11-04",
+      "sourceUrl": "https://www.unicef.org/afghanistan/press-releases/more-half-primary-school-age-children-afghanistan-outside-formal-education-unesco",
+      "summary": "UNICEF and UNESCO report that 53% of primary-school-age children in Afghanistan are outside formal general education. Their report also says more than 2.6 million girls have been denied secondary education since 2021.",
+      "context": "Community learning offers some access, but the agencies say it cannot replace the right to formal schooling.",
+      "metric": "53%",
+      "metricLabel": "of primary-school-age children outside formal general education"
+    },
+    {
+      "id": "yemen-displacement",
+      "place": "Yemen",
+      "topic": "Displacement & aid",
+      "title": "Displacement and rising prices squeeze families in Yemen",
+      "source": "United Nations briefing",
+      "sourceDate": "2026-11-04",
+      "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+      "summary": "The UN reports nearly 310,000 people displaced in Yemen since early August. Disrupted transport has driven up prices in Taiz; many families still need shelter.",
+      "context": "Food, shelter and safe delivery routes deserve sustained attention.",
+      "metric": "310K",
+      "metricLabel": "people displaced since early August, approximately"
+    }
+  ]
+}

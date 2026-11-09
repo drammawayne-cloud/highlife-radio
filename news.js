@@ -11,7 +11,16 @@ window.openNewsStory=async function(url,event){
 };
 function pictureFor(story){const image=document.createElement('img');image.width=1200;image.height=630;image.decoding='async';image.loading='lazy';image.alt=story.imageAlt||'NYC High Life Radio editorial preview';const fallback=new URL('assets/news-card.png',newsRoot);try{image.src=newsLink(story.image||fallback).href;}catch{image.src=fallback;}image.onerror=()=>{image.onerror=null;if(story.url){image.removeAttribute('src');image.alt='Story picture temporarily unavailable';}else image.src=fallback;};return image;}
 function storyAnchor(story){const a=document.createElement('a');a.href=newsLink(story.url);return a;}
-function newsCard(story){const card=document.createElement('article');card.className='news-card';const imageLink=storyAnchor(story);imageLink.className='news-picture-link';if(story.imageLabel)imageLink.dataset.imageLabel=story.imageLabel;imageLink.setAttribute('aria-label','Read '+story.title);imageLink.append(pictureFor(story));const body=document.createElement('div');body.className='news-card-content';const source=document.createElement('p');source.className='news-source';source.textContent='NYC HIGH LIFE RADIO';const heading=document.createElement('h3'),a=storyAnchor(story);a.textContent=story.title;heading.append(a);const summary=document.createElement('p');summary.textContent=story.summary;body.append(source,heading,summary);card.append(imageLink,body);return card;}
+function newsCard(story){
+ const card=document.createElement('article');card.className='news-card'+(story.brief?' world-news-card':'');
+ if(!story.brief){const imageLink=storyAnchor(story);imageLink.className='news-picture-link';if(story.imageLabel)imageLink.dataset.imageLabel=story.imageLabel;imageLink.setAttribute('aria-label','Read '+story.title);imageLink.append(pictureFor(story));card.append(imageLink);}
+ const body=document.createElement('div');body.className='news-card-content';
+ const source=document.createElement('p');source.className='news-source';source.textContent=story.brief?'WORLD BRIEF / '+story.sourcePublisher:'NYC HIGH LIFE RADIO / ARCHIVE';
+ const heading=document.createElement('h3'),a=storyAnchor(story);a.textContent=story.title;heading.append(a);
+ const summary=document.createElement('p');summary.textContent=story.summary;body.append(source,heading,summary);
+ const value=story.sourceDate||story.publishedAt;if(value){const time=document.createElement('time');time.dateTime=value;time.textContent=(story.brief?'Source report: ':'Published: ')+new Date(value+'T12:00:00Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'});body.append(time);}
+ card.append(body);return card;
+}
 function featuredNews(stories){
  const region=document.getElementById('featured-news');if(!region)return;
  const track=region.querySelector('.featured-track'),dots=region.querySelector('.featured-dots'),status=region.querySelector('.featured-count'),previous=region.querySelector('[data-slide=previous]'),next=region.querySelector('[data-slide=next]');
@@ -51,7 +60,22 @@ function renderRegionalNews(stories){
  }
 }
 
-function renderGrid(){const feed=document.getElementById('news-feed');if(!feed)return;const term=document.getElementById('news-search')?.value.toLowerCase().trim()||'',region=document.getElementById('news-region-filter')?.value||'';const filtered=currentStories.filter(s=>(!region||s.region===region)&&(s.title+' '+s.summary).toLowerCase().includes(term));feed.replaceChildren();if(!filtered.length){feed.textContent=term?'No stories match your search.':'Our newsroom is preparing original NYC High Life Radio stories. New articles appear after editorial review.';return;}for(const story of filtered)feed.append(newsCard(story));}
-async function loadNews(){try{const response=await fetch(new URL('news/index.json',newsRoot),{cache:'no-cache'});if(!response.ok)throw Error();const stories=await response.json();if(!Array.isArray(stories))throw Error();currentStories=stories.filter(s=>!document.body.dataset.category||(s.category||'news')===document.body.dataset.category);featuredNews(currentStories.filter(s=>s.featured!==false&&(!document.getElementById('featured-news')?.dataset.newsRegion||s.region===document.getElementById('featured-news').dataset.newsRegion)));renderRegionalNews(currentStories);renderGrid();}catch{const status=document.getElementById('news-status');if(status)status.textContent='The newsroom is temporarily unavailable. Please try again soon.';}}
+function matchesRegion(story,region){
+ if(!region)return true;
+ if(region==='new-york')return ['brooklyn','new-york'].includes(story.region);
+ if(region==='caribbean')return ['guyana','jamaica','saint-lucia','trinidad-tobago','haiti','caribbean'].some(value=>story.region===value||story.regions?.includes(value));
+ return story.region===region||story.regions?.includes(region);
+}
+function renderGrid(){
+ const feed=document.getElementById('news-feed');if(!feed)return;
+ const term=document.getElementById('news-search')?.value.toLowerCase().trim()||'',region=document.getElementById('news-region-filter')?.value||'';
+ const filtered=currentStories.filter(s=>matchesRegion(s,region)&&(s.title+' '+s.summary+' '+(s.sourcePublisher||'')).toLowerCase().includes(term));feed.replaceChildren();
+ if(!filtered.length){feed.textContent='No stories match this selection. Try another region or search term.';return;}
+ for(const story of filtered)feed.append(newsCard(story));
+}
+const regionControl=document.getElementById('news-region-filter');
+const requestedRegion=new URLSearchParams(location.search).get('region');
+if(regionControl&&[...regionControl.options].some(o=>o.value===requestedRegion))regionControl.value=requestedRegion;
+async function loadNews(){try{const response=await fetch(new URL('news/index.json',newsRoot),{cache:'no-cache'});if(!response.ok)throw Error();const stories=await response.json();if(!Array.isArray(stories))throw Error();currentStories=stories.filter(s=>!document.body.dataset.category||(s.category||'news')===document.body.dataset.category);featuredNews(currentStories.filter(s=>s.featured!==false&&(!document.getElementById('featured-news')?.dataset.newsRegion||s.region===document.getElementById('featured-news').dataset.newsRegion)));renderRegionalNews(currentStories);renderGrid();const status=document.getElementById('news-status');if(status)status.textContent='';}catch{const status=document.getElementById('news-status');if(status)status.textContent='The newsroom is temporarily unavailable. Please try again soon.';}}
 document.getElementById('news-search')?.addEventListener('input',renderGrid);document.getElementById('news-region-filter')?.addEventListener('change',renderGrid);
 loadNews();setInterval(loadNews,15*60*1000);

@@ -1,0 +1,183 @@
+[
+  {
+    "title": "Haiti’s hunger crisis is projected to deepen",
+    "summary": "The IPC estimates that 5.94 million people face crisis-level hunger or worse during September 2026–February 2027. Its projection rises to 6.35 million for March–June 2027. Insecurity, displacement, high food prices and climate shocks are driving the outlook.",
+    "url": "/news/world/#haiti-hunger",
+    "region": "world",
+    "regions": [
+      "world",
+      "haiti"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "IPC",
+    "sourceDate": "2026-10-28",
+    "sourceUrl": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165467/?iso3=HTI",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Sudan’s damaged power network puts essential care at risk",
+    "summary": "The UN says strikes on Sudan’s energy infrastructure are disrupting water and hospital care. Its nearly $2.9 billion humanitarian appeal was 47% funded on November 4.",
+    "url": "/news/world/#sudan-essential-services",
+    "region": "world",
+    "regions": [
+      "world"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "United Nations briefing",
+    "sourceDate": "2026-11-04",
+    "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Fighting in eastern Congo is closing classrooms",
+    "summary": "The UN reports that fighting in Uvira territory has closed 26 primary schools, affecting nearly 6,000 children. Violence is also displacing families and obstructing aid.",
+    "url": "/news/world/#congo-classrooms",
+    "region": "world",
+    "regions": [
+      "world"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "United Nations briefing",
+    "sourceDate": "2026-11-04",
+    "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Climate preparedness faces a major funding shortfall",
+    "summary": "UNEP estimates developing countries will need about $305 billion a year for climate adaptation by 2035. Even the ambition to triple international public adaptation finance would cover only 20–29% of estimated needs, the agency says.",
+    "url": "/news/world/#climate-preparedness",
+    "region": "world",
+    "regions": [
+      "world"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "UN Environment Programme",
+    "sourceDate": "2026-11-04",
+    "sourceUrl": "https://www.unep.org/en/news-and-stories/press-release/world-heads-overshoot-15degc-adaptation-too-slow",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Millions of children remain outside formal education",
+    "summary": "UNICEF and UNESCO report that 53% of primary-school-age children in Afghanistan are outside formal general education. Their report also says more than 2.6 million girls have been denied secondary education since 2021.",
+    "url": "/news/world/#afghanistan-education",
+    "region": "world",
+    "regions": [
+      "world"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "UNICEF / UNESCO",
+    "sourceDate": "2026-11-04",
+    "sourceUrl": "https://www.unicef.org/afghanistan/press-releases/more-half-primary-school-age-children-afghanistan-outside-formal-education-unesco",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Displacement and rising prices squeeze families in Yemen",
+    "summary": "The UN reports nearly 310,000 people displaced in Yemen since early August. Disrupted transport has driven up prices in Taiz; many families still need shelter.",
+    "url": "/news/world/#yemen-displacement",
+    "region": "world",
+    "regions": [
+      "world"
+    ],
+    "category": "news",
+    "publishedAt": "2026-11-09",
+    "sourcePublisher": "United Nations briefing",
+    "sourceDate": "2026-11-04",
+    "sourceUrl": "https://transcripts.un.org/en/briefing/sg/2026-11-04",
+    "brief": true,
+    "featured": false
+  },
+  {
+    "title": "Brooklyn library puts teen creativity on its autumn calendar",
+    "summary": "Writing, journaling and seasonal crafts feature in Brooklyn Public Library’s October program ideas for young readers.",
+    "url": "/news/cloud-brooklyn-library-teen-autumn-programs/",
+    "image": "/assets/news/cloud-brooklyn-library-teen-autumn-programs.jpg",
+    "imageAlt": "Original conceptual illustration of notebooks and autumn craft materials on a library table",
+    "imageLabel": "Editorial illustration",
+    "region": "brooklyn",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "Brooklyn families: bring better questions to the school search",
+    "summary": "NYC High Life Radio looks at a Brooklyn Public Library event built around researching public schools.",
+    "url": "/news/new-york-school-research/",
+    "image": "/assets/news/new-york-school-research-illustration.png",
+    "imageAlt": "Brooklyn families: bring better questions to the school search — conceptual editorial illustration",
+    "imageLabel": "Editorial illustration",
+    "region": "brooklyn",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "Trinidad and Tobago: mathematics moves into the spotlight",
+    "summary": "NYC High Life Radio follows the next stage of a secondary-school mathematics competition.",
+    "url": "/news/trinidad-mathematics-competition/",
+    "image": "/assets/news/trinidad-mathematics-competition-illustration.png",
+    "imageAlt": "Trinidad and Tobago: mathematics moves into the spotlight — conceptual editorial illustration",
+    "imageLabel": "Editorial illustration",
+    "region": "trinidad-tobago",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "Saint Lucia cricket: a return worth following",
+    "summary": "NYC High Life Radio puts women’s cricket and competitive opportunity in the spotlight.",
+    "url": "/news/saint-lucia-cricket-return/",
+    "image": "/assets/news/saint-lucia-cricket-return-illustration.png",
+    "imageAlt": "Saint Lucia cricket: a return worth following — conceptual editorial illustration",
+    "imageLabel": "Editorial illustration",
+    "region": "saint-lucia",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "Haitian live music finds a New York connection",
+    "summary": "NYC High Life Radio follows BéLo’s New York appearance and the conversation around Caribbean music.",
+    "url": "/news/haiti-live-music-new-york/",
+    "image": "/assets/news/haiti-live-music-new-york-illustration.png",
+    "imageAlt": "Haitian live music finds a New York connection — conceptual editorial illustration",
+    "imageLabel": "Editorial illustration",
+    "region": "haiti",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "Guyana’s housing target puts construction delivery in focus",
+    "summary": "NYC High Life Radio examines the questions behind a proposed role for steel-frame housing.",
+    "url": "/news/guyana-steel-frame-housing/",
+    "image": "/assets/news/guyana-steel-frame-housing-illustration.png",
+    "imageAlt": "Guyana’s housing target puts construction delivery in focus — conceptual editorial illustration",
+    "imageLabel": "Editorial illustration",
+    "region": "guyana",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  },
+  {
+    "title": "PEP payment pledge: what exam workers should watch next",
+    "summary": "NYC High Life Radio looks at the payment timetable reported for Jamaica’s PEP examination workers and the questions that remain.",
+    "url": "/news/pep-payment-deadline-what-exam-workers-should-watch/",
+    "image": "/assets/news/pep-exam-payments-illustration.png",
+    "imageAlt": "Editorial illustration of examination papers, pencils, a calculator and payment paperwork in a Caribbean classroom.",
+    "imageLabel": "Editorial illustration",
+    "region": "jamaica",
+    "category": "news",
+    "publishedAt": "2026-10-15",
+    "featured": true
+  }
+]
