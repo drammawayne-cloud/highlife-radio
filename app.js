@@ -36,8 +36,4 @@ fetch('./station.json').then(r=>{if(!r.ok)throw Error('Missing configuration');r
 const themeButton=$('theme-toggle');
 function syncTheme(){const dark=document.documentElement.dataset.theme==='dark';themeButton.textContent=dark?'☀':'☾';themeButton.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');themeButton.title=themeButton.getAttribute('aria-label');document.querySelector('meta[name="theme-color"]').content=dark?'#090b0a':'#f5f2e8';}
 syncTheme();themeButton.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('highlife-theme',theme);}catch{}syncTheme();});
-const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');let spinPaused=reducedMotion.matches;
-function syncSpin(){document.querySelector('.record-stage').classList.toggle('spin-paused',spinPaused);$('spin-toggle').textContent=spinPaused?'▶ Spin record':'Ⅱ Pause spin';$('spin-toggle').setAttribute('aria-pressed',String(spinPaused));$('spin-toggle').setAttribute('aria-label',spinPaused?'Start record animation':'Pause record animation');}
-syncSpin();$('spin-toggle').addEventListener('click',()=>{spinPaused=!spinPaused;syncSpin();});reducedMotion.addEventListener('change',e=>{spinPaused=e.matches;syncSpin();});
-function flipRecord(){const flipped=$('record-flip').classList.toggle('flipped');$('record-flip').setAttribute('aria-pressed',String(flipped));$('record-flip').setAttribute('aria-label',flipped?'Flip record to side A':'Flip record to side B');$('flip-control').textContent=flipped?'↻ Flip to side A':'↻ Flip record';}
-$('record-flip').addEventListener('click',flipRecord);$('flip-control').addEventListener('click',flipRecord);
+// Decorative record rotation and side changes run automatically in CSS.

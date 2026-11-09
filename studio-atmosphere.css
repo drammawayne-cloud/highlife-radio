@@ -27,8 +27,6 @@
 :root:not([data-theme=light]) .record-label strong{font-size:11px}
 :root:not([data-theme=light]) .record-label small{font-size:4px;margin-top:4px}
 :root:not([data-theme=light]) .record-label::after{width:4px;height:4px;margin-top:4px}
-:root:not([data-theme=light]) .record-controls{top:auto;bottom:0;right:0;flex-direction:row}
-:root:not([data-theme=light]) .record-controls button{background:#2b1a11e8;border-color:#a88455}
 :root:not([data-theme=light]) .air-strip{background:#2b1e15ed;border-color:#805b35}
 :root:not([data-theme=light]) .team{background:linear-gradient(115deg,#342619eb,#231a12ed)!important;border-color:#8f693a}
 :root:not([data-theme=light]) footer{background:#261a12e8}

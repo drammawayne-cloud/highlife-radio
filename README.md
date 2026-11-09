@@ -28,7 +28,7 @@ Serve this folder with any static server, for example `python3 -m http.server 41
 
 The homepage defaults to dark mode with black, red, gold and green. The header sun/moon button switches the entire page between dark and light palettes and saves the visitor preference in local browser storage when available. Audio is not restarted by display changes.
 
-The hero record spins continuously, with a Pause spin control. Clicking the record or Flip record turns it between Side A and Side B. Reduced-motion preference pauses rotation by default and removes the flip transition; visitors can explicitly start the rotation.
+The decorative hero record spins continuously and turns automatically between Side A and Side B on a gentle 28-second cycle. It has no click target or visible animation controls. The visitor’s reduced-motion preference displays a still record; the radio playback controls remain independent.
 
 ## Studio atmosphere update — November 5, 2026
 
