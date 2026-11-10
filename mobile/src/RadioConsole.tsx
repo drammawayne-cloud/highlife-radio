@@ -5,6 +5,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { AudioWaveform, NightVisionDancers } from "./AudioVisuals";
 import { useRadioContext } from "./RadioContext";
 import { C, DISPLAY } from "./theme";
 export function RadioConsole() {
@@ -41,15 +42,7 @@ export function RadioConsole() {
         <Text style={s.frequency}>NYC ↔ WORLDWIDE</Text>
       </View>
       <View style={s.body}>
-        <View
-          style={s.speaker}
-          accessibilityElementsHidden
-          importantForAccessibility="no-hide-descendants"
-        >
-          {Array.from({ length: 11 }, (_, i) => (
-            <View key={i} style={s.grille} />
-          ))}
-        </View>
+        <AudioWaveform />
         <View style={s.controls}>
           <Pressable
             accessibilityRole="button"
@@ -68,16 +61,24 @@ export function RadioConsole() {
           <Text style={s.press}>{active ? "TAP TO PAUSE" : "PRESS PLAY"}</Text>
         </View>
       </View>
-      <View style={s.display}>
-        <Text numberOfLines={2} style={s.track}>
-          {track.fresh ? track.title : station.stationName}
-        </Text>
-        <Text numberOfLines={1} style={s.artist}>
-          {track.fresh ? track.artist : "New York energy. Caribbean soul."}
-        </Text>
-        <Text accessibilityLiveRegion="polite" style={s.status}>
-          {audio.message}
-        </Text>
+      <View
+        style={[
+          s.display,
+          { flexDirection: "row", alignItems: "center", gap: 10 },
+        ]}
+      >
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Text numberOfLines={2} style={s.track}>
+            {track.fresh ? track.title : station.stationName}
+          </Text>
+          <Text numberOfLines={1} style={s.artist}>
+            {track.fresh ? track.artist : "New York energy. Caribbean soul."}
+          </Text>
+          <Text accessibilityLiveRegion="polite" style={s.status}>
+            {audio.message}
+          </Text>
+        </View>
+        <NightVisionDancers />
       </View>
       <View style={s.feet}>
         <View style={s.foot} />

@@ -6,6 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { NightVisionDancers } from "./AudioVisuals";
 import { useRadioContext } from "./RadioContext";
 import { C } from "./theme";
 export function LivePlayer() {
@@ -35,6 +36,7 @@ export function LivePlayer() {
           {audio.message}
         </Text>
       </View>
+      <NightVisionDancers compact />
       <Pressable
         disabled={!audio.ready}
         accessibilityRole="button"
