@@ -11,6 +11,7 @@ Version 1.0.0; Expo SDK 57. App changes are confined to mobile/. The production 
 - Browser preview reports Streaming live with real station audio source and fresh Now Playing updates across screen navigation.
 - All 11 rotation blocks start collapsed; Sunshine Morning Show expands to 06:00–10:00 and collapses again.
 - Studio room background, capitalized FROM NEW YORK TO THE WORLD, and removal of the Smokey profile/artwork from the app.
+- Unsigned Release archive passed in local Xcode: /tmp/highlife-release/NYCHighLifeRadio.xcarchive. App Store export began and reached codesign, then waited for the protected Mac keychain permission prompt. No signed IPA is established yet.
 - Registered explicit Apple bundle ID com.nychighlife.highliferadio and created App Store Connect record 6833131455, currently Prepare for Submission.
 
 ## Runnable preview
@@ -23,7 +24,7 @@ Open on a phone or computer and tap Listen Live. This preview is separately host
 
 ## Remaining release gates
 
-No signed IPA or Apple upload is established yet. Native device playback, lock-screen controls, interruption recovery, store screenshots and TestFlight validation remain outstanding.
+No signed IPA or Apple upload is established yet. The signing/export process is waiting for the owner to approve the Mac keychain prompt. The initial automatic development-signing attempt failed because no development device/profile exists; unsigned archive then succeeded. Native device playback, lock-screen controls, interruption recovery, store screenshots and TestFlight validation remain outstanding.
 
 Apple listing text has been entered, but Save returned required reviewer email/phone errors. Do not claim the metadata has been saved until that form succeeds. Reviewer name is Dwayne Vidal; email and phone remain owner inputs. Music/brand rights, mature-content answers and server privacy practices remain unconfirmed. Stable public support/privacy pages must be supplied and verified.
 
