@@ -11,7 +11,7 @@ Version 1.0.0; Expo SDK 57. App changes are confined to mobile/. The production 
 - Browser preview reports Streaming live with real station audio source and fresh Now Playing updates across screen navigation.
 - All 11 rotation blocks start collapsed; Sunshine Morning Show expands to 06:00–10:00 and collapses again.
 - Studio room background, capitalized FROM NEW YORK TO THE WORLD, and removal of the Smokey profile/artwork from the app.
-- Unsigned Release archive passed in local Xcode: /tmp/highlife-release/NYCHighLifeRadio.xcarchive. App Store export began and reached codesign, then waited for the protected Mac keychain permission prompt. No signed IPA is established yet.
+- Unsigned Release archive passed in local Xcode: /tmp/highlife-release/NYCHighLifeRadio.xcarchive. App Store export succeeded after owner keychain approval. The IPA passed codesign --verify --deep --strict. Version 1.0.0, build 1, team 8JW27TKSRM.
 - Registered explicit Apple bundle ID com.nychighlife.highliferadio and created App Store Connect record 6833131455, currently Prepare for Submission.
 
 ## Runnable preview
@@ -24,7 +24,7 @@ Open on a phone or computer and tap Listen Live. This preview is separately host
 
 ## Remaining release gates
 
-No signed IPA or Apple upload is established yet. The signing/export process is waiting for the owner to approve the Mac keychain prompt. The initial automatic development-signing attempt failed because no development device/profile exists; unsigned archive then succeeded. Native device playback, lock-screen controls, interruption recovery, store screenshots and TestFlight validation remain outstanding.
+Signed IPA exported and uploaded to Apple successfully on 2026-11-10. Xcode reported Uploaded NYCHighLifeRadio and EXPORT SUCCEEDED. Upload receipt at 15:32 EST reports Upload succeeded and Uploaded package is processing. TestFlight list visibility is still pending. Upload warnings report missing dSYM files for React.framework, ReactNativeDependencies.framework and hermesvm.framework; upload was not blocked. The initial development-signing attempt failed due to no registered development device/profile; archive and App Store distribution signing subsequently succeeded. Native device playback, lock-screen controls, interruption recovery, store screenshots and TestFlight validation remain outstanding.
 
 Apple listing text has been entered, but Save returned required reviewer email/phone errors. Do not claim the metadata has been saved until that form succeeds. Reviewer name is Dwayne Vidal; email and phone remain owner inputs. Music/brand rights, mature-content answers and server privacy practices remain unconfirmed. Stable public support/privacy pages must be supplied and verified.
 
