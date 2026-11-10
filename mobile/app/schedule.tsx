@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { useRadioContext } from "../src/RadioContext";
 import { stationTime } from "../src/station";
 import {
@@ -12,11 +12,12 @@ import {
   Section,
   styles,
 } from "../src/ui";
-import { conceptShows } from "../src/editorial";
+import { rotation } from "../src/rotation";
 import { siteUrl } from "../src/brand";
-import { C, DISPLAY } from "../src/theme";
+import { C } from "../src/theme";
 export default function Schedule() {
   const { station, clock } = useRadioContext();
+  const [expanded, setExpanded] = useState<string | null>(null);
   const [selectedDay, setDay] = useState<number | null>(null);
   const day = selectedDay ?? stationTime(station.timezone, new Date(clock)).day;
   const slots = station.schedule
@@ -83,63 +84,51 @@ export default function Schedule() {
           )}
         </>
       ) : (
-        <Card
-          title="Live station rotation"
-          body="Tune in to NYC High Life Radio for the station’s live feed. A dated show schedule has not been published by the station."
-        />
+        <Text style={styles.small}>
+          Daily rotation blocks · Individual DJ assignments announced
+          separately.
+        </Text>
       )}
-      <Section>THE SOUND HAS PERSONALITY</Section>
-      <Text style={styles.title}>Meet your next{`\n`}favorite show.</Text>
-      <Text style={styles.small}>
-        Website concept shows · Hosts and broadcast schedule to be announced.
+      <Section>THE RHYTHM OF YOUR DAY</Section>
+      <Text style={styles.body}>
+        Select a rotation name for its time and details. All times are New York
+        time.
       </Text>
-      {conceptShows.map((show) => (
+      {rotation.map((show) => (
         <View
-          key={show.title}
-          style={[
-            styles.card,
-            {
-              backgroundColor: show.color,
-              marginTop: 14,
-              borderColor: show.color,
-              padding: 22,
-            },
-          ]}
+          key={show.name}
+          style={[styles.card, { padding: 14, marginTop: 8 }]}
         >
-          <Text
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={show.name}
+            accessibilityState={{ expanded: expanded === show.name }}
+            onPress={() =>
+              setExpanded(expanded === show.name ? null : show.name)
+            }
             style={{
-              color: show.ink,
-              fontSize: 10,
-              fontWeight: "800",
-              letterSpacing: 1.4,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              minHeight: 44,
             }}
           >
-            {show.time} · CONCEPT SHOW
-          </Text>
-          <Text
-            style={{
-              fontFamily: DISPLAY,
-              fontSize: 52,
-              lineHeight: 51,
-              color: show.ink,
-              marginTop: 22,
-            }}
-          >
-            {show.title.toUpperCase()}
-          </Text>
-          <Text
-            style={{
-              fontSize: 13,
-              lineHeight: 20,
-              color: show.ink,
-              marginTop: 12,
-            }}
-          >
-            {show.copy}
-          </Text>
-          <Text style={{ fontSize: 10, color: show.ink, marginTop: 14 }}>
-            Host announcement coming soon
-          </Text>
+            <Text style={[styles.cardTitle, { fontSize: 25, flex: 1 }]}>
+              {show.name}
+            </Text>
+            <Text style={{ color: C.acid, fontSize: 24 }}>
+              {expanded === show.name ? "−" : "+"}
+            </Text>
+          </Pressable>
+          {expanded === show.name && (
+            <View>
+              <Text style={{ color: C.acid, marginTop: 8, fontWeight: "700" }}>
+                {show.start}–{show.end}
+              </Text>
+              <Text style={styles.body}>{show.description}</Text>
+              <Text style={styles.small}>Station rotation block</Text>
+            </View>
+          )}
         </View>
       ))}
       <ExternalLink

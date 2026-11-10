@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import {
   Image,
+  ImageBackground,
   Linking,
   Pressable,
   ScrollView,
@@ -23,14 +24,20 @@ export const DAYS = [
 ];
 export function Page({ children }: { children: ReactNode }) {
   return (
-    <SafeAreaView edges={["top", "left", "right"]} style={styles.safe}>
-      <ScrollView contentContainerStyle={styles.page}>
-        {children}
-        <Text style={styles.footer}>
-          NYCHIGHLIFERADIO.COM · WORLDWIDE CONNECTION
-        </Text>
-      </ScrollView>
-    </SafeAreaView>
+    <ImageBackground
+      source={require("../assets/website/broadcast-room.webp")}
+      resizeMode="cover"
+      style={{ flex: 1 }}
+    >
+      <SafeAreaView edges={["top", "left", "right"]} style={styles.safe}>
+        <ScrollView contentContainerStyle={styles.page}>
+          {children}
+          <Text style={styles.footer}>
+            NYCHIGHLIFERADIO.COM · WORLDWIDE CONNECTION
+          </Text>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 export function Stripes() {
@@ -149,7 +156,7 @@ export function ExternalLink({ label, url }: { label: string; url: string }) {
   );
 }
 export const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: C.ink },
+  safe: { flex: 1, backgroundColor: "rgba(12, 8, 5, 0.78)" },
   page: { padding: 20, paddingTop: 10, paddingBottom: 30 },
   brandRow: {
     flexDirection: "row",
@@ -182,7 +189,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   card: {
-    backgroundColor: C.panel,
+    backgroundColor: "rgba(25, 20, 15, 0.86)",
     borderWidth: 1,
     borderColor: C.line,
     borderRadius: 8,

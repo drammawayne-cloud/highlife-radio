@@ -53,7 +53,7 @@ export default function Home() {
     <Page>
       <Brand />
       <View style={s.hero}>
-        <Text style={s.eyebrow}>From New York to the world.</Text>
+        <Text style={s.eyebrow}>FROM NEW YORK TO THE WORLD.</Text>
         <Text
           accessibilityRole="header"
           style={[s.headline, width < 360 && { fontSize: 60, lineHeight: 55 }]}
@@ -122,14 +122,6 @@ export default function Home() {
           <Text style={s.quickTitle}>SHOWS &{`\n`}DJs ↗</Text>
         </Link>
       </View>
-      <Card
-        title="THE WINNING TEAM."
-        body="Meet the voices behind the music. Explore Smokey Gwallaz and the people shaping our frequency."
-      >
-        <Link href="/discover" style={s.link}>
-          Meet The Winning Team →
-        </Link>
-      </Card>
       <Section>TAKE THE VIBE OFFLINE</Section>
       <Card
         title="Good music. Real connection."

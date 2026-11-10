@@ -20,26 +20,3 @@ export const stories = [
     alt: "Original conceptual illustration of notebooks and autumn craft materials on a library table",
   },
 ];
-export const conceptShows = [
-  {
-    title: "Rise & Vibe",
-    time: "06:00 – 10:00",
-    copy: "Reggae, R&B & your morning reset",
-    color: "#f6c95c",
-    ink: "#131b16",
-  },
-  {
-    title: "City to Island",
-    time: "16:00 – 19:00",
-    copy: "New York pace. Caribbean flavor.",
-    color: "#bc2538",
-    ink: "#fff4d6",
-  },
-  {
-    title: "After Hours",
-    time: "19:00 – 22:00",
-    copy: "Dancehall selections & late-night energy",
-    color: "#164e37",
-    ink: "#f6f3e8",
-  },
-];

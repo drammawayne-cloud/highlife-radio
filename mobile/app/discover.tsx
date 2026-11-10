@@ -1,9 +1,29 @@
+import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { Brand, Card, ExternalLink, Page, Section, styles } from "../src/ui";
 import { siteUrl } from "../src/brand";
-import { C, DISPLAY } from "../src/theme";
-import { stories } from "../src/editorial";
+import { C } from "../src/theme";
+import { NEWS_URL, parseNews, type NewsStory } from "../src/news";
 export default function Discover() {
+  const [stories, setStories] = useState<NewsStory[]>([]);
+  useEffect(() => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    void fetch(NEWS_URL, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("News unavailable");
+        return response.json();
+      })
+      .then((value) => {
+        if (!controller.signal.aborted) setStories(parseNews(value));
+      })
+      .catch(() => {})
+      .finally(() => clearTimeout(timeout));
+    return () => {
+      controller.abort();
+      clearTimeout(timeout);
+    };
+  }, []);
   return (
     <Page>
       <Brand />
@@ -18,17 +38,25 @@ export default function Discover() {
         url={siteUrl("news/")}
       />
       <Section>FEATURED FROM THE WEBSITE</Section>
+      {!stories.length && (
+        <Card
+          title="The latest from our newsroom"
+          body="Open the newsroom for current station stories, culture and community updates."
+        />
+      )}
       {stories.map((story) => (
         <View
           key={story.url}
           style={[styles.card, { padding: 0, overflow: "hidden" }]}
         >
-          <Image
-            source={story.image}
-            accessibilityLabel={story.alt}
-            style={{ width: "100%", height: 180 }}
-            resizeMode="cover"
-          />
+          {story.image && (
+            <Image
+              source={{ uri: story.image }}
+              accessibilityLabel={story.alt}
+              style={{ width: "100%", height: 180 }}
+              resizeMode="cover"
+            />
+          )}
           <View style={{ padding: 18 }}>
             <Text
               style={{
@@ -38,7 +66,7 @@ export default function Discover() {
                 fontWeight: "800",
               }}
             >
-              NEWS & COMMUNITY · CONCEPTUAL ILLUSTRATION
+              NEWS & COMMUNITY
             </Text>
             <Text style={[styles.cardTitle, { marginTop: 10 }]}>
               {story.title}
@@ -47,57 +75,6 @@ export default function Discover() {
           </View>
         </View>
       ))}
-      <Section>THE PEOPLE BEHIND THE FREQUENCY</Section>
-      <View
-        style={[
-          styles.card,
-          {
-            borderLeftColor: C.red,
-            borderLeftWidth: 3,
-            paddingBottom: 0,
-            overflow: "hidden",
-          },
-        ]}
-      >
-        <Text
-          style={{
-            color: C.green,
-            fontSize: 9,
-            fontWeight: "800",
-            letterSpacing: 1.5,
-          }}
-        >
-          NYC HIGH LIFE RADIO
-        </Text>
-        <Text style={[styles.title, { fontSize: 54, lineHeight: 51 }]}>
-          THE{`\n`}WINNING{`\n`}
-          <Text style={{ color: C.acid }}>TEAM.</Text>
-        </Text>
-        <Text style={styles.body}>Meet the voices behind the music.</Text>
-        <Image
-          source={require("../assets/website/smokey-gwallaz.png")}
-          accessibilityLabel="Smokey Gwallaz"
-          style={{ height: 280, width: "100%", marginTop: 18 }}
-          resizeMode="contain"
-        />
-        <View style={{ paddingBottom: 18 }}>
-          <Text style={{ color: C.acid, fontFamily: DISPLAY, fontSize: 36 }}>
-            SMOKEY GWALLAZ
-          </Text>
-          <Text style={styles.body}>
-            Seasoned DJ · Producer · Artist · Radio personality
-          </Text>
-          <Text style={styles.small}>Radio slot · Schedule coming soon</Text>
-          <ExternalLink
-            label="Explore Smokey Gwallaz’s profile ↗"
-            url={siteUrl("the-winning-team/smokey-gwallaz/")}
-          />
-          <ExternalLink
-            label="Meet The Winning Team ↗"
-            url={siteUrl("the-winning-team/")}
-          />
-        </View>
-      </View>
       <Section>ONE TEAM. UNLIMITED ENERGY.</Section>
       <Card
         title="TEAM UNSTOPPABLE."
