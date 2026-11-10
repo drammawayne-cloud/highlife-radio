@@ -4,7 +4,7 @@ Release candidate: 1.0.0. Continue `build/mobile-app-foundation` / PR #1. The ap
 
 ## Implemented
 
-One persistent player above Expo Router survives all three screens. Explicit Play/Pause, volume/mute controls, honest Now Playing fallback, runtime public station configuration, station-time programming, conditional published hosts/events, native sharing, listening help and in-app privacy information are implemented. No listener account, purchase, recording, location request, analytics SDK, or advertising SDK is included.
+One persistent player above Expo Router survives navigation between Home, Menu, rotation, news and listening help. Explicit Play/Pause, volume/mute controls, honest Now Playing fallback, runtime public station configuration, station-time programming, conditional published hosts/events, native sharing, listening help and in-app privacy information are implemented. No listener account, purchase, recording, location request, analytics SDK, or advertising SDK is included.
 
 Expo Audio configures the native playback session for silent-switch and background listening. The native lock screen registers live-stream Play/Pause metadata without seeking. Source errors and stalled playback get bounded retries; user/remote pause is respected. These native behaviors still need physical-device verification.
 
@@ -12,23 +12,11 @@ Keep bundle ID `com.nychighlife.highliferadio`. The separate local reference fou
 
 ## Signing and upload
 
-Apple requires Xcode 26+ with the iOS 26+ SDK for uploads as of April 28, 2026. The EAS production profile selects `sdk-57`, currently documented as Xcode 26.6. Full Xcode is absent on this Mac, so use the authenticated cloud-build route rather than treating bundle export as a signed app.
+The local Xcode 26.6 signing route is working. Version 1.0.0 build 5 was archived, signed and uploaded on November 10, 2026 at 6:54 p.m. New York time. App Store Connect visibly reports Processing. This is the final current candidate with the patched decoder, refreshed dependencies and the website's dated Reuters/AP reports. App Store Connect app 6833131455, team 8JW27TKSRM, bundle com.nychighlife.highliferadio. Build 3 remains selected in the draft until build 5 finishes processing. Upload is not review submission or public availability.
 
-```sh
-cd mobile
-npm ci
-npm run typecheck
-npm run lint
-npm test
-npx expo-doctor
-npx eas-cli@latest login
-npx eas-cli@latest init
-npx eas-cli@latest build --platform ios --profile production
-```
+The existing EAS profiles remain an alternative; an Expo account link is not required for local Xcode. Reviewer name and owner-supplied contact details are saved privately and in Apple's release draft. Content rights and mature-content answers remain unanswered; do not infer them from contact details. Manual release is selected.
 
-Use the account holder's Apple team. Do not borrow signing identifiers, alter the WayneKastro record, or invent Apple IDs. Apple/Expo account-holder approval may be needed to manage signing credentials.
-
-After a successful signed production build, upload through `npx eas-cli@latest submit --platform ios --profile production`. This uploads to App Store Connect/TestFlight; it does not publish to the public App Store. The user must complete account verification and any Apple agreements themselves.
+Local archive: /tmp/highlife-release/NYCHighLifeRadio-build5.xcarchive. Upload result: /tmp/highlife-build5-upload.log. Persistent release evidence: /Users/apple/Documents/NYC High Life Radio Releases/1.0.0-5/. Upload succeeded with a missing Hermes dSYM warning, which limits that framework's crash symbolication.
 
 ## Required device evidence
 
@@ -46,9 +34,9 @@ Run `npm run release:check` to identify unverified submission fields. It intenti
 
 ## Dependency status
 
-The runtime URL-decoding advisory GHSA-vcc3-ghjq-m6fr is fixed using `decode-uri-component@0.5.0`. SDK 57's CommonJS `query-string` needs a small documented default-export bridge installed by `scripts/patch-query-string.cjs`; unicode, arrays and malformed-percent regression tests cover it.
+The November 10 refresh identified a newer decoder advisory affecting the earlier 0.5.0 pin. The override is updated to decode-uri-component 0.5.1, with the existing CommonJS default-export bridge retained. The regression suite now includes distinct malformed percent runs and passes 26 tests. This changes the release candidate: build 3 already uploaded before this refresh is not the final patched candidate; a new numbered archive/upload is required.
 
-The remaining audit result is 27 findings: 19 high and 8 moderate. Root issues are `braces@3.0.3`, `node-forge@1.4.0` in Expo/Metro build tooling, and `uuid@7.0.3` in the native xcode configuration library. Current latest braces/node-forge versions are still affected. No incompatible forced Expo downgrade or untested UUID major override was applied. This remains an explicit release-risk review item, not a clean audit result.
+A compatible npm audit fix was prepared in the lockfile, reducing the reported findings to nine moderate tooling findings, with no high/critical findings in that lockfile result. Installed dependencies were refreshed, the subsequent audit reports nine moderate and zero high/critical findings, and iOS/Android release builds succeeded. Type checking and lint passed. iPhone simulator playback, waveform, navigation and extended background playback passed; Android emulator playback, navigation and media-session checks passed. Physical-device interruption and notification receipt remain unverified. No forced Expo downgrade or unsupported major SDK jump was used.
 
 ## Sources
 

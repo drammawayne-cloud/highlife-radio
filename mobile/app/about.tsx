@@ -52,7 +52,7 @@ export default function About() {
       />
       <Card
         title="Listening away from the app"
-        body="The iPhone app supports background audio and lock-screen Play/Pause while you listen. Disconnecting headphones or another app taking over audio may pause the stream. Press Play when you are ready to resume."
+        body="The native app supports background audio and system Play/Pause controls while you listen. Disconnecting headphones or another app taking over audio may pause the stream. Press Play when you are ready to resume."
       />
       <Card
         title="Mobile data"
@@ -84,8 +84,8 @@ export default function About() {
         body="If you subscribe, the station stores an Apple push-notification device token and an installation secret hash to deliver live-show alerts. The secret stays on your device. Turning off alerts in the app removes the station’s subscription record. No email address or listener account is needed."
       />
       <ExternalLink
-        label="Website privacy policy ↗"
-        url={siteUrl("privacy/")}
+        label="App privacy policy ↗"
+        url="https://mobile-app.highlife-radio.pages.dev/app-privacy"
       />
       <ExternalLink label="Website terms ↗" url={siteUrl("terms/")} />
       <Card

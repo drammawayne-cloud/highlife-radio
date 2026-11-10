@@ -39,7 +39,7 @@ export function RadioConsole() {
             />
           ))}
         </View>
-        <Text style={s.frequency}>NYC ↔ WORLDWIDE</Text>
+        <Text style={s.frequency}>NYC — WORLDWIDE</Text>
       </View>
       <View style={s.body}>
         <AudioWaveform />

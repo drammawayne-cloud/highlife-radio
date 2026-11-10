@@ -12,3 +12,13 @@ test("patched decoder handles malformed percent input without exponential recurs
   assert.equal(queryString.parse(`q=${malformed}`).q,malformed);
   assert.equal(queryString.parse("q=%").q,"%");
 });
+
+test("route decoder handles many distinct malformed percent runs", {timeout:5000}, () => {
+  let encoded="";
+  for(let i=0;i<12000;i++) encoded+=`%${Math.floor(i/256).toString(16).padStart(2,"0")}%${(i%256).toString(16).padStart(2,"0")}x`;
+  encoded+="%zz";
+  const value=queryString.parse(`q=${encoded}`).q;
+  assert.equal(typeof value,"string");
+  assert.ok(value.endsWith("%zz"));
+  assert.ok(value.length >= 12000 && value.length <= encoded.length);
+});

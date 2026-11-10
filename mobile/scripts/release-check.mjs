@@ -8,7 +8,10 @@ const https=value=>{try{return new URL(value).protocol==="https:";}catch{return 
 for(const key of ["supportUrl","privacyPolicyUrl"])if(!https(metadata[key]))missing.push(`${key}: a stable public HTTPS page is required`);
 for(const key of ["reviewContactEmail","reviewContactPhone","appleTeamId","appStoreConnectAppId"])if(!privateInfo[key])missing.push(`${key}: account-holder information is required in local release/private.json`);
 for(const key of ["rightsConfirmed","privacyPracticesConfirmed","ageRatingAnswersConfirmed","nativeDeviceTestsPassed","nativeScreenshotsCaptured","dependencyRiskReviewed"])if(metadata[key]!==true)missing.push(`${key}: not yet verified`);
-if(!app.extra?.eas?.projectId)missing.push("EAS project is not linked to an authenticated Expo account");
+let evidence={};
+try { evidence=JSON.parse(readFileSync(new URL("../release/build-evidence.json",import.meta.url))); } catch {}
+const localUpload=evidence.ios?.route==="local-xcode" && evidence.ios?.status==="uploaded" && evidence.ios?.version===app.version && evidence.ios?.build===app.ios.buildNumber && evidence.ios?.bundleIdentifier===app.ios.bundleIdentifier;
+if(!app.extra?.eas?.projectId && !localUpload)missing.push("A verified local Xcode upload or authenticated EAS project is required");
 console.log(`High Life Radio ${app.version} · ${app.ios.bundleIdentifier}`);
 if(missing.length){console.log("App Store submission is blocked:\n"+missing.map(value=>`- ${value}`).join("\n"));process.exitCode=1;}
 else console.log("Local release information is complete. Confirm the signed build, TestFlight results, screenshots and Apple account state before submission.");

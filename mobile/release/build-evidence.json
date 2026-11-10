@@ -1,0 +1,24 @@
+{
+  "ios": {
+    "version": "1.0.0",
+    "build": "5",
+    "bundleIdentifier": "com.nychighlife.highliferadio",
+    "appStoreConnectAppId": "6833131455",
+    "route": "local-xcode",
+    "status": "uploaded",
+    "uploadedAt": "2026-11-10T18:54:35-05:00",
+    "appleProcessing": "Processing",
+    "reviewSubmitted": false
+  },
+  "android": {
+    "version": "1.0.0",
+    "versionCode": 1,
+    "package": "com.nychighlife.highliferadio",
+    "status": "signed-local-build",
+    "playUploaded": false,
+    "aabSha256": "25d82090f7b155f997dca858084c8739d7d33089ded140ec8133143f7781d209",
+    "apkSha256": "70f97a97c65cafe933167dbe948bf9548b537e89af2ddf6c8fa3b137ecff6e5c",
+    "emulatorPlayback": "passed",
+    "physicalDeviceTested": false
+  }
+}

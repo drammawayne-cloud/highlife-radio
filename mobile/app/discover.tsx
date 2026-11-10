@@ -3,6 +3,7 @@ import { Brand, Card, ExternalLink, Page, Section, styles } from "../src/ui";
 import { siteUrl } from "../src/brand";
 import { C } from "../src/theme";
 import { useNews } from "../src/useNews";
+import { newsLabel } from "../src/news";
 export default function Discover() {
   const stories = useNews();
   return (
@@ -47,12 +48,12 @@ export default function Discover() {
                 fontWeight: "800",
               }}
             >
-              NEWS & COMMUNITY
+              {newsLabel(story)}
             </Text>
             <Text style={[styles.cardTitle, { marginTop: 10 }]}>
               {story.title}
             </Text>
-            <ExternalLink label="Read the story ↗" url={story.url} />
+            <ExternalLink label={story.kind === "video" ? "Open video report ↗" : "Read the story ↗"} url={story.url} />
           </View>
         </View>
       ))}

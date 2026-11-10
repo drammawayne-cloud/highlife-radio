@@ -10,11 +10,12 @@ import {
 import { Brand, Page, Section, styles } from "../src/ui";
 import { RadioConsole } from "../src/RadioConsole";
 import { useNews } from "../src/useNews";
+import { newsLabel, type NewsStory } from "../src/news";
 import { siteUrl } from "../src/brand";
 import { C, DISPLAY } from "../src/theme";
 export default function Home() {
   const stories = useNews();
-  const captions = stories.length
+  const captions: NewsStory[] = stories.length
     ? stories
     : [
         {
@@ -51,7 +52,7 @@ export default function Home() {
             style={s.story}
           >
             <Text style={s.number}>
-              NEWS / {String(i + 1).padStart(2, "0")} ↗
+              {story.source ? newsLabel(story) : `NEWS / ${String(i + 1).padStart(2, "0")}`} ↗
             </Text>
             <Text numberOfLines={3} style={s.caption}>
               {story.title}

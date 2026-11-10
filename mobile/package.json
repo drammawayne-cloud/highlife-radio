@@ -16,7 +16,8 @@
     "build:ios": "npx eas-cli@latest build --platform ios --profile production",
     "submit:ios": "npm run release:check && npx eas-cli@latest submit --platform ios --profile production",
     "postinstall": "node scripts/patch-query-string.cjs",
-    "release:check": "node scripts/release-check.mjs"
+    "release:check": "node scripts/release-check.mjs",
+    "build:android:local": "node scripts/build-android-local.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "~57.0.16",
@@ -54,6 +55,6 @@
     "eslint-config-expo": "~57.0.2"
   },
   "overrides": {
-    "decode-uri-component": "0.5.0"
+    "decode-uri-component": "0.5.1"
   }
 }
