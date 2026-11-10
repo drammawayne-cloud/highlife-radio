@@ -19,3 +19,5 @@ dist-all/
 ios/
 android/
 release/private.json
+
+.wrangler/

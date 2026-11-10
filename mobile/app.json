@@ -15,7 +15,7 @@
         ],
         "ITSAppUsesNonExemptEncryption": false
       },
-      "buildNumber": "1"
+      "buildNumber": "2"
     },
     "android": {
       "package": "com.nychighlife.highliferadio",
@@ -48,7 +48,9 @@
           "image": "./assets/icon.png",
           "imageWidth": 180
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true

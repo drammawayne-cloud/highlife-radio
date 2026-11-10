@@ -1,8 +1,8 @@
+import { NotificationNavigation } from "../src/NotificationNavigation";
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { C } from "../src/theme";
 import { RadioProvider } from "../src/RadioContext";
@@ -17,6 +17,7 @@ export default function Layout() {
   return (
     <RadioProvider>
       <StatusBar style="light" />
+      <NotificationNavigation />
       <View style={{ flex: 1, backgroundColor: C.ink }}>
         <View
           style={{ flex: 1, width: "100%", maxWidth: 620, alignSelf: "center" }}
@@ -42,52 +43,30 @@ export default function Layout() {
               options={{
                 title: "Home",
                 tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons
-                    name="radio"
-                    color={color}
-                    size={size}
-                  />
+                  <Text style={{ color, fontSize: size }}>⌂</Text>
+                ),
+              }}
+            />
+            <Tabs.Screen
+              name="menu"
+              options={{
+                title: "Menu",
+                tabBarIcon: ({ color, size }) => (
+                  <Text style={{ color, fontSize: size }}>☰</Text>
                 ),
               }}
             />
             <Tabs.Screen
               name="discover"
-              options={{
-                title: "Discover",
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons
-                    name="compass-outline"
-                    color={color}
-                    size={size}
-                  />
-                ),
-              }}
+              options={{ title: "News", href: null }}
             />
             <Tabs.Screen
               name="schedule"
-              options={{
-                title: "Shows",
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons
-                    name="calendar-clock"
-                    color={color}
-                    size={size}
-                  />
-                ),
-              }}
+              options={{ title: "Shows & rotation", href: null }}
             />
             <Tabs.Screen
               name="about"
-              options={{
-                title: "More",
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons
-                    name="information-outline"
-                    color={color}
-                    size={size}
-                  />
-                ),
-              }}
+              options={{ title: "About & help", href: null }}
             />
           </Tabs>
           <SafeAreaView edges={["bottom"]} style={{ backgroundColor: C.panel }}>

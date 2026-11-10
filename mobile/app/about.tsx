@@ -79,6 +79,10 @@ export default function About() {
         title="Connecting to the station"
         body="The app contacts the station’s public configuration, streaming and Now Playing services to play radio and show programme information. Those services receive network information such as your IP address, as part of providing the connection. Network information is handled by the station’s service providers. No listening account or personal profile is created in this app."
       />
+      <Card
+        title="Optional live-show alerts"
+        body="If you subscribe, the station stores an Apple push-notification device token and an installation secret hash to deliver live-show alerts. The secret stays on your device. Turning off alerts in the app removes the station’s subscription record. No email address or listener account is needed."
+      />
       <ExternalLink
         label="Website privacy policy ↗"
         url={siteUrl("privacy/")}
