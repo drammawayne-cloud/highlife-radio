@@ -27,7 +27,7 @@ export default {
   if(!await configured(env))return json({error:'Live alerts are not available yet.'},503,origin);
   if(Number(request.headers.get('content-length')||0)>2048)return json({error:'Too large'},413,origin);
   let body;try {const raw=await request.text();if(raw.length>2048)throw Error();body=JSON.parse(raw);} catch{return json({error:'Invalid request'},400,origin);}
-  if(!body||typeof body!=='object'||!/^[a-f0-9]{64}$/i.test(body.token)||!/^[a-zA-Z0-9-]{30,100}$/.test(body.secret))return json({error:'Invalid subscription'},400,origin);
+  if(!body||typeof body!=='object'||(typeof body.token!=='string'||!/^[a-f0-9]{32,512}$/i.test(body.token)||body.token.length%2!==0)||!/^[a-zA-Z0-9-]{30,100}$/.test(body.secret))return json({error:'Invalid subscription'},400,origin);
   const secretHash=await hash(body.secret);
   const existing=await env.DB.prepare('SELECT secret_hash FROM highlife_alert_subscribers WHERE token=?').bind(body.token).first();
   if(existing&&existing.secret_hash!==secretHash)return json({error:'Subscription belongs to a different installation'},403,origin);
@@ -37,6 +37,7 @@ export default {
  },
  async scheduled(event,env) {
   if(!await configured(env))return;
+  await env.DB.prepare('DELETE FROM highlife_alert_deliveries WHERE created_at<?').bind(Date.now()-86400000).run();
   const res=await fetch('https://richrow-radio.129-213-164-255.sslip.io/api/nowplaying/rich_row_radio',{signal:AbortSignal.timeout(10000)});
   if(!res.ok)throw Error('Station status unavailable');
   const now=Date.now(), key=liveKey(await res.json());
@@ -56,6 +57,5 @@ export default {
    if(response.ok)await env.DB.prepare("UPDATE highlife_alert_deliveries SET status='sent' WHERE event_id=? AND token=?").bind(item.event_id,item.token).run();
    else if(response.status===410)await env.DB.prepare('DELETE FROM highlife_alert_subscribers WHERE token=?').bind(item.token).run();
   }
-  await env.DB.prepare('DELETE FROM highlife_alert_deliveries WHERE created_at<?').bind(now-86400000).run();
  }
 };
