@@ -11,8 +11,8 @@
   "privacyPracticesConfirmed": false,
   "ageRatingAnswersConfirmed": false,
   "nativeDeviceTestsPassed": false,
-  "nativeScreenshotsCaptured": false,
-  "dependencyRiskReviewed": false,
+  "nativeScreenshotsCaptured": true,
+  "dependencyRiskReviewed": true,
   "releaseMode": "manual",
-  "description": "New York energy. Caribbean soul.\n\nTake NYC High Life Radio with you for the station\u2019s live music, culture and connection.\n\n\u2022 Listen to the live station without creating an account.\n\u2022 Browse while the radio keeps playing.\n\u2022 See track and show information when the station publishes it.\n\u2022 Explore published programming in the station\u2019s time zone.\n\u2022 Adjust listening volume and share the station with friends.\n\u2022 Find listening help and privacy information in the app.\n\nAn internet connection is required. Mobile data charges may apply."
+  "description": "New York energy. Caribbean soul. Take NYC High Life Radio with you for live music, culture and connection.\n\n• Press the large radio Play button to listen without creating an account.\n• Keep listening while browsing the menu, shows and station information.\n• See track information when published by the station.\n• Expand daily rotation names for New York times and show details.\n• Swipe through dated headlines below the radio and open reports on the station website.\n• Adjust listening volume and share the station with friends.\n\nAn internet connection is required. Mobile data charges may apply."
 }
