@@ -17,3 +17,7 @@ The iPhone app requests permission only when a listener subscribes in Menu, uses
 TypeScript, lint, 20 regression tests and web/iOS/Android bundle exports passed. Phone-width browser checks verified large-button playback, persistent playback across Menu navigation and real news captions beneath the radio.
 
 The earlier Apple upload is 1.0.0 build 1. Build 2 contains this redesign; signing/upload status must be checked separately. Public review still requires owner contact/rights/content/privacy answers, approved policy/support pages, screenshots and device evidence.
+
+Final native archive: /tmp/highlife-release/NYCHighLifeRadio-build2-final.xcarchive, ARCHIVE SUCCEEDED. Bundle com.nychighlife.highliferadio, version 1.0.0, build 2. App Store distribution/upload started and reached the protected Mac keychain prompt. Do not claim build 2 uploaded until the upload receipt and Apple UI confirm it.
+
+Current browser preview deployment: https://cc9c22bd.highlife-radio.pages.dev/ (alias https://mobile-app.highlife-radio.pages.dev/).
