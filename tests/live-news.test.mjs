@@ -44,7 +44,7 @@ test('endpoint caches briefly, fetches new reports after expiry and preserves st
  try{
   const request=new Request('https://example.test/api/world-news');
   const env={ASSETS:{fetch:async()=>new Response('existing radio page')}};
-  let result=await (await worker.fetch(request,env)).json();assert.equal(result.status,'ok');assert.equal(result.stories.length,2);
+  const firstResponse=await worker.fetch(request,env);assert.equal(firstResponse.headers.get('Access-Control-Allow-Origin'),'*');let result=await firstResponse.json();assert.equal(result.status,'ok');assert.equal(result.stories.length,2);
   const initialCalls=calls;
   await worker.fetch(request,env);assert.equal(calls,initialCalls);
   clock+=REFRESH_MS+1;video='zyxwvutsrqp';

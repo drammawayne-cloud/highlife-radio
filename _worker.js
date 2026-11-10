@@ -97,9 +97,9 @@ export default {
     try {
       const states = await Promise.all(SOURCES.map(s=>sourceState(s,url.origin,caches.default,Date.now())));
       const data = payload(states);
-      return new Response(request.method==='HEAD'?null:JSON.stringify(data),{headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+      return new Response(request.method==='HEAD'?null:JSON.stringify(data),{headers:{'Content-Type':'application/json; charset=utf-8','Access-Control-Allow-Origin':'*','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
     } catch {
-      return new Response(JSON.stringify({status:'unavailable',stories:[],sources:[],refreshSeconds:300}),{status:503,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+      return new Response(JSON.stringify({status:'unavailable',stories:[],sources:[],refreshSeconds:300}),{status:503,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*','Cache-Control':'no-store'}});
     }
   }
 };

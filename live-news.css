@@ -30,3 +30,5 @@
 @media(max-width:700px){.live-news-grid{grid-template-columns:1fr;gap:16px}.live-news-copy{padding:16px}.live-news-hub{padding:18px}.live-news-home .live-news-player{max-height:none}}
 :root[data-theme=light] .live-news-status,:root[data-theme=light] .live-news-note{color:#514337}
 :root[data-theme=light] .live-news-links a{color:#875319}
+
+.live-news-card[id]{scroll-margin-top:110px}
