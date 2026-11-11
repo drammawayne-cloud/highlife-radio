@@ -39,14 +39,28 @@
     "requiredEvidence": "Physical iPhone latest iOS launch-to-main-flow recording and requested content authorization documentation",
     "reviewMetadataUpdated": true,
     "newIphoneAndIpadScreenshotsUploaded": true,
-    "physicalDeviceTested": false,
+    "physicalDeviceTested": true,
     "uploadedAt": "2026-11-11T02:56:22-05:00",
     "appleProcessing": "Ready to Test",
     "selectedInReleaseDraft": true,
     "testFlightGroup": "Owner Device Review",
-    "testFlightOwnerStatus": "Invited; invitation not yet accepted",
-    "physicalDevice": "Connected iPhone 15 Pro, iOS 27.0.1; app not yet installed",
-    "physicalRecordingAttached": false
+    "testFlightOwnerStatus": "Accepted; build 7 installed and opened on physical iPhone",
+    "physicalDevice": "iPhone 15 Pro, iOS 27.0.1",
+    "physicalRecordingAttached": false,
+    "physicalDeviceChecks": [
+      "TestFlight confirms 1.0.0 build 7 installed",
+      "Live programme picture loads",
+      "Different waveform heights observed",
+      "Double-tap full-screen entry and return",
+      "Menu and expandable rotation detail",
+      "News screen loads dated publisher headlines",
+      "Returned from device Home still Streaming live without another Play"
+    ],
+    "physicalDeviceAudio": "App volume muted during test to prevent mirrored audio feedback into live broadcast; restored to 100% after pausing",
+    "submissionBlockers": [
+      "App Store Connect session expired; owner sign-in requested",
+      "Mac screen recorder already active before this test; requested permission to save and stop existing recording before making demo"
+    ]
   },
   "android": {
     "version": "1.0.0",
