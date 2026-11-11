@@ -27,6 +27,8 @@
  // Resume AudioContext in the Play gesture, never request microphone permission.
  document.addEventListener('click',event=>{
   if(!event.target.closest('[data-play]')||!audio.paused)return;
+  // Keep phone audio on the native media path for reliable screen-lock/background listening.
+  if(/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1))return;
   try {
    if(!context){const AudioContext=window.AudioContext||window.webkitAudioContext;if(!AudioContext)return;context=new AudioContext();analyser=context.createAnalyser();analyser.fftSize=512;analyser.smoothingTimeConstant=.7;pcm=new Uint8Array(analyser.fftSize);source=context.createMediaElementSource(audio);source.connect(analyser);analyser.connect(context.destination);}
    void context.resume().then(start).catch(()=>{});

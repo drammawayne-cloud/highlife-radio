@@ -1,0 +1,24 @@
+[Unit]
+Description=High Life Radio combined program picture and station audio
+After=network-online.target highlife-obs-audio.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/highlife-program/venv/bin/python /opt/highlife-program/program_feed.py
+Environment=OPENBLAS_NUM_THREADS=1
+Restart=always
+RestartSec=3
+RuntimeDirectory=highlife-program
+RuntimeDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/run/highlife-program
+MemoryMax=900M
+CPUQuota=200%
+LimitNOFILE=512
+
+[Install]
+WantedBy=multi-user.target

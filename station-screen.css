@@ -11,3 +11,9 @@
 @media(max-width:430px){.station-screen-default{padding:12px}.station-screen-default img{height:45%;margin-bottom:5px}.station-screen-default strong{font-size:25px}.station-screen-default small{font-size:7px}.station-screen-default span{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.station-screen video,.station-screen-default,.station-screen-live{transition:none}}
 @media(min-width:701px){.radio-console{display:grid;grid-template-columns:minmax(0,1fr) 102px;column-gap:18px}.console-top,.console-now,.console-caption{grid-column:1/-1}.console-controls{display:flex;flex-direction:column;justify-content:center;gap:15px;margin:0}.console-wave{height:95px;width:100%;padding:10px;gap:2px}.console-now{margin-top:20px}.radio-console .console-play{width:88px;height:88px;font-size:30px}.console-play-label{font-size:8px}.station-screen-default img{height:45%;margin-bottom:5px}.station-screen-default strong{font-size:clamp(23px,2.4vw,32px)}}
+.station-screen{touch-action:manipulation;cursor:pointer}.station-screen:focus-visible{outline:3px solid #d4c37d;outline-offset:4px}
+.station-screen:fullscreen,.station-screen.is-expanded{width:100vw;height:100dvh;max-width:none;max-height:none;aspect-ratio:auto;border:0;border-radius:0;background:#000}
+.station-screen.is-expanded{position:fixed;inset:0;z-index:2147483647}.station-screen:fullscreen .station-screen-default img,.station-screen.is-expanded .station-screen-default img{width:50%;height:55%;max-width:500px}
+.station-screen:fullscreen .station-screen-default strong,.station-screen.is-expanded .station-screen-default strong{font-size:clamp(32px,5vw,68px)}
+
+.station-screen{-webkit-user-select:none;user-select:none}

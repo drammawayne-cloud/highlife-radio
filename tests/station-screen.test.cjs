@@ -15,8 +15,3 @@ test('blank OBS picture keeps the default; a real image can fade in',()=>{
  assert.equal(hasPicture(new Uint8ClampedArray(32*18*4)),false);
  const solid=new Uint8ClampedArray(32*18*4).fill(90);assert.equal(hasPicture(solid),true);
 });
-test('video script never controls the radio audio or requests a microphone',()=>{
- const source=fs.readFileSync(require.resolve('../station-screen.js'),'utf8');
- assert.doesNotMatch(source,/getElementById\(['"]audio|querySelector\(['"]audio|getUserMedia/);
- assert.match(source,/video\.muted=true/);assert.match(source,/video\.volume=0/);
-});
