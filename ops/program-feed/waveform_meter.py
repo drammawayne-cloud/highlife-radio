@@ -8,6 +8,10 @@ DEST=Path('/var/lib/docker/volumes/azuracast_station_data/_data/rich_row_radio/c
 frames=deque(maxlen=1200);seen=deque(maxlen=80);init_cache={};media_url=None
 def get(url):
  with urllib.request.urlopen(url,timeout=8) as r:return r.read()
+def parse_stamp(value):
+ # Older server Python accepts only three or six fractional digits.
+ value=re.sub(r"\.(\d+)(?=Z|[+-]\d{2}:\d{2}$)",lambda m:'.'+m.group(1)[:6].ljust(6,'0'),value)
+ return datetime.datetime.fromisoformat(value.replace('Z','+00:00')).timestamp()
 def playlist():
  global media_url
  if media_url is None:
@@ -15,7 +19,7 @@ def playlist():
  url=media_url;body=get(url).decode();entries=[];stamp=None;init=None
  for line in body.splitlines():
   if line.startswith('#EXT-X-MAP:'):init=urllib.parse.urljoin(url,re.search(r'URI="([^"]+)"',line).group(1))
-  elif line.startswith('#EXT-X-PROGRAM-DATE-TIME:'):stamp=datetime.datetime.fromisoformat(line.split(':',1)[1].replace('Z','+00:00')).timestamp()
+  elif line.startswith('#EXT-X-PROGRAM-DATE-TIME:'):stamp=parse_stamp(line.split(':',1)[1])
   elif line and not line.startswith('#') and stamp is not None:entries.append((urllib.parse.urljoin(url,line),stamp,init));stamp=None
  return entries
 last_route_check=0
