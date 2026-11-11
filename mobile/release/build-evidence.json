@@ -9,11 +9,11 @@
     "uploadedAt": "2026-11-10T18:54:35-05:00",
     "appleProcessing": "Ready to Submit",
     "reviewSubmitted": true,
-    "selectedInReleaseDraft": true,
+    "selectedInReleaseDraft": false,
     "nativeScreenshotsUploaded": true,
     "privacyResponsesPublished": true,
     "price": "Free",
-    "reviewStatus": "Waiting for Review",
+    "reviewStatus": "Rejected: Guideline 2.1 Information Needed",
     "submittedAtConsoleLocal": "2026-11-10 19:45 America/New_York",
     "submissionId": "d06202d8-1df2-4938-bb74-4d6399a72e67"
   },
@@ -33,13 +33,20 @@
   "ios": {
     "version": "1.0.0",
     "build": "7",
-    "status": "archive-complete-upload-waiting-for-owner-keychain-approval",
+    "status": "uploaded-processed-ready-to-test",
     "reviewSubmitted": false,
     "priorSubmissionStatus": "Build 5 rejected: Guideline 2.1 Information Needed",
     "requiredEvidence": "Physical iPhone latest iOS launch-to-main-flow recording and requested content authorization documentation",
     "reviewMetadataUpdated": true,
     "newIphoneAndIpadScreenshotsUploaded": true,
-    "physicalDeviceTested": false
+    "physicalDeviceTested": false,
+    "uploadedAt": "2026-11-11T02:56:22-05:00",
+    "appleProcessing": "Ready to Test",
+    "selectedInReleaseDraft": true,
+    "testFlightGroup": "Owner Device Review",
+    "testFlightOwnerStatus": "Invited; invitation not yet accepted",
+    "physicalDevice": "Connected iPhone 15 Pro, iOS 27.0.1; app not yet installed",
+    "physicalRecordingAttached": false
   },
   "android": {
     "version": "1.0.0",

@@ -1,3 +1,7 @@
+# Current status — November 11, 2026, 03:09 EST
+
+Build 7 uploaded successfully at 02:56:22 EST, completed processing, and is now selected and saved in the release draft instead of rejected build 5. It is also Testing in the internal Owner Device Review group. The owner tester is Invited. The connected iPhone 15 Pro runs iOS 27.0.1; the required invitation has not yet been accepted, so build 7 installation and the physical-device recording remain pending. Apple has not received a resubmission. Do not interpret upload or internal testing as public availability. The original upload attempt failed because the archived bundle still had version 6; the unsigned archive was corrected to version 7, re-signed and successfully uploaded. The latest upload log is /tmp/highlife-build7-corrected-upload.log. Historical notes below describe earlier states.
+
 LATEST — November 10, 2026
 Version 1.0.0 build 5 submitted to Apple App Review. Console explicitly confirms 1 Item Submitted and Waiting for Review, submission d06202d8-1df2-4938-bb74-4d6399a72e67. Genuine iPhone 1206×2622 and iPad 2064×2752 screenshots uploaded. Music category, content rights, calculated 18+ rating, free pricing, availability and privacy responses saved. Owner approved Apple privacy accuracy/update agreement. Device ID and Other Diagnostic Data are disclosed for app functionality, linked conservatively, not tracking. Manual release remains selected. Physical-device interruption and APNs receipt remain unverified. Historical preparation notes below must not override this current status.
 
