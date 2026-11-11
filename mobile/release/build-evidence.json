@@ -73,13 +73,15 @@
       "latestOsVerified": false
     },
     "nativeStoreApproval": false,
-    "publicAvailability": false
+    "publicAvailability": false,
+    "releaseMode": "automatic-after-approval",
+    "releaseModeVerifiedAfterReload": true
   },
   "android": {
     "version": "1.0.0",
     "versionCode": 3,
     "package": "com.nychighlife.highliferadio",
-    "status": "review-request-accepted-automated-checks-running",
+    "status": "submitted-changes-in-review",
     "reviewSubmitted": true,
     "contentRating": "completed",
     "productionRegions": 178,
@@ -105,7 +107,9 @@
       "system play resumes",
       "double-tap live full screen and return"
     ],
-    "nativeScreenshotsUploaded": true
+    "nativeScreenshotsUploaded": true,
+    "managedPublishing": false,
+    "releaseMode": "automatic-full-rollout-after-approval"
   },
   "iosBuild6": {
     "version": "1.0.0",
