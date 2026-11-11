@@ -1,0 +1,24 @@
+{
+  "name": "NYC High Life Radio",
+  "subtitle": "New York. Caribbean soul.",
+  "version": "1.0.0",
+  "primaryCategory": "MUSIC",
+  "keywords": "radio,Caribbean,reggae,dancehall,soca,music,live,New York,High Life",
+  "marketingUrl": "https://nychighliferadio.com/",
+  "supportUrl": "https://mobile-app.highlife-radio.pages.dev/app-support",
+  "privacyPolicyUrl": "https://mobile-app.highlife-radio.pages.dev/app-privacy",
+  "rightsConfirmed": true,
+  "privacyPracticesConfirmed": true,
+  "ageRatingAnswersConfirmed": true,
+  "nativeDeviceTestsPassed": false,
+  "nativeScreenshotsCaptured": true,
+  "dependencyRiskReviewed": true,
+  "releaseMode": "manual",
+  "description": "New York energy. Caribbean soul. Take NYC High Life Radio with you for live music, culture and connection.\n\n\u2022 Press the large radio Play button to listen without creating an account.\n\u2022 Keep listening in the background while using other apps.\n\u2022 Watch the live studio picture when available, with the station logo and current rotation between live pictures.\n\u2022 Double-tap the picture to expand it, and double-tap again to return.\n\u2022 See the moving programme waveform and current track information when available.\n\u2022 Browse daily rotation blocks and station information in the menu.\n\u2022 Swipe through dated headlines below the radio and open reports on the station website.\n\u2022 Adjust listening volume and share the station.\n\nAn internet connection is required. Mobile data charges may apply. Calls, recording and other media can interrupt audio. The broadcast includes commercials.",
+  "contentConfirmation": {
+    "ownerConfirmedAt": "2026-11-10",
+    "musicAndBrandingPermission": true,
+    "explicitLyricsOrMatureTalkMayAir": true
+  },
+  "appleCalculatedAgeRating": "18+"
+}

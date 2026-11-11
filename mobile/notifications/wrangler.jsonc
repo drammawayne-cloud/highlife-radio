@@ -1,0 +1,9 @@
+{
+  "name": "highlife-live-alerts",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-10",
+  "account_id": "15d071e9c6f43fcd0d520c7d8cb08577",
+  "workers_dev": true,
+  "triggers": {"crons": ["* * * * *"]},
+  "d1_databases": [{"binding":"DB","database_name":"highlife-news-live","database_id":"7b033d9b-df29-4df7-ac48-99c414e89805"}]
+}

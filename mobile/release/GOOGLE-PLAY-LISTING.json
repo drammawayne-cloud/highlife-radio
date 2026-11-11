@@ -1,0 +1,16 @@
+{
+  "title": "NYC High Life Radio",
+  "shortDescription": "New York energy. Caribbean soul. Listen live to NYC High Life Radio.",
+  "fullDescription": "From New York to the World.\n\nListen to NYC High Life Radio for music, culture and connection. Open the app, tap the large radio Play button and keep listening while you explore.\n\n\u2022 Stream the real station without a listener account.\n\u2022 Keep the radio available in a persistent bottom player.\n\u2022 Browse daily station rotation blocks and expand each name for its time and details.\n\u2022 Swipe the latest station news headlines and open stories on the station website.\n\u2022 Use native background audio and system playback controls.\n\u2022 Adjust listening volume and share the station with friends.\n\nAn internet connection is required. Mobile data charges may apply. The station broadcast includes commercials. Live-show push notifications are not enabled in this Android release.",
+  "category": "Music & Audio",
+  "price": "Free",
+  "containsAds": true,
+  "loginRequired": false,
+  "privacyPolicyUrl": "https://mobile-app.highlife-radio.pages.dev/app-privacy",
+  "supportUrl": "https://mobile-app.highlife-radio.pages.dev/app-support",
+  "publicSupportEmail": "richrowrecords@gmail.com",
+  "package": "com.nychighlife.highliferadio",
+  "releaseState": "draft-not-uploaded",
+  "contentRating": "owner confirmation required",
+  "rightsConfirmed": false
+}

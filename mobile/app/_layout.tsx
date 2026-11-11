@@ -1,0 +1,79 @@
+import { NotificationNavigation } from "../src/NotificationNavigation";
+import { Tabs } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
+import { C } from "../src/theme";
+import { RadioProvider } from "../src/RadioContext";
+import { LivePlayer } from "../src/LivePlayer";
+export { ErrorBoundary } from "expo-router";
+export default function Layout() {
+  const [fontsLoaded, fontError] = useFonts({
+    BarlowCondensed: require("../assets/website/BarlowCondensed-ExtraBold.ttf"),
+  });
+  if (!fontsLoaded && !fontError)
+    return <View style={{ flex: 1, backgroundColor: C.ink }} />;
+  return (
+    <RadioProvider>
+      <StatusBar style="light" />
+      <NotificationNavigation />
+      <View style={{ flex: 1, backgroundColor: C.ink }}>
+        <View
+          style={{ flex: 1, width: "100%", maxWidth: 620, alignSelf: "center" }}
+        >
+          <Tabs
+            screenOptions={{
+              headerShown: false,
+              sceneStyle: { backgroundColor: C.ink },
+              tabBarActiveTintColor: C.acid,
+              tabBarInactiveTintColor: C.muted,
+              tabBarStyle: {
+                backgroundColor: C.panel,
+                borderTopColor: C.line,
+                height: 68,
+                paddingTop: 8,
+                paddingBottom: 8,
+              },
+              tabBarLabelStyle: { fontWeight: "700", fontSize: 12 },
+            }}
+          >
+            <Tabs.Screen
+              name="index"
+              options={{
+                title: "Home",
+                tabBarIcon: ({ color, size }) => (
+                  <Text style={{ color, fontSize: size }}>⌂</Text>
+                ),
+              }}
+            />
+            <Tabs.Screen
+              name="menu"
+              options={{
+                title: "Menu",
+                tabBarIcon: ({ color, size }) => (
+                  <Text style={{ color, fontSize: size }}>☰</Text>
+                ),
+              }}
+            />
+            <Tabs.Screen
+              name="discover"
+              options={{ title: "News", href: null }}
+            />
+            <Tabs.Screen
+              name="schedule"
+              options={{ title: "Shows & rotation", href: null }}
+            />
+            <Tabs.Screen
+              name="about"
+              options={{ title: "About & help", href: null }}
+            />
+          </Tabs>
+          <SafeAreaView edges={["bottom"]} style={{ backgroundColor: C.panel }}>
+            <LivePlayer />
+          </SafeAreaView>
+        </View>
+      </View>
+    </RadioProvider>
+  );
+}
