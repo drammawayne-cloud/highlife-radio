@@ -1,3 +1,6 @@
+LATEST — November 10, 2026
+Version 1.0.0 build 5 submitted to Apple App Review. Console explicitly confirms 1 Item Submitted and Waiting for Review, submission d06202d8-1df2-4938-bb74-4d6399a72e67. Genuine iPhone 1206×2622 and iPad 2064×2752 screenshots uploaded. Music category, content rights, calculated 18+ rating, free pricing, availability and privacy responses saved. Owner approved Apple privacy accuracy/update agreement. Device ID and Other Diagnostic Data are disclosed for app functionality, linked conservatively, not tracking. Manual release remains selected. Physical-device interruption and APNs receipt remain unverified. Historical preparation notes below must not override this current status.
+
 # High Life Radio — Apple release work
 
 Release candidate: 1.0.0. Continue `build/mobile-app-foundation` / PR #1. The app is in `mobile/`; the existing website is preserved.
@@ -46,3 +49,7 @@ A compatible npm audit fix was prepared in the lockfile, reducing the reported f
 - https://docs.expo.dev/build-reference/infrastructure/
 - https://github.com/advisories/GHSA-vcc3-ghjq-m6fr
 
+
+## Current candidate: November 11, 2026
+
+Build 6 is signed and exported. Xcode upload is waiting at a second macOS codesign keychain prompt for direct owner approval. Build 5 remains Waiting for Review and has not been withdrawn. Build 6 is not yet submitted. The updated native player uses one combined programme with background playback enabled, live picture, timestamp-driven waveform and double-tap full screen. A quiet iPhone simulator test passed live picture, moving waveform, full-screen entry/return, and return from Home/lock still Streaming live without another Play. This is not physical-phone listening proof. All 26 app tests, type checking and lint pass. A new native Home screenshot is saved in the local 1.0.0-6 release folder; it is not yet uploaded to Apple.

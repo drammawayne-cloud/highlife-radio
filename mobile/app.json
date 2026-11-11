@@ -15,7 +15,8 @@
         ],
         "ITSAppUsesNonExemptEncryption": false
       },
-      "buildNumber": "5"
+      "buildNumber": "6",
+      "appleTeamId": "8JW27TKSRM"
     },
     "android": {
       "package": "com.nychighlife.highliferadio",
@@ -23,7 +24,7 @@
         "FOREGROUND_SERVICE",
         "FOREGROUND_SERVICE_MEDIA_PLAYBACK"
       ],
-      "versionCode": 1,
+      "versionCode": 2,
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.READ_EXTERNAL_STORAGE",
@@ -57,7 +58,14 @@
       ],
       "expo-secure-store",
       "expo-notifications",
-      "./plugins/withAndroidReleaseSigning.cjs"
+      "./plugins/withAndroidReleaseSigning.cjs",
+      [
+        "expo-video",
+        {
+          "supportsBackgroundPlayback": true,
+          "supportsPictureInPicture": false
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

@@ -5,6 +5,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { StationPicture } from "./StationPicture";
 import { AudioWaveform, NightVisionDancers } from "./AudioVisuals";
 import { useRadioContext } from "./RadioContext";
 import { C, DISPLAY } from "./theme";
@@ -14,33 +15,12 @@ export function RadioConsole() {
   return (
     <View style={s.console}>
       <View style={s.top}>
-        <Text style={s.name}>HIGH LIFE</Text>
+        <Text style={s.name}>HIGH LIFE RADIO</Text>
         <Text style={s.badge}>
           {audio.playing && !audio.busy ? "● ON AIR" : "LIVE RADIO"}
         </Text>
       </View>
-      <View style={s.dial}>
-        <View style={s.scale}>
-          {["88", "92", "96", "100", "104", "108"].map((n) => (
-            <Text key={n} style={s.tick}>
-              {n}
-            </Text>
-          ))}
-        </View>
-        <View style={s.ticks}>
-          {Array.from({ length: 29 }, (_, i) => (
-            <View
-              key={i}
-              style={{
-                width: 1,
-                height: i % 5 === 0 ? 14 : 7,
-                backgroundColor: "#ae9756",
-              }}
-            />
-          ))}
-        </View>
-        <Text style={s.frequency}>NYC — WORLDWIDE</Text>
-      </View>
+      <StationPicture />
       <View style={s.body}>
         <AudioWaveform />
         <View style={s.controls}>
@@ -108,9 +88,9 @@ const s = StyleSheet.create({
   },
   name: {
     fontFamily: DISPLAY,
-    fontSize: 27,
+    fontSize: 24,
     color: "#f6dfaa",
-    letterSpacing: 3,
+    letterSpacing: 1.5,
   },
   badge: { fontSize: 9, fontWeight: "800", color: C.green, letterSpacing: 1 },
   dial: {

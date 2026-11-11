@@ -1,18 +1,24 @@
 {
   "name": "NYC High Life Radio",
-  "subtitle": "New York energy. Caribbean soul",
+  "subtitle": "New York. Caribbean soul.",
   "version": "1.0.0",
   "primaryCategory": "MUSIC",
   "keywords": "radio,Caribbean,reggae,dancehall,soca,music,live,New York,High Life",
   "marketingUrl": "https://nychighliferadio.com/",
   "supportUrl": "https://mobile-app.highlife-radio.pages.dev/app-support",
   "privacyPolicyUrl": "https://mobile-app.highlife-radio.pages.dev/app-privacy",
-  "rightsConfirmed": false,
-  "privacyPracticesConfirmed": false,
-  "ageRatingAnswersConfirmed": false,
+  "rightsConfirmed": true,
+  "privacyPracticesConfirmed": true,
+  "ageRatingAnswersConfirmed": true,
   "nativeDeviceTestsPassed": false,
   "nativeScreenshotsCaptured": true,
   "dependencyRiskReviewed": true,
   "releaseMode": "manual",
-  "description": "New York energy. Caribbean soul. Take NYC High Life Radio with you for live music, culture and connection.\n\n• Press the large radio Play button to listen without creating an account.\n• Keep listening while browsing the menu, shows and station information.\n• See track information when published by the station.\n• Expand daily rotation names for New York times and show details.\n• Swipe through dated headlines below the radio and open reports on the station website.\n• Adjust listening volume and share the station with friends.\n\nAn internet connection is required. Mobile data charges may apply."
+  "description": "New York energy. Caribbean soul. Take NYC High Life Radio with you for live music, culture and connection.\n\n• Press the large radio Play button to listen without creating an account.\n• Keep listening while browsing the menu, shows and station information.\n• See track information when published by the station.\n• Expand daily rotation names for New York times and show details.\n• Swipe through dated headlines below the radio and open reports on the station website.\n• Adjust listening volume and share the station with friends.\n\nAn internet connection is required. Mobile data charges may apply.",
+  "contentConfirmation": {
+    "ownerConfirmedAt": "2026-11-10",
+    "musicAndBrandingPermission": true,
+    "explicitLyricsOrMatureTalkMayAir": true
+  },
+  "appleCalculatedAgeRating": "18+"
 }

@@ -16,5 +16,5 @@ function run(command,args,cwd) {
  if(result.error) throw result.error;
  if(result.status!==0) process.exit(result.status || 1);
 }
-run('npx',['expo','prebuild','--platform','android','--no-install'],project);
+if (!process.argv.includes('--skip-prebuild')) run('npx',['expo','prebuild','--platform','android','--no-install'],project);
 run('./gradlew',[':app:bundleRelease',':app:assembleRelease','--console=plain','--no-daemon','-PreactNativeArchitectures=arm64-v8a,x86_64'],resolve(project,'android'));

@@ -1,5 +1,5 @@
 {
-  "ios": {
+  "previousIosSubmission": {
     "version": "1.0.0",
     "build": "5",
     "bundleIdentifier": "com.nychighlife.highliferadio",
@@ -8,18 +8,63 @@
     "status": "uploaded",
     "uploadedAt": "2026-11-10T18:54:35-05:00",
     "appleProcessing": "Ready to Submit",
-    "reviewSubmitted": false,
-    "selectedInReleaseDraft": true
+    "reviewSubmitted": true,
+    "selectedInReleaseDraft": true,
+    "nativeScreenshotsUploaded": true,
+    "privacyResponsesPublished": true,
+    "price": "Free",
+    "reviewStatus": "Waiting for Review",
+    "submittedAtConsoleLocal": "2026-11-10 19:45 America/New_York",
+    "submissionId": "d06202d8-1df2-4938-bb74-4d6399a72e67"
   },
-  "android": {
+  "previousAndroidBuild": {
     "version": "1.0.0",
     "versionCode": 1,
     "package": "com.nychighlife.highliferadio",
     "status": "signed-local-build",
-    "playUploaded": false,
+    "playUploaded": true,
     "aabSha256": "25d82090f7b155f997dca858084c8739d7d33089ded140ec8133143f7781d209",
     "apkSha256": "70f97a97c65cafe933167dbe948bf9548b537e89af2ddf6c8fa3b137ecff6e5c",
     "emulatorPlayback": "passed",
-    "physicalDeviceTested": false
+    "physicalDeviceTested": false,
+    "playAppId": "4974824419679606564",
+    "playStatus": "accepted-and-saved-internal-draft"
+  },
+  "ios": {
+    "version": "1.0.0",
+    "build": "6",
+    "status": "signed-export-complete-upload-waiting-for-owner-keychain-approval",
+    "reviewSubmitted": false,
+    "simulator": "iPhone 17 Pro iOS 26.5",
+    "simulatorChecks": [
+      "live combined programme picture",
+      "moving remote amplitude waveform",
+      "double-tap full screen and return",
+      "returned from Home and lock still Streaming live without another Play"
+    ],
+    "simulatorAudioMuted": true,
+    "physicalDeviceTested": false,
+    "ipaSha256": "19e2cde4b48de92d9842c0547f897479d8489173a26edda930bd9c2b5fe4cbc8"
+  },
+  "android": {
+    "version": "1.0.0",
+    "versionCode": 2,
+    "package": "com.nychighlife.highliferadio",
+    "status": "accepted-and-saved-production-draft",
+    "reviewSubmitted": false,
+    "contentRating": "completed",
+    "productionRegions": 178,
+    "playAppId": "4974824419679606564",
+    "aabSha256": "6c4e44c64e254bf5b1e0a4ae25b80c986450ba42c9a1f301220c523565067f85",
+    "apkSha256": "86da9dea563b238ad00f04b9ba63a1fe12370c4c7a63da49ce800594e1b1630f",
+    "emulatorInstalled": true,
+    "emulatorPlayback": "pending current-build test authorization",
+    "physicalDeviceTested": false,
+    "checks": [
+      "release build",
+      "signature verification",
+      "16KB APK zip alignment",
+      "target SDK 36"
+    ]
   }
 }

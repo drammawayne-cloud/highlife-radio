@@ -27,14 +27,23 @@ function useMotion() {
     audio.motion.getSnapshot,
     () => STILL,
   );
-  return { sample, active: audio.playing && !audio.busy && !reduced };
+  return { sample, active: audio.playing && !audio.busy, reduced };
 }
-export function AudioWaveform() {
+export function AudioWaveform({ compact = false }: { compact?: boolean }) {
   const { sample, active } = useMotion();
   const hasSamples = active && sample.sampledAt > 0;
   return (
     <View
-      style={s.wavePanel}
+      style={[
+        s.wavePanel,
+        compact && {
+          flex: 0,
+          width: 64,
+          height: 30,
+          padding: 2,
+          borderWidth: 0,
+        },
+      ]}
       accessibilityRole="image"
       accessibilityLabel={
         hasSamples
@@ -43,9 +52,9 @@ export function AudioWaveform() {
       }
       testID="radio-waveform"
     >
-      <View style={s.midline} />
+      {!compact && <View style={s.midline} />}
       <View
-        style={s.bars}
+        style={[s.bars, compact && { height: 26, gap: 1 }]}
         accessibilityElementsHidden
         importantForAccessibility="no-hide-descendants"
       >
@@ -56,7 +65,9 @@ export function AudioWaveform() {
             style={[
               s.bar,
               {
-                height: hasSamples ? Math.max(3, value * 78) : 3,
+                height: hasSamples
+                  ? Math.max(3, value * (compact ? 26 : 78))
+                  : 3,
                 opacity: hasSamples ? 0.5 + value * 0.5 : 0.45,
                 backgroundColor: i % 4 === 0 ? "#d6eaa0" : "#63d68d",
               },
@@ -64,14 +75,16 @@ export function AudioWaveform() {
           />
         ))}
       </View>
-      <Text style={s.caption}>
-        {hasSamples ? "LIVE AUDIO" : "HIGH LIFE FREQUENCY"}
-      </Text>
+      {!compact && (
+        <Text style={s.caption}>
+          {hasSamples ? "LIVE AUDIO" : "HIGH LIFE FREQUENCY"}
+        </Text>
+      )}
     </View>
   );
 }
 export function NightVisionDancers({ compact = false }: { compact?: boolean }) {
-  const { sample, active } = useMotion();
+  const { sample, active, reduced } = useMotion();
   const { width: screenWidth } = useWindowDimensions();
   const width = compact
     ? screenWidth > 500
@@ -80,7 +93,9 @@ export function NightVisionDancers({ compact = false }: { compact?: boolean }) {
     : Math.min(240, Math.max(116, (Math.min(screenWidth, 620) - 120) * 0.48));
   const height = width / 2;
   const frame =
-    active && sample.energy > 0.008 ? Math.floor(sample.timestamp * 8) % 16 : 0;
+    active && !reduced && sample.energy > 0.008
+      ? Math.floor(sample.timestamp * 8) % 16
+      : 0;
   return (
     <View
       style={{

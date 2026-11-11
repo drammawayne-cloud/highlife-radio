@@ -44,6 +44,15 @@ export function createAudioMotion() {
         listeners.delete(listener);
       };
     },
+    levels: (bars: number[], timestamp: number) => {
+      current = {
+        bars,
+        energy: bars.reduce((a, b) => a + b, 0) / Math.max(1, bars.length),
+        timestamp,
+        sampledAt: Date.now(),
+      };
+      listeners.forEach((listener) => listener());
+    },
     sample: (
       channels: readonly { frames: readonly number[] }[],
       timestamp: number,
