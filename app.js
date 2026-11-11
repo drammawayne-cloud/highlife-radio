@@ -25,7 +25,7 @@ function renderDay(day){
 for(const day of days){const b=document.createElement('button');b.textContent=day;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>renderDay(day));document.querySelector('.days').append(b);}renderDay(new Intl.DateTimeFormat('en-US',{weekday:'short',timeZone:'America/New_York'}).format(new Date()));
 document.querySelectorAll('[data-events]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-events]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const sponsored=b.dataset.events==='sponsored';$('event-tag').textContent=sponsored?'SPONSORED EVENTS / PREVIEW':'HIGH LIFE EVENTS / PREVIEW';$('event-title').textContent=sponsored?'Your event. Our community.':'The next link-up starts here.';$('event-copy').textContent=sponsored?'Approved promoter events will appear here. Event submissions will require staff review before publication.':'Our event calendar is taking shape. Official dates, venues and ticket links will appear after approval.';}));
 audio.volume=.75;let config=null,pending=false,hasPlayed=false,track='High Life Radio · live stream';
-function state(status){$('player-status').textContent=status;document.body.classList.toggle('playing',!audio.paused);for(const b of plays){const playing=!audio.paused;b.textContent=b.classList.contains('round-play')?(playing?'Ⅱ':'▶'):(playing?'Ⅱ Pause Radio':'▶ Listen Live');b.setAttribute('aria-label',playing?'Pause High Life Radio':'Play High Life Radio');} }
+function state(status){if(status==='PLAYING'&&(audio.muted||audio.volume===0))status='MUTED';$('player-status').textContent=status;document.body.classList.toggle('playing',!audio.paused);for(const b of plays){const playing=!audio.paused;b.textContent=b.classList.contains('round-play')?(playing?'Ⅱ':'▶'):(playing?'Ⅱ Pause Radio':'▶ Listen Live');b.setAttribute('aria-label',playing?'Pause High Life Radio':'Play High Life Radio');} }
 // A listener's Play intent survives transient network failures, but never their Pause.
 let wantsPlayback=false,reconnectTimer=0,stallTimer=0,retryCount=0,connectionGeneration=0;
 function clearRecovery(){clearTimeout(reconnectTimer);clearTimeout(stallTimer);reconnectTimer=stallTimer=0;}
@@ -48,7 +48,7 @@ async function toggle(){
 }
 plays.forEach(b=>b.addEventListener('click',toggle));
 audio.addEventListener('playing',()=>{hasPlayed=true;retryCount=0;clearRecovery();state('PLAYING');$('player-track').textContent=track;});
-audio.addEventListener('pause',()=>{if(!wantsPlayback)state('PAUSED');});
+audio.addEventListener('pause',()=>{if(wantsPlayback&&!pending&&!audio.error&&!audio.ended){wantsPlayback=false;clearRecovery();window.HighLifeProgram?.cancel();}if(!wantsPlayback)state('PAUSED');});
 function buffering(){if(!wantsPlayback)return;state('BUFFERING');if(!stallTimer)stallTimer=setTimeout(recover,12000);}
 audio.addEventListener('waiting',buffering);audio.addEventListener('stalled',buffering);
 audio.addEventListener('error',()=>{pending=false;if(wantsPlayback)recover();});
@@ -63,3 +63,17 @@ const themeButton=$('theme-toggle');
 function syncTheme(){const dark=document.documentElement.dataset.theme==='dark';themeButton.textContent=dark?'☀':'☾';themeButton.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');themeButton.title=themeButton.getAttribute('aria-label');document.querySelector('meta[name="theme-color"]').content=dark?'#090b0a':'#f5f2e8';}
 syncTheme();themeButton.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('highlife-theme',theme);}catch{}syncTheme();});
 // Decorative record rotation and side changes run automatically in CSS.
+
+// Report actual progress rather than retaining PLAYING after a stalled decoder.
+let progressTime=0,progressAt=0;
+audio.addEventListener('loadstart',()=>{progressTime=0;progressAt=Date.now();});
+audio.addEventListener('volumechange',()=>{if(wantsPlayback&&!audio.paused)state('PLAYING');});
+setInterval(()=>{
+ if(!wantsPlayback||audio.paused)return;
+ if(audio.currentTime>progressTime+.05){progressTime=audio.currentTime;progressAt=Date.now();if(audio.readyState>=3&&$('player-status').textContent==='BUFFERING'){clearRecovery();state('PLAYING');}}
+ else if(progressAt&&Date.now()-progressAt>5000){buffering();}
+},1000);
+if('mediaSession' in navigator){
+ try{navigator.mediaSession.metadata=new MediaMetadata({title:'NYC High Life Radio',artist:'High Life Radio — Studio Live',artwork:[{src:new URL('radio-logo.png',document.baseURI).href,sizes:'512x512',type:'image/png'}]});navigator.mediaSession.setActionHandler('play',()=>{if(!wantsPlayback)void toggle();});navigator.mediaSession.setActionHandler('pause',()=>{if(wantsPlayback)void toggle();});}catch{}
+ audio.addEventListener('playing',()=>{navigator.mediaSession.playbackState='playing';});audio.addEventListener('pause',()=>{navigator.mediaSession.playbackState='paused';});
+}

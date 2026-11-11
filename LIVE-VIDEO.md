@@ -1,6 +1,8 @@
 # Radio and live picture
 
-The homepage now uses one media element and one playback clock for both the station sound and the live picture. There is no autoplay. The existing Play/Pause buttons control that element; full screen only changes its size. The phone does not need to decode two competing broadcasts or run an audio-analysis graph.
+The homepage uses an HTML audio element as the audible programme master, with a separate always-muted picture element reading the same combined HLS programme. This keeps sound eligible for background playback when a phone suspends video. There is no autoplay. Play/Pause controls both, and full screen changes only the picture size. The native app uses one background-enabled Expo Video player for its combined programme. No Web Audio graph processes listener sound.
+
+While the page is hidden, only its muted picture is paused and released. The audio master continues. On return, the picture reconnects and aligns to the audio programme date/time; it stays covered by the station poster until aligned. Video corrections never seek or pause the audible master. Media Session provides system Play/Pause and metadata, and supported browsers use the playback audio session. Calls, recording, other media, browser termination, and network loss can still interrupt listening under the phone operating system.
 
 The server service in `ops/program-feed` receives the existing OBS source privately. AzuraCast's public programme MP3 is the only audio input to its output encoder. It includes the centrally inserted commercials and the subsequent return to programming. OBS audio is used only to identify the corresponding picture time and is never mixed into the output sound.
 
@@ -14,13 +16,13 @@ The radio reconnects after network errors or prolonged buffering with a capped r
 
 Double-tap/double-click expands the station picture; repeat returns. Enter/Space and Escape are keyboard alternatives. Native full screen is preferred, with a full-window fallback. No gesture instructions cover the picture. The station logo and daily rotation appear when paused or when a live picture is unavailable.
 
-Validation on November 10, 2026: the natural 23:00 New York break delivered the entire approved BNB ad to the public radio stream (audio correlation 0.98869), with programme audio before and after. An off-air pass of the full approved ad through the new production A/V encoder retained 25.022 seconds of audio and matched the reference at 0.99435. The live server retained a consistent content-time mapping for several minutes with no service restarts; measured frame-selection differences were within one frame. Browser checks cover one media element, no autoplay, Play/Pause, real live picture and full-screen entry/return. Proxy and rotation tests pass. These checks do not constitute a direct physical-iPhone listening test or a promise of zero internet transport delay.
+Validation on November 10, 2026: the natural 23:00 New York break delivered the entire approved BNB ad to the public radio stream (audio correlation 0.98869), with programme audio before and after. An off-air pass of the full approved ad through the new production A/V encoder retained 25.022 seconds of audio and matched the reference at 0.99435. The live server retained a consistent content-time mapping for several minutes with no service restarts; measured frame-selection differences were within one frame. Earlier browser checks covered no autoplay, Play/Pause, real live picture and full-screen entry/return. The November 11 background update additionally passed fourteen web tests and a quiet foreground playback check exceeding 200 seconds, with measured picture/audio programme-time difference of 8 ms. A physical phone background check remains pending. Proxy and rotation tests pass. These checks do not constitute a direct physical-iPhone listening test or a promise of zero internet transport delay.
 
 The yellow-to-white text treatment applies across the station's 24 HTML pages. Wrappers inherit the original font and spacing. Logos, video pixels and existing colored accents are preserved.
 
 ## Rollback
 
-Remove `programUrl` from `station.json` to retain the single-element player with the original MP3 and logo. To restore the previous raw picture source, restore the private server backup `/etc/richrow-video/mediamtx.before-combined-program.yml` and stop `highlife-program.service`. Neither rollback needs to stop OBS, Icecast, Liquidsoap or Serato. Do not print the private MediaMTX configuration: it contains existing publisher information.
+Remove `programUrl` from `station.json` to retain audio playback with the original MP3 and logo. To restore the previous raw picture source, restore the private server backup `/etc/richrow-video/mediamtx.before-combined-program.yml` and stop `highlife-program.service`. Neither rollback needs to stop OBS, Icecast, Liquidsoap or Serato. Do not print the private MediaMTX configuration: it contains existing publisher information.
 
 ## Audio-reactive waveform
 
