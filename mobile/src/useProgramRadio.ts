@@ -29,7 +29,9 @@ export function useProgramRadio(url: string, title: string, artist: string) {
     active = useRef(true),
     usingProgram = useRef(false),
     loading = useRef(false),
-    lastPlaying = useRef(false);
+    lastPlaying = useRef(false),
+    motionReason = useRef("initial"),
+    pauseCheck = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pause = useCallback(() => {
     intent.current = false;
     generation.current++;
@@ -55,7 +57,7 @@ export function useProgramRadio(url: string, title: string, artist: string) {
         usingProgram.current = !fallback;
         setPicture(false);
         await player.replaceAsync({
-          uri: fallback ? url : PROGRAM,
+          uri: fallback ? url : `${PROGRAM}?cookieCheck=1&connection=${Date.now()}`,
           contentType: fallback ? "auto" : "hls",
           metadata: { title, artist },
         });
@@ -82,6 +84,7 @@ export function useProgramRadio(url: string, title: string, artist: string) {
       "playingChange",
       ({ isPlaying }) => {
         setPlaying(isPlaying);
+        if (pauseCheck.current) clearTimeout(pauseCheck.current);
         if (isPlaying) {
           intent.current = true;
           setWanted(true);
@@ -95,13 +98,20 @@ export function useProgramRadio(url: string, title: string, artist: string) {
           !loading.current &&
           player.status === "readyToPlay"
         ) {
-          lastPlaying.current = false;
-          pause();
+          // Native buffering/error transitions can emit playing=false before status changes.
+          // Wait for that transition before treating a stable pause as a system command.
+          pauseCheck.current = setTimeout(() => {
+            if (!player.playing && !loading.current && player.status === "readyToPlay") {
+              lastPlaying.current = false;
+              pause();
+            }
+          }, 300);
         } else if (!intent.current) motion.reset();
       },
     );
     const statusListener = player.addListener("statusChange", ({ status }) => {
       if (status === "error" && intent.current) {
+        loading.current = true;
         setBusy(true);
         setMessage("Connection interrupted · reconnecting");
         attempts.current++;
@@ -118,7 +128,7 @@ export function useProgramRadio(url: string, title: string, artist: string) {
     });
     const timer = setInterval(() => {
       if (!intent.current) return;
-      if (player.playing && player.currentTime > previousTime.current) {
+      if (player.playing && (player.currentTime > previousTime.current || !Number.isFinite(player.currentTime) || player.currentTime < 0)) {
         lastProgress.current = Date.now();
       }
       previousTime.current = player.currentTime;
@@ -133,26 +143,37 @@ export function useProgramRadio(url: string, title: string, artist: string) {
       statusListener.remove();
       app.remove();
       clearInterval(timer);
+      if (pauseCheck.current) clearTimeout(pauseCheck.current);
       clearTimeout(retry.current);
     };
   }, [player, motion, pause]);
   useEffect(() => {
     let alive = true,
-      pending = false;
+      pending = false,
+      reportAt = 0;
     const fetchLevels = async () => {
       if (!intent.current || !active.current || pending) return;
       pending = true;
       try {
-        const response = await fetch(METER, {
+        const response = await fetch(`${METER}?t=${Date.now()}`, {
+          cache: "no-store",
           signal: AbortSignal.timeout(3500),
         });
         const data = await response.json();
         if (alive && Array.isArray(data.frames)) {
+          if (Date.now() - reportAt > 30000) {
+            reportAt = Date.now();
+            console.info("Radio meter", JSON.stringify({ count: data.frames.length, age: Date.now() - data.updated, playing: player.playing, active: active.current, liveTime: player.currentLiveTimestamp, last: data.frames[data.frames.length - 1]?.[0], motion: motionReason.current, sampled: motion.getSnapshot().sampledAt }));
+          }
           frames.current = data.frames;
           setPicture(usingProgram.current && data.live_picture === true);
           updated.current = data.updated;
         }
-      } catch {
+      } catch (error) {
+        if (Date.now() - reportAt > 30000) {
+          reportAt = Date.now();
+          console.warn("Radio meter unavailable", error instanceof Error ? error.name : "network");
+        }
       } finally {
         pending = false;
       }
@@ -165,11 +186,17 @@ export function useProgramRadio(url: string, title: string, artist: string) {
         !active.current ||
         Date.now() - updated.current > 6000
       ) {
+        motionReason.current = JSON.stringify({intent:intent.current, playing:player.playing, active:active.current, age:Date.now()-updated.current});
         motion.reset();
         return;
       }
-      const stamp = player.currentLiveTimestamp ?? Date.now() - 4000;
       const history = frames.current;
+      const nativeStamp = player.currentLiveTimestamp;
+      const firstStamp = history[0]?.[0], lastStamp = history[history.length - 1]?.[0];
+      // Some Android HLS timelines report an unset/out-of-window live clock.
+      // Keep visualising real programme samples instead of going permanently flat.
+      const stamp = nativeStamp != null && Number.isFinite(nativeStamp) && nativeStamp >= firstStamp && nativeStamp <= lastStamp + 1500
+        ? nativeStamp : lastStamp - 1000;
       let lo = 0,
         hi = history.length - 1,
         index = -1;
@@ -181,6 +208,7 @@ export function useProgramRadio(url: string, title: string, artist: string) {
         } else hi = mid - 1;
       }
       if (index < 0 || stamp - history[index][0] > 1500) {
+        motionReason.current = `clock:${index}:${stamp}:${history[0]?.[0]}:${lastStamp}`;
         motion.reset();
         return;
       }
@@ -192,7 +220,8 @@ export function useProgramRadio(url: string, title: string, artist: string) {
             Math.min(255, history[Math.max(0, index - (27 - i) * 2)][1]),
           ) / 255,
       );
-      motion.levels(bars, player.currentTime);
+      motionReason.current = `drawing:${bars[0]}`;
+      motion.levels(bars, Number.isFinite(player.currentTime) && player.currentTime >= 0 ? player.currentTime : Date.now() / 1000);
     }, 80);
     return () => {
       alive = false;

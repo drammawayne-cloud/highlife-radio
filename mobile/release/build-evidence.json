@@ -32,8 +32,51 @@
   },
   "ios": {
     "version": "1.0.0",
+    "build": "7",
+    "status": "archive-complete-upload-waiting-for-owner-keychain-approval",
+    "reviewSubmitted": false,
+    "priorSubmissionStatus": "Build 5 rejected: Guideline 2.1 Information Needed",
+    "requiredEvidence": "Physical iPhone latest iOS launch-to-main-flow recording and requested content authorization documentation",
+    "reviewMetadataUpdated": true,
+    "newIphoneAndIpadScreenshotsUploaded": true,
+    "physicalDeviceTested": false
+  },
+  "android": {
+    "version": "1.0.0",
+    "versionCode": 3,
+    "package": "com.nychighlife.highliferadio",
+    "status": "review-request-accepted-automated-checks-running",
+    "reviewSubmitted": true,
+    "contentRating": "completed",
+    "productionRegions": 178,
+    "playAppId": "4974824419679606564",
+    "aabSha256": "ce244ac84f774bb5eb8f1362e007d99bffd37504513025e7227232daf8e4833a",
+    "apkSha256": "2ed9c0cea074b5a126a7243324b2e7fcd7e995de65e83e66131d5743be8fe356",
+    "emulatorInstalled": true,
+    "emulatorPlayback": "passed on hardware graphics emulator with audio output disabled",
+    "physicalDeviceTested": false,
+    "checks": [
+      "release build",
+      "signature verification",
+      "16KB APK zip alignment",
+      "target SDK 36"
+    ],
+    "playStatus": "Changes in review",
+    "emulatorChecks": [
+      "live studio picture",
+      "two differing moving waveform captures",
+      "Menu and rotation navigation",
+      "background and locked-screen media session remains PLAYING",
+      "system pause remains paused",
+      "system play resumes",
+      "double-tap live full screen and return"
+    ],
+    "nativeScreenshotsUploaded": true
+  },
+  "iosBuild6": {
+    "version": "1.0.0",
     "build": "6",
-    "status": "signed-export-complete-upload-waiting-for-owner-keychain-approval",
+    "status": "uploaded-successfully",
     "reviewSubmitted": false,
     "simulator": "iPhone 17 Pro iOS 26.5",
     "simulatorChecks": [
@@ -44,27 +87,7 @@
     ],
     "simulatorAudioMuted": true,
     "physicalDeviceTested": false,
-    "ipaSha256": "19e2cde4b48de92d9842c0547f897479d8489173a26edda930bd9c2b5fe4cbc8"
-  },
-  "android": {
-    "version": "1.0.0",
-    "versionCode": 2,
-    "package": "com.nychighlife.highliferadio",
-    "status": "accepted-and-saved-production-draft",
-    "reviewSubmitted": false,
-    "contentRating": "completed",
-    "productionRegions": 178,
-    "playAppId": "4974824419679606564",
-    "aabSha256": "6c4e44c64e254bf5b1e0a4ae25b80c986450ba42c9a1f301220c523565067f85",
-    "apkSha256": "86da9dea563b238ad00f04b9ba63a1fe12370c4c7a63da49ce800594e1b1630f",
-    "emulatorInstalled": true,
-    "emulatorPlayback": "pending current-build test authorization",
-    "physicalDeviceTested": false,
-    "checks": [
-      "release build",
-      "signature verification",
-      "16KB APK zip alignment",
-      "target SDK 36"
-    ]
+    "ipaSha256": "19e2cde4b48de92d9842c0547f897479d8489173a26edda930bd9c2b5fe4cbc8",
+    "uploadedAt": "2026-11-11T01:05:42-05:00"
   }
 }

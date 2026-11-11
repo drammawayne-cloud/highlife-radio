@@ -53,3 +53,9 @@ A compatible npm audit fix was prepared in the lockfile, reducing the reported f
 ## Current candidate: November 11, 2026
 
 Build 6 is signed and exported. Xcode upload is waiting at a second macOS codesign keychain prompt for direct owner approval. Build 5 remains Waiting for Review and has not been withdrawn. Build 6 is not yet submitted. The updated native player uses one combined programme with background playback enabled, live picture, timestamp-driven waveform and double-tap full screen. A quiet iPhone simulator test passed live picture, moving waveform, full-screen entry/return, and return from Home/lock still Streaming live without another Play. This is not physical-phone listening proof. All 26 app tests, type checking and lint pass. A new native Home screenshot is saved in the local 1.0.0-6 release folder; it is not yet uploaded to Apple.
+
+## Latest candidate: build 7, November 11
+
+Build 6 uploaded successfully at 01:05 EST. Apple reviewed the earlier build 5 and rejected it under 2.1 Information Needed: a recording made on a physical device running the latest OS, purpose/audience, feature access instructions, external services, regions, and relevant protected-content authorization documentation. Expanded review notes and description are saved, and current iPhone/iPad screenshots replaced the older Home images. Do not claim the required recording or supporting documents exist. The known iPhone device is currently unavailable to the Mac.
+
+Build 7 includes debounced native pause detection, fresh HLS session URLs, and waveform selection for unset/out-of-window Android live clocks. Its archive succeeded; upload is waiting for direct owner approval of a new codesign keychain prompt. No build 7 upload or resubmission is confirmed. iPad simulator Home rendering was also verified; this does not satisfy Apple’s physical-device recording requirement.
