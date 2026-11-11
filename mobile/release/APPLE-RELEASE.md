@@ -12,7 +12,7 @@ Keep bundle ID `com.nychighlife.highliferadio`. The separate local reference fou
 
 ## Signing and upload
 
-The local Xcode 26.6 signing route is working. Version 1.0.0 build 5 was archived, signed and uploaded on November 10, 2026 at 6:54 p.m. New York time. App Store Connect visibly reports Processing. This is the final current candidate with the patched decoder, refreshed dependencies and the website's dated Reuters/AP reports. App Store Connect app 6833131455, team 8JW27TKSRM, bundle com.nychighlife.highliferadio. Build 3 remains selected in the draft until build 5 finishes processing. Upload is not review submission or public availability.
+The local Xcode 26.6 signing route is working. Version 1.0.0 build 5 was archived, signed and uploaded on November 10, 2026 at 6:54 p.m. New York time. App Store Connect finished processing and reports Ready to Submit. This is the final current candidate with the patched decoder, refreshed dependencies and the website's dated Reuters/AP reports. App Store Connect app 6833131455, team 8JW27TKSRM, bundle com.nychighlife.highliferadio. Build 5 is selected and saved in the release draft. Upload is not review submission or public availability.
 
 The existing EAS profiles remain an alternative; an Expo account link is not required for local Xcode. Reviewer name and owner-supplied contact details are saved privately and in Apple's release draft. Content rights and mature-content answers remain unanswered; do not infer them from contact details. Manual release is selected.
 

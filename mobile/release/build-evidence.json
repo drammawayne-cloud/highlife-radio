@@ -7,8 +7,9 @@
     "route": "local-xcode",
     "status": "uploaded",
     "uploadedAt": "2026-11-10T18:54:35-05:00",
-    "appleProcessing": "Processing",
-    "reviewSubmitted": false
+    "appleProcessing": "Ready to Submit",
+    "reviewSubmitted": false,
+    "selectedInReleaseDraft": true
   },
   "android": {
     "version": "1.0.0",
