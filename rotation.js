@@ -49,12 +49,12 @@ window.HIGHLIFE_ROTATION = {
       "name": "Evening News",
       "time": "6 p.m. – 7 p.m.",
       "start": "18:00",
-      "description": "An evening news update before Icing In Hour: Brooklyn, Caribbean and New York developments, weather, sports, the economy and traffic.",
+      "description": "An evening news update before Icing Hour: Brooklyn, Caribbean and New York developments, weather, sports, the economy and traffic.",
       "end": "19:00"
     },
     {
       "id": "icing-in",
-      "name": "Icing In Hour",
+      "name": "Icing Hour",
       "time": "7 p.m. – 9 p.m.",
       "end": "21:00",
       "description": "The icing on the cake for the whole day. Settle into the evening with music, good energy and a final layer of vibes.",
