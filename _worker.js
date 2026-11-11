@@ -100,14 +100,14 @@ export default {
       if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
       const file=url.pathname.slice('/radio-program/'.length);
       if(!/^[a-zA-Z0-9_.-]+\.(m3u8|mp4|m4s|ts)$/.test(file))return new Response('Not found',{status:404});
-      const upstream=new URL('https://richrow-radio.129-213-164-255.sslip.io:8443/highlife-radio/'+file);
+      const upstream=new URL('https://richrow-radio.129-213-164-255.sslip.io/highlife-program/'+file);
       for(const key of ['session','cookieCheck','_HLS_msn','_HLS_part','_HLS_skip']){const value=url.searchParams.get(key);if(value&&value.length<128)upstream.searchParams.set(key,value);}
       try{
         const response=await fetch(upstream,{method:request.method,redirect:'manual',headers:{Accept:'*/*'},signal:AbortSignal.timeout(15000)});
         const headers=new Headers();for(const key of ['content-type','content-length','content-range'])if(response.headers.has(key))headers.set(key,response.headers.get(key));
         headers.set('Cache-Control','no-store');headers.set('X-Content-Type-Options','nosniff');
         const location=response.headers.get('location');
-        if(location){const next=new URL(location,upstream);if(next.origin!==upstream.origin||!next.pathname.startsWith('/highlife-radio/'))return new Response('Invalid upstream redirect',{status:502});headers.set('Location','/radio-program/'+next.pathname.split('/').pop()+next.search);}
+        if(location){const next=new URL(location,upstream);if(next.origin!==upstream.origin||!next.pathname.startsWith('/highlife-program/'))return new Response('Invalid upstream redirect',{status:502});headers.set('Location','/radio-program/'+next.pathname.split('/').pop()+next.search);}
         return new Response(request.method==='HEAD'?null:response.body,{status:response.status,headers});
       }catch{return new Response('Program temporarily unavailable',{status:503,headers:{'Cache-Control':'no-store'}});}
     }

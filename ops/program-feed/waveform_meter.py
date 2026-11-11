@@ -28,7 +28,9 @@ while True:
   if time.monotonic()-last_route_check>60:
    last_route_check=time.monotonic()
    route='/etc/nginx/azuracast.conf.d/highlife-waveform.conf'
-   if subprocess.run(['docker','exec','azuracast','test','-s',route],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+   ca='/etc/nginx/azuracast.conf.d/highlife-ca.pem'
+   if any(subprocess.run(['docker','exec','azuracast','test','-s',path],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode for path in [route,ca]):
+    subprocess.run(['docker','cp','/etc/ssl/certs/ca-certificates.crt','azuracast:'+ca],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     subprocess.run(['docker','cp','/opt/highlife-program/highlife-waveform.conf','azuracast:'+route],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     subprocess.run(['docker','exec','azuracast','nginx','-t'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     subprocess.run(['docker','exec','azuracast','nginx','-s','reload'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
