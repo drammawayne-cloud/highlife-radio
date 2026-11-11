@@ -33,8 +33,8 @@
   "ios": {
     "version": "1.0.0",
     "build": "7",
-    "status": "uploaded-processed-ready-to-test",
-    "reviewSubmitted": false,
+    "status": "submitted-waiting-for-review",
+    "reviewSubmitted": true,
     "priorSubmissionStatus": "Build 5 rejected: Guideline 2.1 Information Needed",
     "requiredEvidence": "Physical iPhone latest iOS launch-to-main-flow recording and requested content authorization documentation",
     "reviewMetadataUpdated": true,
@@ -46,7 +46,7 @@
     "testFlightGroup": "Owner Device Review",
     "testFlightOwnerStatus": "Accepted; build 7 installed and opened on physical iPhone",
     "physicalDevice": "iPhone 15 Pro, iOS 27.0.1",
-    "physicalRecordingAttached": false,
+    "physicalRecordingAttached": true,
     "physicalDeviceChecks": [
       "TestFlight confirms 1.0.0 build 7 installed",
       "Live programme picture loads",
@@ -57,10 +57,23 @@
       "Returned from device Home still Streaming live without another Play"
     ],
     "physicalDeviceAudio": "App volume muted during test to prevent mirrored audio feedback into live broadcast; restored to 100% after pausing",
-    "submissionBlockers": [
-      "App Store Connect session expired; owner sign-in requested",
-      "Mac screen recorder already active before this test; requested permission to save and stop existing recording before making demo"
-    ]
+    "submissionBlockers": [],
+    "reviewStatus": "Waiting for Review",
+    "submissionId": "d06202d8-1df2-4938-bb74-4d6399a72e67",
+    "submittedAtConsoleLocal": "2026-11-11 America/New_York",
+    "physicalRecording": {
+      "filename": "NYCHighLifeRadio-build7-physical-iPhone-demo.mov",
+      "durationSeconds": 99.98,
+      "width": 860,
+      "height": 1626,
+      "sha256": "5a26889a4ee81668b77d840f6fb961c54817e0501ffa355d9a40217c6afb3534",
+      "capture": "Physical iPhone 15 Pro iOS 27.0.1 via iPhone Mirroring and macOS screencapture; not simulator",
+      "audio": "Silent to prevent feedback into running broadcast; described to App Review",
+      "decodeValidation": "Full file decoded without errors",
+      "latestOsVerified": false
+    },
+    "nativeStoreApproval": false,
+    "publicAvailability": false
   },
   "android": {
     "version": "1.0.0",
