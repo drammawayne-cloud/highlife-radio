@@ -1,0 +1,13 @@
+.station-screen{position:relative;isolation:isolate;aspect-ratio:16/9;overflow:hidden;border:2px solid #a99565;border-radius:12px;background:#081c14;color:#f4edd9;box-shadow:inset 0 0 40px #0008}
+.station-screen-default{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;background:radial-gradient(ellipse at 50% 25%,#42754c55,transparent 68%),linear-gradient(145deg,#102b1c,#06140e);transition:opacity .75s ease;z-index:1}
+.station-screen-default img{display:block;width:46%;height:53%;object-fit:contain;filter:drop-shadow(0 8px 15px #0005);margin-bottom:8px}
+.station-screen-default small{font-size:8px;letter-spacing:2.5px;color:#8bc49c;font-weight:800;margin-bottom:6px}
+.station-screen-default strong{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:1.6px;font-size:clamp(23px,2.8vw,38px);line-height:1.05}
+.station-screen-default span{font-size:10px;color:#c2c8ae;margin-top:7px}
+.station-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;opacity:0;transition:opacity .75s ease;z-index:2;pointer-events:none}
+.station-screen.has-live-picture video{opacity:1}.station-screen.has-live-picture .station-screen-default{opacity:0}
+.station-screen-live{position:absolute;top:12px;left:12px;padding:5px 8px;border-radius:4px;background:#071e17c9;color:#a5e8b9;font-size:8px;font-weight:800;letter-spacing:1.5px;opacity:0;z-index:3;transition:opacity .75s ease;pointer-events:none}
+.has-live-picture .station-screen-live{opacity:1}
+@media(max-width:430px){.station-screen-default{padding:12px}.station-screen-default img{height:45%;margin-bottom:5px}.station-screen-default strong{font-size:25px}.station-screen-default small{font-size:7px}.station-screen-default span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.station-screen video,.station-screen-default,.station-screen-live{transition:none}}
+@media(min-width:701px){.radio-console{display:grid;grid-template-columns:minmax(0,1fr) 102px;column-gap:18px}.console-top,.console-now,.console-caption{grid-column:1/-1}.console-controls{display:flex;flex-direction:column;justify-content:center;gap:15px;margin:0}.console-wave{height:95px;width:100%;padding:10px;gap:2px}.console-now{margin-top:20px}.radio-console .console-play{width:88px;height:88px;font-size:30px}.console-play-label{font-size:8px}.station-screen-default img{height:45%;margin-bottom:5px}.station-screen-default strong{font-size:clamp(23px,2.4vw,32px)}}
