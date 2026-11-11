@@ -64,7 +64,7 @@ export const rotation = [
       "Brooklyn, Caribbean and New York developments, weather, sports, the economy and traffic.",
   },
   {
-    name: "Icing In Hour",
+    name: "Icing Hour",
     start: "19:00",
     end: "21:00",
     description:
