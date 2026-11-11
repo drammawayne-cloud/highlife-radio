@@ -10,7 +10,7 @@ The service runs as `highlife-program.service`, with automatic restart, a 900 MB
 
 The fixed `/radio-program/` proxy serves the existing public picture feed through the website's regular HTTPS connection. It permits only GET/HEAD for HLS asset filenames, forwards only the HLS session parameters, and rejects redirects to another host. It does not forward the listener's browser cookies. If the programme feed is unavailable, the player automatically falls back to the original station MP3 for a minute. The fallback retains the hourly commercials.
 
-The radio reconnects after network errors or prolonged buffering with a capped retry delay. A fresh connection avoids reusing an expired stream response. User Pause cancels retries and any pending programme start. iPhones retain the native media playback path rather than routing sound through Web Audio. The actual waveform remains available on browsers that support the audio-analysis path.
+The radio reconnects after network errors or prolonged buffering with a capped retry delay. A fresh connection avoids reusing an expired stream response. User Pause cancels retries and any pending programme start. iPhones retain the native media playback path rather than routing sound through Web Audio. The waveform uses a separate public amplitude feed from the encoded station programme. It does not route or change listener audio. The same display works on phones without a Web Audio graph.
 
 Double-tap/double-click expands the station picture; repeat returns. Enter/Space and Escape are keyboard alternatives. Native full screen is preferred, with a full-window fallback. No gesture instructions cover the picture. The station logo and daily rotation appear when paused or when a live picture is unavailable.
 
@@ -21,3 +21,11 @@ The yellow-to-white text treatment applies across the station's 24 HTML pages. W
 ## Rollback
 
 Remove `programUrl` from `station.json` to retain the single-element player with the original MP3 and logo. To restore the previous raw picture source, restore the private server backup `/etc/richrow-video/mediamtx.before-combined-program.yml` and stop `highlife-program.service`. Neither rollback needs to stop OBS, Icecast, Liquidsoap or Serato. Do not print the private MediaMTX configuration: it contains existing publisher information.
+
+## Audio-reactive waveform
+
+`highlife-waveform-meter.service` reads completed HLS segments into RAM and extracts amplitude samples with their programme date/time. It writes only bounded numerical levels to the station volume. An exact Nginx location publishes that JSON; the website proxies it through `/api/radio-waveform`. The meter restores its single public route after container replacement, without exposing any other station files. Its service is enabled with automatic restart and memory/CPU limits. No media recordings are retained.
+
+Both waveform displays select level history at the listener's HLS playback date/time. Native phone playback uses its programme start date where available, with a buffered-position estimate as a fallback. The display resets on pause and discards stale measurements. Reduced-motion mode uses a slower functional meter update. No microphone, AudioContext or additional audible stream is opened.
+
+Validation: live segment amplitude levels varied from quiet to loud; two browser observations showed different non-flat bar heights during playback; Pause returned all bars to 3 pixels. Fourteen web tests passed, including playback-time selection and missing/silent/stale level handling. A physical phone listening check remains user-provided rather than automated.

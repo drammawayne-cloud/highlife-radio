@@ -92,6 +92,10 @@ export function payload(states, now = Date.now()) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if(url.pathname==='/api/radio-waveform'){
+      if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
+      try{const response=await fetch('https://richrow-radio.129-213-164-255.sslip.io/highlife-waveform.json',{signal:AbortSignal.timeout(3500)});if(!response.ok)throw Error('Meter unavailable');return new Response(request.method==='HEAD'?null:response.body,{headers:{'Content-Type':'application/json','Cache-Control':'public, max-age=1','X-Content-Type-Options':'nosniff'}});}catch{return new Response('{}',{status:503,headers:{'Cache-Control':'no-store'}});}
+    }
     if(url.pathname.startsWith('/radio-program/')){
       if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
       const file=url.pathname.slice('/radio-program/'.length);

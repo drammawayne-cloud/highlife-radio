@@ -1,0 +1,18 @@
+[Unit]
+Description=High Life Radio public programme amplitude samples
+After=network-online.target docker.service highlife-program.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/opt/highlife-program/venv/bin/python /opt/highlife-program/waveform_meter.py
+Environment=OPENBLAS_NUM_THREADS=1
+Restart=always
+RestartSec=3
+MemoryMax=250M
+CPUQuota=30%
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

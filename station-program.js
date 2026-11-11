@@ -8,6 +8,11 @@
  function destroy(){if(hls){hls.destroy();hls=null;}}
  async function plain(url){destroy();fallback();video.src=url;video.load();await video.play();}
  window.HighLifeProgram={
+  playbackDate(){
+   const date=hls?.playingDate;if(date&&Number.isFinite(date.getTime()))return date.getTime();
+   try{const start=video.getStartDate?.();const value=start?.getTime()+video.currentTime*1000;if(Number.isFinite(value)&&Math.abs(Date.now()-value)<86400000)return value;}catch{}
+   return null;
+  },
   cancel(){++playGeneration;destroy();video.pause();},
   async play(config,radioUrl){
    const generation=++playGeneration;const current=()=>generation===playGeneration;

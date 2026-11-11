@@ -1,1 +1,1 @@
-{"version":1,"include":["/api/world-news","/radio-program/*"],"exclude":[]}
+{"version":1,"include":["/api/world-news","/radio-program/*","/api/radio-waveform"],"exclude":[]}
