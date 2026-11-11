@@ -47,7 +47,11 @@ while True:
    seen.append(key)
   now=time.time()*1000
   while frames and frames[0][0]<now-18000:frames.popleft()
-  data={'updated':round(now),'frames':list(frames)}
+  picture=False
+  try:
+   status=json.loads(Path('/run/highlife-program/status.json').read_text());picture=status.get('mode')=='live' and now-status.get('checked_at',0)*1000<6000
+  except Exception:pass
+  data={'updated':round(now),'frames':list(frames),'live_picture':picture}
   tmp=DEST.with_suffix('.tmp');tmp.write_text(json.dumps(data,separators=(',',':')));os.chmod(tmp,0o644);tmp.replace(DEST)
  except Exception as error:
   media_url=None;print(json.dumps({'event':'meter_retry','type':type(error).__name__}),flush=True)
