@@ -22,6 +22,8 @@ def allowed(config, now=None):
     now = now or dt.datetime.now(dt.timezone.utc)
     if not config.get('enabled', False):
         return False
+    if config.get('session_override', False):
+        return True
     test = config.get('test_until')
     if test and now < dt.datetime.fromisoformat(test):
         return True
@@ -77,18 +79,21 @@ def switch(config, desired):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['run', 'status', 'disable', 'enable', 'test'])
+    parser.add_argument('command', choices=['run', 'status', 'disable', 'enable', 'test', 'session'])
     parser.add_argument('--minutes', type=int, default=30)
     args = parser.parse_args()
     path = ROOT / (DJ + '.json')
     config = json.loads(path.read_text())
-    if args.command in ('disable', 'enable', 'test'):
+    if args.command in ('disable', 'enable', 'test', 'session'):
         config['enabled'] = args.command != 'disable'
+        config['session_override'] = args.command == 'session'
+        config['session_seen'] = False
+        config['session_last_seen'] = None
         if args.command == 'test':
             if not 1 <= args.minutes <= 120:
                 raise SystemExit('Test window must be 1–120 minutes')
             config['test_until'] = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=args.minutes)).isoformat()
-        elif args.command == 'enable':
+        elif args.command in ('enable', 'session'):
             config['test_until'] = None
         atomic(path, json.dumps(config, indent=2) + '\n')
         enforce(config, allowed(config))
@@ -112,6 +117,22 @@ def main():
             tracks = source.get('tracks') or []
             has_audio = any(any(x in str(t).lower() for x in ('audio', 'aac', 'opus', 'mpeg-1', 'mp3')) for t in tracks)
             ready = bool(permit and source.get('ready') and has_audio)
+            if config.get('session_override'):
+                current = dt.datetime.now(dt.timezone.utc)
+                if ready:
+                    config['session_seen'] = True
+                    config['session_last_seen'] = current.isoformat()
+                    atomic(path, json.dumps(config, indent=2) + '\n')
+                elif config.get('session_seen') and config.get('session_last_seen'):
+                    # A brief network reconnect is allowed; a finished session closes access.
+                    elapsed = (current - dt.datetime.fromisoformat(config['session_last_seen'])).total_seconds()
+                    if elapsed >= 30:
+                        config['session_override'] = False
+                        config['test_until'] = None
+                        atomic(path, json.dumps(config, indent=2) + '\n')
+                        permit = allowed(config, current)
+                        enforce(config, permit)
+                        print(json.dumps({'event': 'session_finished', 'dj': DJ}), flush=True)
             healthy = healthy + 1 if ready else 0
             desired = config['dj_input'] if healthy >= 3 else config['studio_input']
             # During the initial health check retain the existing source instead of oscillating.
@@ -122,6 +143,7 @@ def main():
                 'dj': DJ, 'show': 'The Grand Rising Show', 'enabled': config['enabled'],
                 'access_now': permit, 'schedule': 'Daily 06:00–10:00 America/New_York',
                 'test_until': config.get('test_until'), 'publisher_ready': bool(source.get('ready')),
+                'session_override': config.get('session_override', False),
                 'audio_detected': has_audio, 'on_air': desired == config['dj_input'],
                 'checked_at': dt.datetime.now(dt.timezone.utc).isoformat()}))
         except Exception as error:
