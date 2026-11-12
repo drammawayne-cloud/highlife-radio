@@ -1,0 +1,14 @@
+[Unit]
+Description=High Life Radio scoped DJ schedule and programme handover
+After=network-online.target mediamtx.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/highlife-djs/dj_access.py run
+Restart=always
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
